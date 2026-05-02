@@ -1,0 +1,54 @@
+# =========================
+# Schema (RAW Data - Use This Now)
+# =========================
+
+columns:
+  Your Age: category
+  What is your weight: float
+  Your Height: float
+  What is your gender?: category
+  What is your occupation?: category
+  What time do you usually go to bed?: category
+  What time do you usually wake up on working days?: category
+  What time do you usually go to bed on weekends?: category
+  What time do you usually wake up on weekends?: category
+  How long does it take you to fall asleep after going to bed?: category
+  How many hours of sleep do you get on average per night?: category
+  What are the main reasons you sleep late?: category
+  Do you have difficulty falling asleep?: category
+  Do you experience breathing difficulties while sleeping: category
+  Do you experience restless legs or involuntary movements during sleep?: category
+  Do you have any medical conditions that might affect your sleep?: category
+  Do you experience any of the following side effects from late sleeping?: category
+  How often do you find it hard to concentrate due to lack of sleep?: category
+  What strategies do you use to cope with the side effects of late sleeping?: category
+  How would you rate the comfort of your sleeping environment: int
+
+
+numerical_columns:
+  - What is your weight
+  - Your Height
+  - How would you rate the comfort of your sleeping environment
+
+
+categorical_columns:
+  - Your Age
+  - What is your gender?
+  - What is your occupation?
+  - What time do you usually go to bed?
+  - What time do you usually wake up on working days?
+  - What time do you usually go to bed on weekends?
+  - What time do you usually wake up on weekends?
+  - How long does it take you to fall asleep after going to bed?
+  - How many hours of sleep do you get on average per night?
+  - What are the main reasons you sleep late?
+  - Do you have difficulty falling asleep?
+  - Do you experience breathing difficulties while sleeping
+  - Do you experience restless legs or involuntary movements during sleep?
+  - Do you have any medical conditions that might affect your sleep?
+  - Do you experience any of the following side effects from late sleeping?
+  - How often do you find it hard to concentrate due to lack of sleep?
+  - What strategies do you use to cope with the side effects of late sleeping?
+
+
+drop_columns: []

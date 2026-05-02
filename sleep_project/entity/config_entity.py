@@ -1,5 +1,5 @@
 # =========================
-# Config Entity (Sleep Project - Final)
+# Config Entity (Sleep Project)
 # =========================
 
 import os
@@ -51,3 +51,18 @@ class DataIngestionConfig:
 
     train_test_split_ratio: float = DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO
     collection_name: str = DATA_INGESTION_COLLECTION_NAME
+
+
+# -------- Data Validation Config --------
+@dataclass
+class DataValidationConfig:
+    data_validation_dir: str = os.path.join(
+        training_pipeline_config.artifact_dir,
+        "data_validation"
+    )
+
+    drift_report_file_path: str = os.path.join(
+        data_validation_dir,
+        "drift_report",
+        "report.json"
+    )
