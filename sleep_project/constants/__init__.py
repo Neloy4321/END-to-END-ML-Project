@@ -32,6 +32,10 @@ CURRENT_YEAR = date.today().year
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 
+AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY"
+REGION_NAME = "eu-north-1"
+
 
 # =========================
 # Data Ingestion Constants
@@ -75,3 +79,8 @@ MODEL_TRAINER_EXPECTED_SCORE: float = 0.2
 
 # Path to model config (yaml)
 MODEL_TRAINER_MODEL_CONFIG_FILE_PATH: str = os.path.join("config", "model.yaml")
+
+
+MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.25
+MODEL_BUCKET_NAME = "sleepprojectbucket49"
+MODEL_PUSHER_S3_KEY = "model-registry"

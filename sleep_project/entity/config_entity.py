@@ -110,3 +110,28 @@ class ModelTrainerConfig:
     )
     expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
     model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
+    
+    
+    
+from dataclasses import dataclass
+from sleep_project.constants import (
+    MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE,
+    MODEL_BUCKET_NAME,
+    MODEL_PUSHER_S3_KEY,
+    MODEL_TRAINER_TRAINED_MODEL_NAME
+)
+
+@dataclass
+class ModelEvaluationConfig:
+    changed_threshold_score: float = MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_TRAINER_TRAINED_MODEL_NAME
+    
+    
+from dataclasses import dataclass
+from sleep_project.constants import MODEL_BUCKET_NAME, MODEL_PUSHER_S3_KEY, MODEL_TRAINER_TRAINED_MODEL_NAME
+
+@dataclass
+class ModelPusherConfig:
+    bucket_name: str = MODEL_BUCKET_NAME
+    s3_model_key_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_TRAINER_TRAINED_MODEL_NAME
