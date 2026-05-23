@@ -1,150 +1,310 @@
 # =========================
-# Data Transformation (Sleep Project - FINAL CORRECT VERSION)
+# Data Transformation (Sleep Project - FINAL FIXED VERSION)
 # =========================
 
 import sys
 import os
-import re
 import numpy as np
 import pandas as pd
+import pickle
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_selection import SelectKBest, mutual_info_classif
-from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 
-from sleep_project.entity.config_entity import DataTransformationConfig
-from sleep_project.entity.artifact_entity import DataTransformationArtifact, DataIngestionArtifact
+from sleep_project.entity.config_entity import (
+    DataTransformationConfig
+)
+
+from sleep_project.entity.artifact_entity import (
+    DataTransformationArtifact,
+    DataIngestionArtifact
+)
+
 from sleep_project.exception import CustomException
 from sleep_project.logger import logging
 
 
 class DataTransformation:
 
-    def __init__(self,
-                 data_ingestion_artifact: DataIngestionArtifact,
-                 data_transformation_config: DataTransformationConfig):
+    def __init__(
+        self,
+        data_ingestion_artifact: DataIngestionArtifact,
+        data_transformation_config: DataTransformationConfig
+    ):
 
         self.data_ingestion_artifact = data_ingestion_artifact
         self.data_transformation_config = data_transformation_config
 
+    # =========================
+    # READ CSV
+    # =========================
     @staticmethod
     def read_data(file_path):
+
         return pd.read_csv(file_path)
 
+    # =========================
+    # CLEAN COLUMNS
+    # =========================
     def clean_columns(self, df):
-        df.columns = df.columns.str.strip().str.replace(" )", "", regex=False)
+
+        df.columns = (
+            df.columns
+            .str.strip()
+            .str.replace(" )", "", regex=False)
+        )
+
         df = df.loc[:, ~df.columns.duplicated()]
+
         return df
 
+    # =========================
+    # HANDLE MISSING VALUES
+    # =========================
     def handle_missing_values(self, df):
+
         for col in df.columns:
-            if df[col].dtype == 'object':
-                df[col] = df[col].fillna(df[col].mode()[0])
+
+            if df[col].dtype == "object":
+
+                df[col] = df[col].fillna(
+                    df[col].mode()[0]
+                )
+
             else:
-                df[col] = df[col].fillna(df[col].median())
+
+                df[col] = df[col].fillna(
+                    df[col].median()
+                )
+
         return df
 
-    # -------- FULL REFINED TARGET LOGIC --------
-    def categorize_conditions_refined(self, condition):
+    # =========================
+    # TARGET LOGIC
+    # =========================
+    def categorize_conditions_refined(
+        self,
+        condition
+    ):
+
         condition = str(condition).lower().strip()
 
         no_conditions = [
-            'no', 'none', 'nothing', 'negative', 'na', 'না', 'নাহ',
-            'nothing seriuos', 'no disease', 'n0', 'nope',
-            'not yet by the grace of allah', 'no.', 'no medical condition'
+            'no', 'none', 'nothing', 'negative',
+            'na', 'না', 'নাহ', 'nothing seriuos',
+            'no disease', 'n0', 'nope',
+            'not yet by the grace of allah',
+            'no.', 'no medical condition'
         ]
+
         if any(k in condition for k in no_conditions):
+
             return 'No Condition'
 
         sleep_respiratory = [
-            'asthma', 'sleep apnea', 'chronic bronchitis',
-            'sleep talking', 'sleep paralysis',
-            'deviated septum', 'hypersomnia', 'narcolepsy'
+            'asthma',
+            'sleep apnea',
+            'chronic bronchitis',
+            'sleep talking',
+            'sleep paralysis',
+            'deviated septum',
+            'hypersomnia',
+            'narcolepsy'
         ]
+
         if any(k in condition for k in sleep_respiratory):
+
             return 'Sleep/Respiratory Disorders'
 
         health_issues = [
-            'diabetes', 'thyroid', 'heart', 'blood pressure',
-            'stroke', 'hypertension', 'arthritis', 'kidney',
-            'cancer', 'prostate', 'gerd', 'migraine', 'cold', 'health issues'
+            'diabetes',
+            'thyroid',
+            'heart',
+            'blood pressure',
+            'stroke',
+            'hypertension',
+            'arthritis',
+            'kidney',
+            'cancer',
+            'prostate',
+            'gerd',
+            'migraine',
+            'cold',
+            'health issues'
         ]
+
         if any(k in condition for k in health_issues):
+
             return 'Health Issues'
 
         mental_health = [
-            'anxiety', 'stress', 'depression', 'chronic pain', 'tension', 'ocd'
+            'anxiety',
+            'stress',
+            'depression',
+            'chronic pain',
+            'tension',
+            'ocd'
         ]
+
         if any(k in condition for k in mental_health):
+
             return 'Mental Health Issues'
 
-        if condition in ['yes', 'yes (high bp, ckd)', 'maybe']:
+        if condition in [
+            'yes',
+            'yes (high bp, ckd)',
+            'maybe'
+        ]:
+
             return 'Health Issues'
 
         return 'Others'
 
-    def initiate_data_transformation(self) -> DataTransformationArtifact:
+    # =========================
+    # MAIN TRANSFORMATION
+    # =========================
+    def initiate_data_transformation(
+        self
+    ) -> DataTransformationArtifact:
 
         try:
-            logging.info("Starting FINAL Data Transformation")
 
-            train_df = self.read_data(self.data_ingestion_artifact.trained_file_path)
-            test_df = self.read_data(self.data_ingestion_artifact.test_file_path)
+            logging.info(
+                "Starting FINAL Data Transformation"
+            )
 
-            # -------- CLEAN --------
+            # =========================
+            # LOAD DATA
+            # =========================
+            train_df = self.read_data(
+                self.data_ingestion_artifact.trained_file_path
+            )
+
+            test_df = self.read_data(
+                self.data_ingestion_artifact.test_file_path
+            )
+
+            # =========================
+            # CLEAN
+            # =========================
             train_df = self.clean_columns(train_df)
             test_df = self.clean_columns(test_df)
 
-            # -------- HANDLE MISSING --------
-            train_df = self.handle_missing_values(train_df)
-            test_df = self.handle_missing_values(test_df)
+            # =========================
+            # HANDLE MISSING
+            # =========================
+            train_df = self.handle_missing_values(
+                train_df
+            )
 
-            # -------- TARGET CREATION --------
-            target_raw = 'Do you have any medical conditions that might affect your sleep?'
+            test_df = self.handle_missing_values(
+                test_df
+            )
 
-            train_df['Medical Condition Category'] = train_df[target_raw].apply(self.categorize_conditions_refined)
-            test_df['Medical Condition Category'] = test_df[target_raw].apply(self.categorize_conditions_refined)
+            # =========================
+            # TARGET CREATION
+            # =========================
+            target_raw = (
+                'Do you have any medical conditions '
+                'that might affect your sleep?'
+            )
 
-            # -------- LABEL ENCODING TARGET --------
-            label_encoder = LabelEncoder()
-            train_df['Medical Condition Category'] = label_encoder.fit_transform(train_df['Medical Condition Category'])
-            test_df['Medical Condition Category'] = label_encoder.transform(test_df['Medical Condition Category'])
+            train_df[
+                'Medical Condition Category'
+            ] = train_df[target_raw].apply(
+                self.categorize_conditions_refined
+            )
 
-            # -------- FEATURE ENGINEERING --------
-            def encode_dataframe(df):
+            test_df[
+                'Medical Condition Category'
+            ] = test_df[target_raw].apply(
+                self.categorize_conditions_refined
+            )
+
+            # =========================
+            # TARGET LABEL ENCODER
+            # =========================
+            target_encoder = LabelEncoder()
+
+            train_df[
+                'Medical Condition Category'
+            ] = target_encoder.fit_transform(
+                train_df['Medical Condition Category']
+            )
+
+            test_df[
+                'Medical Condition Category'
+            ] = target_encoder.transform(
+                test_df['Medical Condition Category']
+            )
+
+            # =========================
+            # FEATURE ENCODING
+            # =========================
+            feature_encoders = {}
+
+            def encode_dataframe(df, fit=True):
 
                 df_encoded = df.copy()
 
+                # -------------------------
                 # AGE MAPPING
+                # -------------------------
                 age_mapping = {
                     'Under 18': 0,
                     '18-30': 0,
                     '31-50': 1,
                     'Above 50': 2
                 }
-                df_encoded['Your Age'] = df_encoded['Your Age'].map(age_mapping).fillna(0)
 
+                if 'Your Age' in df_encoded.columns:
+
+                    df_encoded['Your Age'] = (
+                        df_encoded['Your Age']
+                        .map(age_mapping)
+                        .fillna(0)
+                    )
+
+                # -------------------------
                 # OCCUPATION GROUPING
-                occupation_grouping = {
-                    'Student': 'Student',
-                    'Working Professional': 'Working Professional',
-                    'Unemployment': 'Unemployment/Others',
-                    'Others': 'Unemployment/Others',
-                    'Freelancing': 'Freelancing',
-                    'Housewife': 'Housewife'
-                }
-                df_encoded['What is your occupation?'] = df_encoded['What is your occupation?'].map(occupation_grouping)
+                # -------------------------
+                if 'What is your occupation?' in df_encoded.columns:
 
-                df_encoded['What is your occupation?'] = LabelEncoder().fit_transform(df_encoded['What is your occupation?'])
+                    occupation_grouping = {
+                        'Student': 'Student',
+                        'Working Professional': 'Working Professional',
+                        'Unemployment': 'Unemployment/Others',
+                        'Others': 'Unemployment/Others',
+                        'Freelancing': 'Freelancing',
+                        'Housewife': 'Housewife'
+                    }
 
+                    df_encoded[
+                        'What is your occupation?'
+                    ] = df_encoded[
+                        'What is your occupation?'
+                    ].map(
+                        occupation_grouping
+                    ).fillna("Others")
+
+                # -------------------------
                 # GENDER FIX
-                df_encoded['What is your gender?'] = df_encoded['What is your gender?'].replace(
-                    'Prefer not to say', 'Male'
-                )
-                df_encoded['What is your gender?'] = LabelEncoder().fit_transform(df_encoded['What is your gender?'])
+                # -------------------------
+                if 'What is your gender?' in df_encoded.columns:
 
-                # MULTI-LABEL ONE HOT
+                    df_encoded[
+                        'What is your gender?'
+                    ] = df_encoded[
+                        'What is your gender?'
+                    ].replace(
+                        'Prefer not to say',
+                        'Male'
+                    )
+
+                # -------------------------
+                # MULTI LABEL COLUMNS
+                # -------------------------
                 multi_cols = [
                     'Do you experience any of the following side effects from late sleeping?',
                     'What are the main reasons you sleep late?',
@@ -152,81 +312,234 @@ class DataTransformation:
                 ]
 
                 for col in multi_cols:
+
                     if col in df_encoded.columns:
-                        dummies = df_encoded[col].str.get_dummies(sep=';')
-                        df_encoded = pd.concat([df_encoded, dummies], axis=1)
-                        df_encoded.drop(col, axis=1, inplace=True)
 
-                # OTHER CATEGORICAL
-                for col in df_encoded.select_dtypes(include='object').columns:
-                    df_encoded[col] = LabelEncoder().fit_transform(df_encoded[col])
+                        dummies = (
+                            df_encoded[col]
+                            .astype(str)
+                            .str.get_dummies(sep=';')
+                        )
 
+                        df_encoded = pd.concat(
+                            [df_encoded, dummies],
+                            axis=1
+                        )
+
+                        df_encoded.drop(
+                            col,
+                            axis=1,
+                            inplace=True
+                        )
+
+                # -------------------------
+                # LABEL ENCODE OBJECT COLS
+                # -------------------------
+                for col in df_encoded.select_dtypes(
+                    include='object'
+                ).columns:
+
+                    if fit:
+
+                        le = LabelEncoder()
+
+                        df_encoded[col] = le.fit_transform(
+                            df_encoded[col].astype(str)
+                        )
+
+                        feature_encoders[col] = le
+
+                    else:
+
+                        if col in feature_encoders:
+
+                            le = feature_encoders[col]
+
+                            df_encoded[col] = df_encoded[col].apply(
+                                lambda x:
+                                x if x in le.classes_
+                                else le.classes_[0]
+                            )
+
+                            df_encoded[col] = le.transform(
+                                df_encoded[col].astype(str)
+                            )
+
+                # -------------------------
                 # CLEAN DUPLICATES
-                df_encoded.columns = df_encoded.columns.str.strip().str.replace(" )", "", regex=False)
-                df_encoded = df_encoded.groupby(df_encoded.columns, axis=1).sum()
+                # -------------------------
+                df_encoded.columns = (
+                    df_encoded.columns
+                    .str.strip()
+                    .str.replace(" )", "", regex=False)
+                )
+
+                df_encoded = df_encoded.groupby(
+                    df_encoded.columns,
+                    axis=1
+                ).sum()
 
                 return df_encoded
 
-            train_df = encode_dataframe(train_df)
-            test_df = encode_dataframe(test_df)
+            # =========================
+            # ENCODE TRAIN/TEST
+            # =========================
+            train_df = encode_dataframe(
+                train_df,
+                fit=True
+            )
 
-            # -------- SPLIT --------
-            X_train = train_df.drop('Medical Condition Category', axis=1)
-            y_train = train_df['Medical Condition Category']
+            test_df = encode_dataframe(
+                test_df,
+                fit=False
+            )
 
-            X_test = test_df.drop('Medical Condition Category', axis=1)
-            y_test = test_df['Medical Condition Category']
+            # =========================
+            # SPLIT
+            # =========================
+            X_train = train_df.drop(
+                'Medical Condition Category',
+                axis=1
+            )
 
+            y_train = train_df[
+                'Medical Condition Category'
+            ]
+
+            X_test = test_df.drop(
+                'Medical Condition Category',
+                axis=1
+            )
+
+            y_test = test_df[
+                'Medical Condition Category'
+            ]
+
+            # =========================
             # ALIGN FEATURES
-            X_train, X_test = X_train.align(X_test, join='left', axis=1, fill_value=0)
+            # =========================
+            X_train, X_test = X_train.align(
+                X_test,
+                join='left',
+                axis=1,
+                fill_value=0
+            )
 
-            # -------- FEATURE SELECTION --------
+            # =========================
+            # FEATURE SELECTION
+            # =========================
             k = min(15, X_train.shape[1])
 
-            selector = SelectKBest(score_func=mutual_info_classif, k=k)
+            selector = SelectKBest(
+                score_func=mutual_info_classif,
+                k=k
+            )
+
             selector.fit(X_train, y_train)
 
-            selected_features = X_train.columns[selector.get_support()].tolist()
+            selected_features = X_train.columns[
+                selector.get_support()
+            ].tolist()
 
             X_train = X_train[selected_features]
             X_test = X_test[selected_features]
 
-            logging.info(f"Selected Features: {selected_features}")
+            logging.info(
+                f"Selected Features: {selected_features}"
+            )
 
-            # -------- SMOTE --------
+            # =========================
+            # SMOTE
+            # =========================
             smote = SMOTE(random_state=42)
-            X_train, y_train = smote.fit_resample(X_train, y_train)
 
-            # -------- FINAL ARRAYS --------
+            X_train, y_train = smote.fit_resample(
+                X_train,
+                y_train
+            )
+
+            # =========================
+            # FINAL ARRAYS
+            # =========================
             train_arr = np.c_[X_train, y_train]
             test_arr = np.c_[X_test, y_test]
 
-            # -------- SAVE --------
-            os.makedirs(os.path.dirname(self.data_transformation_config.transformed_train_file_path), exist_ok=True)
-            
-            
-            # -------- SAVE --------
-            os.makedirs(os.path.dirname(self.data_transformation_config.transformed_train_file_path), exist_ok=True)
-            np.save(self.data_transformation_config.transformed_train_file_path, train_arr)
-            np.save(self.data_transformation_config.transformed_test_file_path, test_arr)
+            # =========================
+            # SAVE NUMPY
+            # =========================
+            os.makedirs(
+                os.path.dirname(
+                    self.data_transformation_config
+                    .transformed_train_file_path
+                ),
+                exist_ok=True
+            )
 
-            # ===== ADD THIS BLOCK =====
-            import pickle
+            np.save(
+                self.data_transformation_config
+                .transformed_train_file_path,
+                train_arr
+            )
 
+            np.save(
+                self.data_transformation_config
+                .transformed_test_file_path,
+                test_arr
+            )
+
+            # =========================
+            # SAVE PREPROCESSING OBJECT
+            # =========================
             preprocessing_object = {
-                "selected_features": selected_features,
-                "label_encoder": label_encoder
-                }
-            os.makedirs(os.path.dirname(self.data_transformation_config.transformed_object_file_path), exist_ok=True)
-            with open(self.data_transformation_config.transformed_object_file_path, "wb") as f:
-                pickle.dump(preprocessing_object, f)
-                
-            logging.info("FINAL Transformation Completed")
+
+                "selected_features":
+                    selected_features,
+
+                "target_encoder":
+                    target_encoder,
+
+                "feature_encoders":
+                    feature_encoders
+            }
+
+            os.makedirs(
+                os.path.dirname(
+                    self.data_transformation_config
+                    .transformed_object_file_path
+                ),
+                exist_ok=True
+            )
+
+            with open(
+                self.data_transformation_config
+                .transformed_object_file_path,
+                "wb"
+            ) as f:
+
+                pickle.dump(
+                    preprocessing_object,
+                    f
+                )
+
+            logging.info(
+                "FINAL Transformation Completed"
+            )
+
             return DataTransformationArtifact(
-                transformed_object_file_path=self.data_transformation_config.transformed_object_file_path,
-                transformed_train_file_path=self.data_transformation_config.transformed_train_file_path,
-                transformed_test_file_path=self.data_transformation_config.transformed_test_file_path
+
+                transformed_object_file_path=
+                self.data_transformation_config
+                .transformed_object_file_path,
+
+                transformed_train_file_path=
+                self.data_transformation_config
+                .transformed_train_file_path,
+
+                transformed_test_file_path=
+                self.data_transformation_config
+                .transformed_test_file_path
             )
 
         except Exception as e:
+
             raise CustomException(e, sys)

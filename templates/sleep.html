@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        Sleep Health Prediction System
+    </title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', path='/style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+</head>
+
+<body style="background:#f4f7fb;">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-primary shadow">
+
+        <div class="container-fluid">
+
+            <h3 class="navbar-brand mx-auto">
+                Sleep Health Prediction System
+            </h3>
+
+        </div>
+
+    </nav>
+
+    <!-- MAIN -->
+    <div class="container mt-4 mb-5">
+
+        <div class="card shadow-lg p-4"
+            style="border-radius:20px;">
+
+            <h3 class="text-center mb-4 text-primary">
+
+                Sleep Health Questionnaire
+
+            </h3>
+
+            <form action="/predict"
+                method="post">
+
+                <!-- AGE -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Your Age Group
+                    </label>
+
+                    <select class="form-control"
+                        name="age"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Under 18</option>
+
+                        <option>18-30</option>
+
+                        <option>31-50</option>
+
+                        <option>Above 50</option>
+
+                    </select>
+
+                </div>
+
+                <!-- WEIGHT -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Weight (kg)
+                    </label>
+
+                    <input type="number"
+                        class="form-control"
+                        name="weight"
+                        required>
+
+                </div>
+
+                <!-- HEIGHT -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Height
+                    </label>
+
+                    <input type="number"
+                        step="0.1"
+                        class="form-control"
+                        name="height"
+                        required>
+
+                </div>
+
+                <!-- GENDER -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Gender
+                    </label>
+
+                    <select class="form-control"
+                        name="gender"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Male</option>
+
+                        <option>Female</option>
+
+                    </select>
+
+                </div>
+
+                <!-- OCCUPATION -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Occupation
+                    </label>
+
+                    <select class="form-control"
+                        name="occupation"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Student</option>
+
+                        <option>Working Professional</option>
+
+                        <option>Unemployment</option>
+
+                        <option>Others</option>
+
+                    </select>
+
+                </div>
+
+                <!-- BED TIME -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Usual Bed Time
+                    </label>
+
+                    <select class="form-control"
+                        name="bed_time"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Before 10 PM</option>
+
+                        <option>10 PM - 12 AM</option>
+
+                        <option>12 AM - 2 AM</option>
+
+                        <option>After 2 AM</option>
+
+                    </select>
+
+                </div>
+
+                <!-- WAKE TIME -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Wake Up Time
+                    </label>
+
+                    <select class="form-control"
+                        name="wake_time"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Before 6 AM</option>
+
+                        <option>6 AM - 8 AM</option>
+
+                        <option>8 AM - 10 AM</option>
+
+                        <option>After 10 AM</option>
+
+                    </select>
+
+                </div>
+
+                <!-- SLEEP HOURS -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Sleep Hours Per Night
+                    </label>
+
+                    <select class="form-control"
+                        name="sleep_hours"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Less than 4 hours</option>
+
+                        <option>4-6 hours</option>
+
+                        <option>6-8 hours</option>
+
+                        <option>More than 8 hours</option>
+
+                    </select>
+
+                </div>
+
+                <!-- FALL ASLEEP -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Difficulty Falling Asleep
+                    </label>
+
+                    <select class="form-control"
+                        name="difficulty_sleep"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Never</option>
+
+                        <option>Rarely</option>
+
+                        <option>Sometimes</option>
+
+                        <option>Often</option>
+
+                        <option>Always</option>
+
+                    </select>
+
+                </div>
+
+                <!-- BREATHING -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Breathing Difficulties During Sleep
+                    </label>
+
+                    <select class="form-control"
+                        name="breathing_problem"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Never</option>
+
+                        <option>Rarely</option>
+
+                        <option>Sometimes</option>
+
+                        <option>Often</option>
+
+                        <option>Always</option>
+
+                    </select>
+
+                </div>
+
+                <!-- RESTLESS -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Restless Legs During Sleep
+                    </label>
+
+                    <select class="form-control"
+                        name="restless_legs"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Never</option>
+
+                        <option>Rarely</option>
+
+                        <option>Sometimes</option>
+
+                        <option>Often</option>
+
+                        <option>Always</option>
+
+                    </select>
+
+                </div>
+
+                <!-- CONCENTRATION -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Difficulty Concentrating Due To Sleep Loss
+                    </label>
+
+                    <select class="form-control"
+                        name="concentration_problem"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>Never</option>
+
+                        <option>Rarely</option>
+
+                        <option>Sometimes</option>
+
+                        <option>Often</option>
+
+                        <option>Always</option>
+
+                    </select>
+
+                </div>
+
+                <!-- MAIN REASON -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Main Reason For Sleeping Late
+                    </label>
+
+                    <select class="form-control"
+                        name="sleep_reason"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>
+                            Study & Exam Purpose
+                        </option>
+
+                        <option>
+                            Social Media/Internet
+                        </option>
+
+                        <option>
+                            Stress or anxiety
+                        </option>
+
+                        <option>
+                            Entertainment (TV;movies;games)
+                        </option>
+
+                        <option>
+                            Insomnia or other sleep disorder
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- MEDICAL CONDITION -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Medical Condition Affecting Sleep
+                    </label>
+
+                    <select class="form-control"
+                        name="medical_condition"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>No</option>
+
+                        <option>Chronic Pain</option>
+
+                        <option>Asthma</option>
+
+                        <option>Mental Stress</option>
+
+                        <option>Others</option>
+
+                    </select>
+
+                </div>
+
+                <!-- COPING -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Coping Strategy
+                    </label>
+
+                    <select class="form-control"
+                        name="coping_strategy"
+                        required>
+
+                        <option value="">Select</option>
+
+                        <option>
+                            Relaxation techniques
+                        </option>
+
+                        <option>
+                            Naps during the day
+                        </option>
+
+                        <option>
+                            Exercise
+                        </option>
+
+                        <option>
+                            Caffeine or other stimulants
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- ENVIRONMENT -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Sleep Environment Comfort (1-5)
+                    </label>
+
+                    <input type="number"
+                        class="form-control"
+                        name="sleep_environment"
+                        min="1"
+                        max="5"
+                        required>
+
+                </div>
+
+                <!-- SUBMIT -->
+                <button class="btn btn-primary w-100 mt-3">
+
+                    Predict Sleep Health
+
+                </button>
+
+            </form>
+
+            <!-- RESULT -->
+            <div class="text-center mt-4">
+
+                <h4 class="text-success">
+
+                    {{context}}
+
+                </h4>
+
+            </div>
+
+            <!-- INFO -->
+            <div class="alert alert-info mt-4">
+
+                <strong>
+                    Prediction Categories:
+                </strong>
+
+                <ul class="mt-2">
+
+                    <li>No Condition</li>
+
+                    <li>Sleep Respiratory Disorders</li>
+
+                    <li>Health Issues</li>
+
+                    <li>Mental Health Issues</li>
+
+                    <li>Others</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

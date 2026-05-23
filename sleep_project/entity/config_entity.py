@@ -1,5 +1,5 @@
 # =========================
-# Config Entity (Sleep Project)
+# Config Entity (Sleep Project) - FINAL FIXED
 # =========================
 
 import os
@@ -58,20 +58,17 @@ class DataIngestionConfig:
 class DataValidationConfig:
     data_validation_dir: str = os.path.join(
         training_pipeline_config.artifact_dir,
-        "data_validation"
+        DATA_VALIDATION_DIR_NAME
     )
 
     drift_report_file_path: str = os.path.join(
         data_validation_dir,
-        "drift_report",
+        DATA_VALIDATION_DRIFT_REPORT_DIR,
         "report.json"
     )
-    
-    
-    # =========================
-# Data Transformation Config (Sleep Project)
-# =========================
 
+
+# -------- Data Transformation Config --------
 @dataclass
 class DataTransformationConfig:
     data_transformation_dir: str = os.path.join(
@@ -95,43 +92,55 @@ class DataTransformationConfig:
         data_transformation_dir,
         DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
         PREPROCESSING_OBJECT_FILE_NAME
-    )  
+    )
 
+
+# -------- Model Trainer Config --------
 @dataclass
 class ModelTrainerConfig:
     model_trainer_dir: str = os.path.join(
         training_pipeline_config.artifact_dir,
         MODEL_TRAINER_DIR_NAME
     )
+
     trained_model_file_path: str = os.path.join(
         model_trainer_dir,
         MODEL_TRAINER_TRAINED_MODEL_DIR,
         MODEL_TRAINER_TRAINED_MODEL_NAME
     )
+
     expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
     model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
-    
-    
-    
-from dataclasses import dataclass
-from sleep_project.constants import (
-    MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE,
-    MODEL_BUCKET_NAME,
-    MODEL_PUSHER_S3_KEY,
-    MODEL_TRAINER_TRAINED_MODEL_NAME
-)
 
+
+# -------- Model Evaluation Config --------
 @dataclass
 class ModelEvaluationConfig:
     changed_threshold_score: float = MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE
     bucket_name: str = MODEL_BUCKET_NAME
-    s3_model_key_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_TRAINER_TRAINED_MODEL_NAME
-    
-    
-from dataclasses import dataclass
-from sleep_project.constants import MODEL_BUCKET_NAME, MODEL_PUSHER_S3_KEY, MODEL_TRAINER_TRAINED_MODEL_NAME
+    s3_model_key_path: str = os.path.join(
+        MODEL_PUSHER_S3_KEY,
+        MODEL_TRAINER_TRAINED_MODEL_NAME
+    )
 
+
+# -------- Model Pusher Config --------
 @dataclass
 class ModelPusherConfig:
     bucket_name: str = MODEL_BUCKET_NAME
-    s3_model_key_path: str = MODEL_PUSHER_S3_KEY + "/" + MODEL_TRAINER_TRAINED_MODEL_NAME
+    s3_model_key_path: str = os.path.join(
+        MODEL_PUSHER_S3_KEY,
+        MODEL_TRAINER_TRAINED_MODEL_NAME
+    )
+
+
+# -------- Predictor Config (🔥 FIXED PART) --------
+@dataclass
+class PredictorConfig:
+    model_file_path: str = os.path.join(
+        ARTIFACT_DIR,
+        MODEL_TRAINER_DIR_NAME,
+        MODEL_TRAINER_TRAINED_MODEL_DIR,
+        MODEL_TRAINER_TRAINED_MODEL_NAME
+    )
+    model_bucket_name: str = MODEL_BUCKET_NAME

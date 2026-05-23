@@ -1,0 +1,73 @@
+/* Navbar Center */
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Container spacing */
+.container {
+    margin-top: 40px;
+}
+
+/* Heading */
+h3, legend {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Form box */
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Input fields */
+.form-control {
+    height: 45px;
+    font-size: 16px;
+}
+
+/* Labels */
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Button */
+.btn-primary {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    background-color: #00bcd4;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0097a7;
+}
+
+/* Prediction result */
+h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+}
