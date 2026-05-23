@@ -1,0 +1,4489 @@
+data_drift:
+  data:
+    cat_feature_names:
+    - Do you experience any of the following side effects from late sleeping?
+    - Do you experience breathing difficulties while sleeping
+    - Do you experience restless legs or involuntary movements during sleep?
+    - Do you have any medical conditions that might affect your sleep?
+    - Do you have difficulty falling asleep?
+    - How long does it take you to fall asleep after going to bed?
+    - How many hours of sleep do you get on average per night?
+    - How often do you find it hard to concentrate due to lack of sleep?
+    - What are the main reasons you sleep late?
+    - What is your gender?
+    - What is your occupation?
+    - What strategies do you use to cope with the side effects of late sleeping?
+    - What time do you usually go to bed on weekends?
+    - What time do you usually go to bed?
+    - What time do you usually wake up on weekends?
+    - What time do you usually wake up on working days?
+    - Your Age
+    datetime_feature_names: []
+    metrics:
+      Do you experience any of the following side effects from late sleeping?:
+        current_small_hist:
+          x:
+          - Back Pain
+          - Back Pain ;Decreased academic or work performance ;Difficulty concentrating
+          - Back Pain ;Decreased academic or work performance ;Fatigue
+          - Back Pain ;Decreased academic or work performance ;Health issues  )
+          - Back Pain ;Decreased academic or work performance ;Mood swings or irritability
+          - Back Pain ;Decreased academic or work performance ;Others
+          - Back Pain ;Difficulty concentrating ;Decreased academic or work performance
+          - Back Pain ;Difficulty concentrating ;Fatigue
+          - Back Pain ;Difficulty concentrating ;Health issues  )
+          - Back Pain ;Difficulty concentrating ;Mood swings or irritability
+          - Back Pain ;Difficulty concentrating ;Others
+          - Back Pain ;Fatigue ;Decreased academic or work performance
+          - Back Pain ;Fatigue ;Difficulty concentrating
+          - Back Pain ;Fatigue ;Health issues  )
+          - Back Pain ;Fatigue ;Mood swings or irritability
+          - Back Pain ;Fatigue ;Others
+          - Back Pain ;Health issues  );Decreased academic or work performance
+          - Back Pain ;Health issues  );Difficulty concentrating
+          - Back Pain ;Health issues  );Fatigue
+          - Back Pain ;Health issues  );Mood swings or irritability
+          - Back Pain ;Health issues  );Others
+          - Back Pain ;Mood swings or irritability ;Decreased academic or work performance
+          - Back Pain ;Mood swings or irritability ;Difficulty concentrating
+          - Back Pain ;Mood swings or irritability ;Fatigue
+          - Back Pain ;Mood swings or irritability ;Health issues  )
+          - Back Pain ;Mood swings or irritability ;Others
+          - Back Pain ;Others
+          - Back Pain ;Others ;Decreased academic or work performance
+          - Back Pain ;Others ;Difficulty concentrating
+          - Back Pain ;Others ;Fatigue
+          - Back Pain ;Others ;Health issues  )
+          - Back Pain ;Others ;Mood swings or irritability
+          - Back Pain;Others
+          - Decreased academic or work performance
+          - Decreased academic or work performance ;Back Pain
+          - Decreased academic or work performance ;Back Pain ;Difficulty concentrating
+          - Decreased academic or work performance ;Back Pain ;Fatigue
+          - Decreased academic or work performance ;Back Pain ;Health issues  )
+          - Decreased academic or work performance ;Back Pain ;Mood swings or irritability
+          - Decreased academic or work performance ;Back Pain ;Others
+          - Decreased academic or work performance ;Difficulty concentrating ;Back
+            Pain
+          - Decreased academic or work performance ;Difficulty concentrating ;Fatigue
+          - Decreased academic or work performance ;Difficulty concentrating ;Health
+            issues  )
+          - Decreased academic or work performance ;Difficulty concentrating ;Mood
+            swings or irritability
+          - Decreased academic or work performance ;Difficulty concentrating ;Others
+          - Decreased academic or work performance ;Fatigue ;Back Pain
+          - Decreased academic or work performance ;Fatigue ;Difficulty concentrating
+          - Decreased academic or work performance ;Fatigue ;Health issues  )
+          - Decreased academic or work performance ;Fatigue ;Mood swings or irritability
+          - Decreased academic or work performance ;Fatigue ;Others
+          - Decreased academic or work performance ;Health issues  )
+          - Decreased academic or work performance ;Health issues  );Back Pain
+          - Decreased academic or work performance ;Health issues  );Difficulty concentrating
+          - Decreased academic or work performance ;Health issues  );Fatigue
+          - Decreased academic or work performance ;Health issues  );Mood swings or
+            irritability
+          - Decreased academic or work performance ;Health issues  );Others
+          - Decreased academic or work performance ;Mood swings or irritability ;Back
+            Pain
+          - Decreased academic or work performance ;Mood swings or irritability ;Difficulty
+            concentrating
+          - Decreased academic or work performance ;Mood swings or irritability ;Fatigue
+          - Decreased academic or work performance ;Mood swings or irritability ;Health
+            issues  )
+          - Decreased academic or work performance ;Mood swings or irritability ;Others
+          - Decreased academic or work performance ;Others
+          - Decreased academic or work performance ;Others ;Back Pain
+          - Decreased academic or work performance ;Others ;Difficulty concentrating
+          - Decreased academic or work performance ;Others ;Fatigue
+          - Decreased academic or work performance ;Others ;Health issues  )
+          - Decreased academic or work performance ;Others ;Mood swings or irritability
+          - Decreased academic or work performance;Back Pain
+          - Decreased academic or work performance;Back Pain;Others
+          - Decreased academic or work performance;Health issues
+          - Decreased academic or work performance;Health issues;Back Pain
+          - Decreased academic or work performance;Health issues;Back Pain;Others
+          - Decreased academic or work performance;Health issues;Others
+          - Decreased academic or work performance;Others
+          - Difficulty concentrating
+          - Difficulty concentrating ;Back Pain
+          - Difficulty concentrating ;Back Pain ;Decreased academic or work performance
+          - Difficulty concentrating ;Back Pain ;Fatigue
+          - Difficulty concentrating ;Back Pain ;Health issues  )
+          - Difficulty concentrating ;Back Pain ;Mood swings or irritability
+          - Difficulty concentrating ;Back Pain ;Others
+          - Difficulty concentrating ;Decreased academic or work performance
+          - Difficulty concentrating ;Decreased academic or work performance ;Back
+            Pain
+          - Difficulty concentrating ;Decreased academic or work performance ;Fatigue
+          - Difficulty concentrating ;Decreased academic or work performance ;Health
+            issues  )
+          - Difficulty concentrating ;Decreased academic or work performance ;Health
+            issues  );Back Pain
+          - Difficulty concentrating ;Decreased academic or work performance ;Mood
+            swings or irritability
+          - Difficulty concentrating ;Decreased academic or work performance ;Others
+          - Difficulty concentrating ;Fatigue ;Back Pain
+          - Difficulty concentrating ;Fatigue ;Decreased academic or work performance
+          - Difficulty concentrating ;Fatigue ;Health issues  )
+          - Difficulty concentrating ;Fatigue ;Mood swings or irritability
+          - Difficulty concentrating ;Fatigue ;Others
+          - Difficulty concentrating ;Health issues  )
+          - Difficulty concentrating ;Health issues  );Back Pain
+          - Difficulty concentrating ;Health issues  );Decreased academic or work
+            performance
+          - Difficulty concentrating ;Health issues  );Fatigue
+          - Difficulty concentrating ;Health issues  );Mood swings or irritability
+          - Difficulty concentrating ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability
+          - Difficulty concentrating ;Mood swings or irritability ;Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Back Pain ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  )
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  );Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Fatigue
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  )
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Back
+            Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Back
+            Pain ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability ;Others
+          - Difficulty concentrating ;Others
+          - Difficulty concentrating ;Others ;Back Pain
+          - Difficulty concentrating ;Others ;Decreased academic or work performance
+          - Difficulty concentrating ;Others ;Fatigue
+          - Difficulty concentrating ;Others ;Health issues  )
+          - Difficulty concentrating ;Others ;Mood swings or irritability
+          - Difficulty concentrating;Back Pain
+          - Difficulty concentrating;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance
+          - Difficulty concentrating;Decreased academic or work performance;Back Pain
+          - Difficulty concentrating;Decreased academic or work performance;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Others
+          - Difficulty concentrating;Decreased academic or work performance;Others
+          - Difficulty concentrating;Health issues
+          - Difficulty concentrating;Health issues;Back Pain
+          - Difficulty concentrating;Health issues;Back Pain;Others
+          - Difficulty concentrating;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability
+          - Difficulty concentrating;Mood swings or irritability;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Others
+          - Difficulty concentrating;Mood swings or irritability;Health issues
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability;Others
+          - Difficulty concentrating;Others
+          - Fatigue
+          - Fatigue ;Back Pain
+          - Fatigue ;Back Pain ;Decreased academic or work performance
+          - Fatigue ;Back Pain ;Difficulty concentrating
+          - Fatigue ;Back Pain ;Health issues  )
+          - Fatigue ;Back Pain ;Mood swings or irritability
+          - Fatigue ;Back Pain ;Others
+          - Fatigue ;Decreased academic or work performance
+          - Fatigue ;Decreased academic or work performance ;Back Pain
+          - Fatigue ;Decreased academic or work performance ;Difficulty concentrating
+          - Fatigue ;Decreased academic or work performance ;Health issues  )
+          - Fatigue ;Decreased academic or work performance ;Health issues  );Back
+            Pain
+          - Fatigue ;Decreased academic or work performance ;Health issues  );Others
+          - Fatigue ;Decreased academic or work performance ;Mood swings or irritability
+          - Fatigue ;Decreased academic or work performance ;Others
+          - Fatigue ;Difficulty concentrating
+          - Fatigue ;Difficulty concentrating ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Others
+          - Fatigue ;Difficulty concentrating ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Health issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Back Pain
+            ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  )
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Others
+          - Fatigue ;Difficulty concentrating ;Others
+          - Fatigue ;Health issues  )
+          - Fatigue ;Health issues  );Back Pain
+          - Fatigue ;Health issues  );Back Pain ;Others
+          - Fatigue ;Health issues  );Decreased academic or work performance
+          - Fatigue ;Health issues  );Difficulty concentrating
+          - Fatigue ;Health issues  );Mood swings or irritability
+          - Fatigue ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability
+          - Fatigue ;Mood swings or irritability ;Back Pain
+          - Fatigue ;Mood swings or irritability ;Back Pain ;Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Back Pain
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Back Pain ;Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  )
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  );Back Pain
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Others
+          - Fatigue ;Mood swings or irritability ;Difficulty concentrating
+          - Fatigue ;Mood swings or irritability ;Health issues  )
+          - Fatigue ;Mood swings or irritability ;Health issues  );Back Pain
+          - Fatigue ;Mood swings or irritability ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability ;Others
+          - Fatigue ;Others
+          - Fatigue ;Others ;Back Pain
+          - Fatigue ;Others ;Decreased academic or work performance
+          - Fatigue ;Others ;Difficulty concentrating
+          - Fatigue ;Others ;Health issues  )
+          - Fatigue ;Others ;Mood swings or irritability
+          - Fatigue;Back Pain
+          - Fatigue;Back Pain;Others
+          - Fatigue;Decreased academic or work performance
+          - Fatigue;Decreased academic or work performance;Back Pain
+          - Fatigue;Decreased academic or work performance;Back Pain;Others
+          - Fatigue;Decreased academic or work performance;Health issues
+          - Fatigue;Decreased academic or work performance;Health issues;Back Pain
+          - Fatigue;Decreased academic or work performance;Health issues;Back Pain;Others
+          - Fatigue;Decreased academic or work performance;Health issues;Others
+          - Fatigue;Decreased academic or work performance;Others
+          - Fatigue;Difficulty concentrating
+          - Fatigue;Difficulty concentrating;Back Pain
+          - Fatigue;Difficulty concentrating;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Back
+            Pain
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Back
+            Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Others
+          - Fatigue;Difficulty concentrating;Health issues
+          - Fatigue;Difficulty concentrating;Health issues;Back Pain
+          - Fatigue;Difficulty concentrating;Health issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Others
+          - Fatigue;Difficulty concentrating;Others
+          - Fatigue;Health issues
+          - Fatigue;Health issues;Back Pain
+          - Fatigue;Health issues;Back Pain;Others
+          - Fatigue;Health issues;Others
+          - Fatigue;Mood swings or irritability
+          - Fatigue;Mood swings or irritability;Back Pain
+          - Fatigue;Mood swings or irritability;Back Pain;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Back
+            Pain
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Back
+            Pain;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Others
+          - Fatigue;Mood swings or irritability;Health issues
+          - Fatigue;Mood swings or irritability;Health issues;Back Pain
+          - Fatigue;Mood swings or irritability;Health issues;Back Pain;Others
+          - Fatigue;Mood swings or irritability;Health issues;Others
+          - Fatigue;Mood swings or irritability;Others
+          - Fatigue;Others
+          - Health issues
+          - Health issues  )
+          - Health issues  );Back Pain
+          - Health issues  );Back Pain ;Decreased academic or work performance
+          - Health issues  );Back Pain ;Difficulty concentrating
+          - Health issues  );Back Pain ;Fatigue
+          - Health issues  );Back Pain ;Mood swings or irritability
+          - Health issues  );Back Pain ;Others
+          - Health issues  );Decreased academic or work performance ;Back Pain
+          - Health issues  );Decreased academic or work performance ;Difficulty concentrating
+          - Health issues  );Decreased academic or work performance ;Fatigue
+          - Health issues  );Decreased academic or work performance ;Mood swings or
+            irritability
+          - Health issues  );Decreased academic or work performance ;Others
+          - Health issues  );Difficulty concentrating ;Back Pain
+          - Health issues  );Difficulty concentrating ;Decreased academic or work
+            performance
+          - Health issues  );Difficulty concentrating ;Fatigue
+          - Health issues  );Difficulty concentrating ;Mood swings or irritability
+          - Health issues  );Difficulty concentrating ;Others
+          - Health issues  );Fatigue ;Back Pain
+          - Health issues  );Fatigue ;Decreased academic or work performance
+          - Health issues  );Fatigue ;Difficulty concentrating
+          - Health issues  );Fatigue ;Mood swings or irritability
+          - Health issues  );Fatigue ;Others
+          - Health issues  );Mood swings or irritability ;Back Pain
+          - Health issues  );Mood swings or irritability ;Decreased academic or work
+            performance
+          - Health issues  );Mood swings or irritability ;Difficulty concentrating
+          - Health issues  );Mood swings or irritability ;Fatigue
+          - Health issues  );Mood swings or irritability ;Others
+          - Health issues  );Others
+          - Health issues  );Others ;Back Pain
+          - Health issues  );Others ;Decreased academic or work performance
+          - Health issues  );Others ;Difficulty concentrating
+          - Health issues  );Others ;Fatigue
+          - Health issues  );Others ;Mood swings or irritability
+          - Health issues;Back Pain
+          - Health issues;Others
+          - Mood swings or irritability
+          - Mood swings or irritability ;Back Pain
+          - Mood swings or irritability ;Back Pain ;Decreased academic or work performance
+          - Mood swings or irritability ;Back Pain ;Difficulty concentrating
+          - Mood swings or irritability ;Back Pain ;Fatigue
+          - Mood swings or irritability ;Back Pain ;Health issues  )
+          - Mood swings or irritability ;Back Pain ;Others
+          - Mood swings or irritability ;Decreased academic or work performance
+          - Mood swings or irritability ;Decreased academic or work performance ;Back
+            Pain
+          - Mood swings or irritability ;Decreased academic or work performance ;Back
+            Pain ;Others
+          - Mood swings or irritability ;Decreased academic or work performance ;Difficulty
+            concentrating
+          - Mood swings or irritability ;Decreased academic or work performance ;Fatigue
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  )
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  );Back Pain
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  );Others
+          - Mood swings or irritability ;Decreased academic or work performance ;Others
+          - Mood swings or irritability ;Difficulty concentrating ;Back Pain
+          - Mood swings or irritability ;Difficulty concentrating ;Decreased academic
+            or work performance
+          - Mood swings or irritability ;Difficulty concentrating ;Fatigue
+          - Mood swings or irritability ;Difficulty concentrating ;Health issues  )
+          - Mood swings or irritability ;Difficulty concentrating ;Others
+          - Mood swings or irritability ;Fatigue
+          - Mood swings or irritability ;Fatigue ;Back Pain
+          - Mood swings or irritability ;Fatigue ;Decreased academic or work performance
+          - Mood swings or irritability ;Fatigue ;Difficulty concentrating
+          - Mood swings or irritability ;Fatigue ;Health issues  )
+          - Mood swings or irritability ;Fatigue ;Others
+          - Mood swings or irritability ;Health issues  )
+          - Mood swings or irritability ;Health issues  );Back Pain
+          - Mood swings or irritability ;Health issues  );Back Pain ;Others
+          - Mood swings or irritability ;Health issues  );Decreased academic or work
+            performance
+          - Mood swings or irritability ;Health issues  );Difficulty concentrating
+          - Mood swings or irritability ;Health issues  );Fatigue
+          - Mood swings or irritability ;Health issues  );Others
+          - Mood swings or irritability ;Mood swings or irritability ;Mood swings
+            or irritability
+          - Mood swings or irritability ;Others
+          - Mood swings or irritability ;Others ;Back Pain
+          - Mood swings or irritability ;Others ;Decreased academic or work performance
+          - Mood swings or irritability ;Others ;Difficulty concentrating
+          - Mood swings or irritability ;Others ;Fatigue
+          - Mood swings or irritability ;Others ;Health issues  )
+          - Mood swings or irritability;Back Pain
+          - Mood swings or irritability;Back Pain;Others
+          - Mood swings or irritability;Decreased academic or work performance
+          - Mood swings or irritability;Decreased academic or work performance;Back
+            Pain
+          - Mood swings or irritability;Decreased academic or work performance;Back
+            Pain;Others
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Others
+          - Mood swings or irritability;Decreased academic or work performance;Others
+          - Mood swings or irritability;Health issues
+          - Mood swings or irritability;Health issues;Back Pain
+          - Mood swings or irritability;Health issues;Back Pain;Others
+          - Mood swings or irritability;Health issues;Others
+          - Mood swings or irritability;Others
+          - Others
+          - Others ;Back Pain ;Decreased academic or work performance
+          - Others ;Back Pain ;Difficulty concentrating
+          - Others ;Back Pain ;Fatigue
+          - Others ;Back Pain ;Health issues  )
+          - Others ;Back Pain ;Mood swings or irritability
+          - Others ;Decreased academic or work performance
+          - Others ;Decreased academic or work performance ;Back Pain
+          - Others ;Decreased academic or work performance ;Difficulty concentrating
+          - Others ;Decreased academic or work performance ;Fatigue
+          - Others ;Decreased academic or work performance ;Health issues  )
+          - Others ;Decreased academic or work performance ;Mood swings or irritability
+          - Others ;Difficulty concentrating ;Back Pain
+          - Others ;Difficulty concentrating ;Decreased academic or work performance
+          - Others ;Difficulty concentrating ;Fatigue
+          - Others ;Difficulty concentrating ;Health issues  )
+          - Others ;Difficulty concentrating ;Mood swings or irritability
+          - Others ;Fatigue ;Back Pain
+          - Others ;Fatigue ;Decreased academic or work performance
+          - Others ;Fatigue ;Difficulty concentrating
+          - Others ;Fatigue ;Health issues  )
+          - Others ;Fatigue ;Mood swings or irritability
+          - Others ;Health issues  );Back Pain
+          - Others ;Health issues  );Decreased academic or work performance
+          - Others ;Health issues  );Difficulty concentrating
+          - Others ;Health issues  );Fatigue
+          - Others ;Health issues  );Mood swings or irritability
+          - Others ;Mood swings or irritability ;Back Pain
+          - Others ;Mood swings or irritability ;Decreased academic or work performance
+          - Others ;Mood swings or irritability ;Difficulty concentrating
+          - Others ;Mood swings or irritability ;Fatigue
+          - Others ;Mood swings or irritability ;Health issues  )
+          y:
+          - 28
+          - 0
+          - 0
+          - 1
+          - 1
+          - 1
+          - 0
+          - 1
+          - 1
+          - 3
+          - 1
+          - 1
+          - 0
+          - 2
+          - 3
+          - 1
+          - 1
+          - 0
+          - 1
+          - 2
+          - 1
+          - 1
+          - 2
+          - 0
+          - 0
+          - 1
+          - 2
+          - 3
+          - 1
+          - 0
+          - 1
+          - 0
+          - 4
+          - 111
+          - 1
+          - 1
+          - 3
+          - 2
+          - 3
+          - 4
+          - 1
+          - 3
+          - 0
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 0
+          - 1
+          - 2
+          - 2
+          - 1
+          - 3
+          - 0
+          - 0
+          - 2
+          - 1
+          - 1
+          - 1
+          - 1
+          - 2
+          - 1
+          - 1
+          - 18
+          - 3
+          - 25
+          - 1
+          - 0
+          - 0
+          - 5
+          - 470
+          - 0
+          - 0
+          - 0
+          - 1
+          - 1
+          - 0
+          - 5
+          - 0
+          - 0
+          - 9
+          - 2
+          - 1
+          - 2
+          - 0
+          - 2
+          - 2
+          - 0
+          - 1
+          - 3
+          - 3
+          - 0
+          - 1
+          - 0
+          - 1
+          - 6
+          - 0
+          - 4
+          - 3
+          - 0
+          - 1
+          - 0
+          - 0
+          - 1
+          - 2
+          - 3
+          - 2
+          - 0
+          - 0
+          - 1
+          - 1
+          - 1
+          - 1
+          - 2
+          - 2
+          - 1
+          - 56
+          - 1
+          - 251
+          - 35
+          - 0
+          - 53
+          - 5
+          - 1
+          - 4
+          - 22
+          - 89
+          - 9
+          - 2
+          - 1
+          - 316
+          - 39
+          - 0
+          - 151
+          - 35
+          - 2
+          - 37
+          - 5
+          - 0
+          - 1
+          - 7
+          - 66
+          - 6
+          - 0
+          - 1
+          - 14
+          - 24
+          - 584
+          - 4
+          - 2
+          - 1
+          - 2
+          - 2
+          - 3
+          - 1
+          - 2
+          - 0
+          - 3
+          - 2
+          - 0
+          - 2
+          - 1
+          - 6
+          - 3
+          - 4
+          - 3
+          - 2
+          - 0
+          - 1
+          - 0
+          - 5
+          - 3
+          - 1
+          - 1
+          - 3
+          - 3
+          - 0
+          - 1
+          - 0
+          - 6
+          - 2
+          - 3
+          - 1
+          - 1
+          - 1
+          - 0
+          - 0
+          - 0
+          - 0
+          - 1
+          - 8
+          - 5
+          - 1
+          - 0
+          - 1
+          - 0
+          - 4
+          - 3
+          - 2
+          - 0
+          - 5
+          - 1
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 2
+          - 3
+          - 0
+          - 2
+          - 3
+          - 5
+          - 2
+          - 1
+          - 0
+          - 1
+          - 1
+          - 66
+          - 7
+          - 329
+          - 42
+          - 3
+          - 49
+          - 3
+          - 0
+          - 1
+          - 18
+          - 1452
+          - 152
+          - 12
+          - 770
+          - 107
+          - 7
+          - 134
+          - 18
+          - 1
+          - 5
+          - 53
+          - 270
+          - 24
+          - 2
+          - 17
+          - 1049
+          - 116
+          - 6
+          - 596
+          - 92
+          - 2
+          - 103
+          - 6
+          - 1
+          - 8
+          - 21
+          - 210
+          - 18
+          - 1
+          - 11
+          - 50
+          - 79
+          - 117
+          - 13
+          - 1
+          - 4
+          - 428
+          - 49
+          - 5
+          - 258
+          - 35
+          - 0
+          - 49
+          - 7
+          - 1
+          - 14
+          - 90
+          - 11
+          - 0
+          - 3
+          - 14
+          - 29
+          - 29
+          - 18
+          - 5
+          - 2
+          - 1
+          - 1
+          - 3
+          - 4
+          - 1
+          - 1
+          - 1
+          - 2
+          - 0
+          - 1
+          - 2
+          - 3
+          - 0
+          - 0
+          - 0
+          - 2
+          - 1
+          - 1
+          - 0
+          - 0
+          - 0
+          - 0
+          - 1
+          - 1
+          - 4
+          - 3
+          - 0
+          - 1
+          - 4
+          - 1
+          - 4
+          - 4
+          - 157
+          - 3
+          - 1
+          - 0
+          - 2
+          - 0
+          - 1
+          - 2
+          - 0
+          - 1
+          - 1
+          - 1
+          - 5
+          - 1
+          - 0
+          - 0
+          - 1
+          - 1
+          - 0
+          - 3
+          - 1
+          - 0
+          - 2
+          - 0
+          - 1
+          - 3
+          - 5
+          - 7
+          - 3
+          - 0
+          - 1
+          - 2
+          - 2
+          - 5
+          - 1
+          - 1
+          - 1
+          - 1
+          - 2
+          - 3
+          - 2
+          - 17
+          - 0
+          - 70
+          - 6
+          - 0
+          - 11
+          - 2
+          - 1
+          - 4
+          - 19
+          - 2
+          - 0
+          - 1
+          - 9
+          - 22
+          - 2
+          - 1
+          - 4
+          - 0
+          - 1
+          - 0
+          - 2
+          - 1
+          - 0
+          - 3
+          - 2
+          - 1
+          - 1
+          - 2
+          - 1
+          - 2
+          - 1
+          - 0
+          - 2
+          - 2
+          - 2
+          - 1
+          - 1
+          - 0
+          - 1
+          - 2
+          - 2
+          - 0
+          - 1
+          - 2
+          - 2
+        drift_detected: false
+        drift_score: 0.08823172686916894
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Back Pain
+          - Back Pain ;Decreased academic or work performance ;Difficulty concentrating
+          - Back Pain ;Decreased academic or work performance ;Fatigue
+          - Back Pain ;Decreased academic or work performance ;Health issues  )
+          - Back Pain ;Decreased academic or work performance ;Mood swings or irritability
+          - Back Pain ;Decreased academic or work performance ;Others
+          - Back Pain ;Difficulty concentrating ;Decreased academic or work performance
+          - Back Pain ;Difficulty concentrating ;Fatigue
+          - Back Pain ;Difficulty concentrating ;Health issues  )
+          - Back Pain ;Difficulty concentrating ;Mood swings or irritability
+          - Back Pain ;Difficulty concentrating ;Others
+          - Back Pain ;Fatigue ;Decreased academic or work performance
+          - Back Pain ;Fatigue ;Difficulty concentrating
+          - Back Pain ;Fatigue ;Health issues  )
+          - Back Pain ;Fatigue ;Mood swings or irritability
+          - Back Pain ;Fatigue ;Others
+          - Back Pain ;Health issues  );Decreased academic or work performance
+          - Back Pain ;Health issues  );Difficulty concentrating
+          - Back Pain ;Health issues  );Fatigue
+          - Back Pain ;Health issues  );Mood swings or irritability
+          - Back Pain ;Health issues  );Others
+          - Back Pain ;Mood swings or irritability ;Decreased academic or work performance
+          - Back Pain ;Mood swings or irritability ;Difficulty concentrating
+          - Back Pain ;Mood swings or irritability ;Fatigue
+          - Back Pain ;Mood swings or irritability ;Health issues  )
+          - Back Pain ;Mood swings or irritability ;Others
+          - Back Pain ;Others
+          - Back Pain ;Others ;Decreased academic or work performance
+          - Back Pain ;Others ;Difficulty concentrating
+          - Back Pain ;Others ;Fatigue
+          - Back Pain ;Others ;Health issues  )
+          - Back Pain ;Others ;Mood swings or irritability
+          - Back Pain;Others
+          - Decreased academic or work performance
+          - Decreased academic or work performance ;Back Pain
+          - Decreased academic or work performance ;Back Pain ;Difficulty concentrating
+          - Decreased academic or work performance ;Back Pain ;Fatigue
+          - Decreased academic or work performance ;Back Pain ;Health issues  )
+          - Decreased academic or work performance ;Back Pain ;Mood swings or irritability
+          - Decreased academic or work performance ;Back Pain ;Others
+          - Decreased academic or work performance ;Difficulty concentrating ;Back
+            Pain
+          - Decreased academic or work performance ;Difficulty concentrating ;Fatigue
+          - Decreased academic or work performance ;Difficulty concentrating ;Health
+            issues  )
+          - Decreased academic or work performance ;Difficulty concentrating ;Mood
+            swings or irritability
+          - Decreased academic or work performance ;Difficulty concentrating ;Others
+          - Decreased academic or work performance ;Fatigue ;Back Pain
+          - Decreased academic or work performance ;Fatigue ;Difficulty concentrating
+          - Decreased academic or work performance ;Fatigue ;Health issues  )
+          - Decreased academic or work performance ;Fatigue ;Mood swings or irritability
+          - Decreased academic or work performance ;Fatigue ;Others
+          - Decreased academic or work performance ;Health issues  )
+          - Decreased academic or work performance ;Health issues  );Back Pain
+          - Decreased academic or work performance ;Health issues  );Difficulty concentrating
+          - Decreased academic or work performance ;Health issues  );Fatigue
+          - Decreased academic or work performance ;Health issues  );Mood swings or
+            irritability
+          - Decreased academic or work performance ;Health issues  );Others
+          - Decreased academic or work performance ;Mood swings or irritability ;Back
+            Pain
+          - Decreased academic or work performance ;Mood swings or irritability ;Difficulty
+            concentrating
+          - Decreased academic or work performance ;Mood swings or irritability ;Fatigue
+          - Decreased academic or work performance ;Mood swings or irritability ;Health
+            issues  )
+          - Decreased academic or work performance ;Mood swings or irritability ;Others
+          - Decreased academic or work performance ;Others
+          - Decreased academic or work performance ;Others ;Back Pain
+          - Decreased academic or work performance ;Others ;Difficulty concentrating
+          - Decreased academic or work performance ;Others ;Fatigue
+          - Decreased academic or work performance ;Others ;Health issues  )
+          - Decreased academic or work performance ;Others ;Mood swings or irritability
+          - Decreased academic or work performance;Back Pain
+          - Decreased academic or work performance;Back Pain;Others
+          - Decreased academic or work performance;Health issues
+          - Decreased academic or work performance;Health issues;Back Pain
+          - Decreased academic or work performance;Health issues;Back Pain;Others
+          - Decreased academic or work performance;Health issues;Others
+          - Decreased academic or work performance;Others
+          - Difficulty concentrating
+          - Difficulty concentrating ;Back Pain
+          - Difficulty concentrating ;Back Pain ;Decreased academic or work performance
+          - Difficulty concentrating ;Back Pain ;Fatigue
+          - Difficulty concentrating ;Back Pain ;Health issues  )
+          - Difficulty concentrating ;Back Pain ;Mood swings or irritability
+          - Difficulty concentrating ;Back Pain ;Others
+          - Difficulty concentrating ;Decreased academic or work performance
+          - Difficulty concentrating ;Decreased academic or work performance ;Back
+            Pain
+          - Difficulty concentrating ;Decreased academic or work performance ;Fatigue
+          - Difficulty concentrating ;Decreased academic or work performance ;Health
+            issues  )
+          - Difficulty concentrating ;Decreased academic or work performance ;Health
+            issues  );Back Pain
+          - Difficulty concentrating ;Decreased academic or work performance ;Mood
+            swings or irritability
+          - Difficulty concentrating ;Decreased academic or work performance ;Others
+          - Difficulty concentrating ;Fatigue ;Back Pain
+          - Difficulty concentrating ;Fatigue ;Decreased academic or work performance
+          - Difficulty concentrating ;Fatigue ;Health issues  )
+          - Difficulty concentrating ;Fatigue ;Mood swings or irritability
+          - Difficulty concentrating ;Fatigue ;Others
+          - Difficulty concentrating ;Health issues  )
+          - Difficulty concentrating ;Health issues  );Back Pain
+          - Difficulty concentrating ;Health issues  );Decreased academic or work
+            performance
+          - Difficulty concentrating ;Health issues  );Fatigue
+          - Difficulty concentrating ;Health issues  );Mood swings or irritability
+          - Difficulty concentrating ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability
+          - Difficulty concentrating ;Mood swings or irritability ;Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Back Pain ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  )
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  );Back Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability ;Decreased academic
+            or work performance ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Fatigue
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  )
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Back
+            Pain
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Back
+            Pain ;Others
+          - Difficulty concentrating ;Mood swings or irritability ;Health issues  );Others
+          - Difficulty concentrating ;Mood swings or irritability ;Others
+          - Difficulty concentrating ;Others
+          - Difficulty concentrating ;Others ;Back Pain
+          - Difficulty concentrating ;Others ;Decreased academic or work performance
+          - Difficulty concentrating ;Others ;Fatigue
+          - Difficulty concentrating ;Others ;Health issues  )
+          - Difficulty concentrating ;Others ;Mood swings or irritability
+          - Difficulty concentrating;Back Pain
+          - Difficulty concentrating;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance
+          - Difficulty concentrating;Decreased academic or work performance;Back Pain
+          - Difficulty concentrating;Decreased academic or work performance;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain;Others
+          - Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Others
+          - Difficulty concentrating;Decreased academic or work performance;Others
+          - Difficulty concentrating;Health issues
+          - Difficulty concentrating;Health issues;Back Pain
+          - Difficulty concentrating;Health issues;Back Pain;Others
+          - Difficulty concentrating;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability
+          - Difficulty concentrating;Mood swings or irritability;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Back Pain
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Back Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability;Decreased academic
+            or work performance;Others
+          - Difficulty concentrating;Mood swings or irritability;Health issues
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain;Others
+          - Difficulty concentrating;Mood swings or irritability;Health issues;Others
+          - Difficulty concentrating;Mood swings or irritability;Others
+          - Difficulty concentrating;Others
+          - Fatigue
+          - Fatigue ;Back Pain
+          - Fatigue ;Back Pain ;Decreased academic or work performance
+          - Fatigue ;Back Pain ;Difficulty concentrating
+          - Fatigue ;Back Pain ;Health issues  )
+          - Fatigue ;Back Pain ;Mood swings or irritability
+          - Fatigue ;Back Pain ;Others
+          - Fatigue ;Decreased academic or work performance
+          - Fatigue ;Decreased academic or work performance ;Back Pain
+          - Fatigue ;Decreased academic or work performance ;Difficulty concentrating
+          - Fatigue ;Decreased academic or work performance ;Health issues  )
+          - Fatigue ;Decreased academic or work performance ;Health issues  );Back
+            Pain
+          - Fatigue ;Decreased academic or work performance ;Health issues  );Others
+          - Fatigue ;Decreased academic or work performance ;Mood swings or irritability
+          - Fatigue ;Decreased academic or work performance ;Others
+          - Fatigue ;Difficulty concentrating
+          - Fatigue ;Difficulty concentrating ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Decreased academic or work performance
+            ;Others
+          - Fatigue ;Difficulty concentrating ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Health issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Back Pain
+            ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  )
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Health issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Decreased
+            academic or work performance ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  )
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Back Pain
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Back Pain ;Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Health
+            issues  );Others
+          - Fatigue ;Difficulty concentrating ;Mood swings or irritability ;Others
+          - Fatigue ;Difficulty concentrating ;Others
+          - Fatigue ;Health issues  )
+          - Fatigue ;Health issues  );Back Pain
+          - Fatigue ;Health issues  );Back Pain ;Others
+          - Fatigue ;Health issues  );Decreased academic or work performance
+          - Fatigue ;Health issues  );Difficulty concentrating
+          - Fatigue ;Health issues  );Mood swings or irritability
+          - Fatigue ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability
+          - Fatigue ;Mood swings or irritability ;Back Pain
+          - Fatigue ;Mood swings or irritability ;Back Pain ;Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Back Pain
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Back Pain ;Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  )
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  );Back Pain
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability ;Decreased academic or work performance
+            ;Others
+          - Fatigue ;Mood swings or irritability ;Difficulty concentrating
+          - Fatigue ;Mood swings or irritability ;Health issues  )
+          - Fatigue ;Mood swings or irritability ;Health issues  );Back Pain
+          - Fatigue ;Mood swings or irritability ;Health issues  );Others
+          - Fatigue ;Mood swings or irritability ;Others
+          - Fatigue ;Others
+          - Fatigue ;Others ;Back Pain
+          - Fatigue ;Others ;Decreased academic or work performance
+          - Fatigue ;Others ;Difficulty concentrating
+          - Fatigue ;Others ;Health issues  )
+          - Fatigue ;Others ;Mood swings or irritability
+          - Fatigue;Back Pain
+          - Fatigue;Back Pain;Others
+          - Fatigue;Decreased academic or work performance
+          - Fatigue;Decreased academic or work performance;Back Pain
+          - Fatigue;Decreased academic or work performance;Back Pain;Others
+          - Fatigue;Decreased academic or work performance;Health issues
+          - Fatigue;Decreased academic or work performance;Health issues;Back Pain
+          - Fatigue;Decreased academic or work performance;Health issues;Back Pain;Others
+          - Fatigue;Decreased academic or work performance;Health issues;Others
+          - Fatigue;Decreased academic or work performance;Others
+          - Fatigue;Difficulty concentrating
+          - Fatigue;Difficulty concentrating;Back Pain
+          - Fatigue;Difficulty concentrating;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Back
+            Pain
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Back
+            Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Health
+            issues;Others
+          - Fatigue;Difficulty concentrating;Decreased academic or work performance;Others
+          - Fatigue;Difficulty concentrating;Health issues
+          - Fatigue;Difficulty concentrating;Health issues;Back Pain
+          - Fatigue;Difficulty concentrating;Health issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Back Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Back Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Decreased
+            academic or work performance;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Back
+            Pain;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Health issues;Others
+          - Fatigue;Difficulty concentrating;Mood swings or irritability;Others
+          - Fatigue;Difficulty concentrating;Others
+          - Fatigue;Health issues
+          - Fatigue;Health issues;Back Pain
+          - Fatigue;Health issues;Back Pain;Others
+          - Fatigue;Health issues;Others
+          - Fatigue;Mood swings or irritability
+          - Fatigue;Mood swings or irritability;Back Pain
+          - Fatigue;Mood swings or irritability;Back Pain;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Back
+            Pain
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Back
+            Pain;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Others
+          - Fatigue;Mood swings or irritability;Decreased academic or work performance;Others
+          - Fatigue;Mood swings or irritability;Health issues
+          - Fatigue;Mood swings or irritability;Health issues;Back Pain
+          - Fatigue;Mood swings or irritability;Health issues;Back Pain;Others
+          - Fatigue;Mood swings or irritability;Health issues;Others
+          - Fatigue;Mood swings or irritability;Others
+          - Fatigue;Others
+          - Health issues
+          - Health issues  )
+          - Health issues  );Back Pain
+          - Health issues  );Back Pain ;Decreased academic or work performance
+          - Health issues  );Back Pain ;Difficulty concentrating
+          - Health issues  );Back Pain ;Fatigue
+          - Health issues  );Back Pain ;Mood swings or irritability
+          - Health issues  );Back Pain ;Others
+          - Health issues  );Decreased academic or work performance ;Back Pain
+          - Health issues  );Decreased academic or work performance ;Difficulty concentrating
+          - Health issues  );Decreased academic or work performance ;Fatigue
+          - Health issues  );Decreased academic or work performance ;Mood swings or
+            irritability
+          - Health issues  );Decreased academic or work performance ;Others
+          - Health issues  );Difficulty concentrating ;Back Pain
+          - Health issues  );Difficulty concentrating ;Decreased academic or work
+            performance
+          - Health issues  );Difficulty concentrating ;Fatigue
+          - Health issues  );Difficulty concentrating ;Mood swings or irritability
+          - Health issues  );Difficulty concentrating ;Others
+          - Health issues  );Fatigue ;Back Pain
+          - Health issues  );Fatigue ;Decreased academic or work performance
+          - Health issues  );Fatigue ;Difficulty concentrating
+          - Health issues  );Fatigue ;Mood swings or irritability
+          - Health issues  );Fatigue ;Others
+          - Health issues  );Mood swings or irritability ;Back Pain
+          - Health issues  );Mood swings or irritability ;Decreased academic or work
+            performance
+          - Health issues  );Mood swings or irritability ;Difficulty concentrating
+          - Health issues  );Mood swings or irritability ;Fatigue
+          - Health issues  );Mood swings or irritability ;Others
+          - Health issues  );Others
+          - Health issues  );Others ;Back Pain
+          - Health issues  );Others ;Decreased academic or work performance
+          - Health issues  );Others ;Difficulty concentrating
+          - Health issues  );Others ;Fatigue
+          - Health issues  );Others ;Mood swings or irritability
+          - Health issues;Back Pain
+          - Health issues;Others
+          - Mood swings or irritability
+          - Mood swings or irritability ;Back Pain
+          - Mood swings or irritability ;Back Pain ;Decreased academic or work performance
+          - Mood swings or irritability ;Back Pain ;Difficulty concentrating
+          - Mood swings or irritability ;Back Pain ;Fatigue
+          - Mood swings or irritability ;Back Pain ;Health issues  )
+          - Mood swings or irritability ;Back Pain ;Others
+          - Mood swings or irritability ;Decreased academic or work performance
+          - Mood swings or irritability ;Decreased academic or work performance ;Back
+            Pain
+          - Mood swings or irritability ;Decreased academic or work performance ;Back
+            Pain ;Others
+          - Mood swings or irritability ;Decreased academic or work performance ;Difficulty
+            concentrating
+          - Mood swings or irritability ;Decreased academic or work performance ;Fatigue
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  )
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  );Back Pain
+          - Mood swings or irritability ;Decreased academic or work performance ;Health
+            issues  );Others
+          - Mood swings or irritability ;Decreased academic or work performance ;Others
+          - Mood swings or irritability ;Difficulty concentrating ;Back Pain
+          - Mood swings or irritability ;Difficulty concentrating ;Decreased academic
+            or work performance
+          - Mood swings or irritability ;Difficulty concentrating ;Fatigue
+          - Mood swings or irritability ;Difficulty concentrating ;Health issues  )
+          - Mood swings or irritability ;Difficulty concentrating ;Others
+          - Mood swings or irritability ;Fatigue
+          - Mood swings or irritability ;Fatigue ;Back Pain
+          - Mood swings or irritability ;Fatigue ;Decreased academic or work performance
+          - Mood swings or irritability ;Fatigue ;Difficulty concentrating
+          - Mood swings or irritability ;Fatigue ;Health issues  )
+          - Mood swings or irritability ;Fatigue ;Others
+          - Mood swings or irritability ;Health issues  )
+          - Mood swings or irritability ;Health issues  );Back Pain
+          - Mood swings or irritability ;Health issues  );Back Pain ;Others
+          - Mood swings or irritability ;Health issues  );Decreased academic or work
+            performance
+          - Mood swings or irritability ;Health issues  );Difficulty concentrating
+          - Mood swings or irritability ;Health issues  );Fatigue
+          - Mood swings or irritability ;Health issues  );Others
+          - Mood swings or irritability ;Mood swings or irritability ;Mood swings
+            or irritability
+          - Mood swings or irritability ;Others
+          - Mood swings or irritability ;Others ;Back Pain
+          - Mood swings or irritability ;Others ;Decreased academic or work performance
+          - Mood swings or irritability ;Others ;Difficulty concentrating
+          - Mood swings or irritability ;Others ;Fatigue
+          - Mood swings or irritability ;Others ;Health issues  )
+          - Mood swings or irritability;Back Pain
+          - Mood swings or irritability;Back Pain;Others
+          - Mood swings or irritability;Decreased academic or work performance
+          - Mood swings or irritability;Decreased academic or work performance;Back
+            Pain
+          - Mood swings or irritability;Decreased academic or work performance;Back
+            Pain;Others
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Back Pain
+          - Mood swings or irritability;Decreased academic or work performance;Health
+            issues;Others
+          - Mood swings or irritability;Decreased academic or work performance;Others
+          - Mood swings or irritability;Health issues
+          - Mood swings or irritability;Health issues;Back Pain
+          - Mood swings or irritability;Health issues;Back Pain;Others
+          - Mood swings or irritability;Health issues;Others
+          - Mood swings or irritability;Others
+          - Others
+          - Others ;Back Pain ;Decreased academic or work performance
+          - Others ;Back Pain ;Difficulty concentrating
+          - Others ;Back Pain ;Fatigue
+          - Others ;Back Pain ;Health issues  )
+          - Others ;Back Pain ;Mood swings or irritability
+          - Others ;Decreased academic or work performance
+          - Others ;Decreased academic or work performance ;Back Pain
+          - Others ;Decreased academic or work performance ;Difficulty concentrating
+          - Others ;Decreased academic or work performance ;Fatigue
+          - Others ;Decreased academic or work performance ;Health issues  )
+          - Others ;Decreased academic or work performance ;Mood swings or irritability
+          - Others ;Difficulty concentrating ;Back Pain
+          - Others ;Difficulty concentrating ;Decreased academic or work performance
+          - Others ;Difficulty concentrating ;Fatigue
+          - Others ;Difficulty concentrating ;Health issues  )
+          - Others ;Difficulty concentrating ;Mood swings or irritability
+          - Others ;Fatigue ;Back Pain
+          - Others ;Fatigue ;Decreased academic or work performance
+          - Others ;Fatigue ;Difficulty concentrating
+          - Others ;Fatigue ;Health issues  )
+          - Others ;Fatigue ;Mood swings or irritability
+          - Others ;Health issues  );Back Pain
+          - Others ;Health issues  );Decreased academic or work performance
+          - Others ;Health issues  );Difficulty concentrating
+          - Others ;Health issues  );Fatigue
+          - Others ;Health issues  );Mood swings or irritability
+          - Others ;Mood swings or irritability ;Back Pain
+          - Others ;Mood swings or irritability ;Decreased academic or work performance
+          - Others ;Mood swings or irritability ;Difficulty concentrating
+          - Others ;Mood swings or irritability ;Fatigue
+          - Others ;Mood swings or irritability ;Health issues  )
+          y:
+          - 106
+          - 5
+          - 5
+          - 6
+          - 8
+          - 5
+          - 3
+          - 1
+          - 2
+          - 5
+          - 4
+          - 3
+          - 7
+          - 9
+          - 4
+          - 6
+          - 7
+          - 3
+          - 3
+          - 8
+          - 1
+          - 4
+          - 5
+          - 8
+          - 8
+          - 3
+          - 5
+          - 3
+          - 7
+          - 5
+          - 5
+          - 5
+          - 5
+          - 456
+          - 8
+          - 3
+          - 3
+          - 8
+          - 2
+          - 8
+          - 5
+          - 5
+          - 7
+          - 4
+          - 3
+          - 2
+          - 0
+          - 5
+          - 1
+          - 5
+          - 6
+          - 14
+          - 4
+          - 2
+          - 2
+          - 6
+          - 3
+          - 10
+          - 6
+          - 4
+          - 7
+          - 6
+          - 11
+          - 7
+          - 7
+          - 2
+          - 6
+          - 54
+          - 1
+          - 64
+          - 7
+          - 1
+          - 4
+          - 21
+          - 1898
+          - 2
+          - 8
+          - 2
+          - 4
+          - 5
+          - 4
+          - 12
+          - 8
+          - 2
+          - 9
+          - 4
+          - 9
+          - 2
+          - 1
+          - 7
+          - 3
+          - 6
+          - 4
+          - 23
+          - 10
+          - 3
+          - 4
+          - 5
+          - 9
+          - 17
+          - 12
+          - 11
+          - 1
+          - 1
+          - 3
+          - 1
+          - 1
+          - 0
+          - 7
+          - 18
+          - 4
+          - 1
+          - 1
+          - 11
+          - 7
+          - 4
+          - 8
+          - 7
+          - 5
+          - 4
+          - 198
+          - 16
+          - 944
+          - 112
+          - 8
+          - 178
+          - 20
+          - 1
+          - 8
+          - 52
+          - 275
+          - 32
+          - 3
+          - 13
+          - 1347
+          - 125
+          - 6
+          - 754
+          - 88
+          - 6
+          - 128
+          - 13
+          - 1
+          - 7
+          - 45
+          - 238
+          - 31
+          - 1
+          - 14
+          - 53
+          - 79
+          - 2431
+          - 13
+          - 3
+          - 6
+          - 1
+          - 1
+          - 8
+          - 14
+          - 10
+          - 6
+          - 16
+          - 0
+          - 3
+          - 2
+          - 12
+          - 16
+          - 8
+          - 18
+          - 4
+          - 8
+          - 1
+          - 0
+          - 5
+          - 21
+          - 2
+          - 3
+          - 4
+          - 12
+          - 3
+          - 2
+          - 8
+          - 2
+          - 9
+          - 7
+          - 4
+          - 3
+          - 2
+          - 4
+          - 2
+          - 1
+          - 3
+          - 7
+          - 10
+          - 20
+          - 20
+          - 1
+          - 5
+          - 5
+          - 7
+          - 14
+          - 18
+          - 12
+          - 2
+          - 13
+          - 2
+          - 1
+          - 7
+          - 1
+          - 2
+          - 10
+          - 6
+          - 19
+          - 3
+          - 3
+          - 15
+          - 17
+          - 9
+          - 6
+          - 6
+          - 4
+          - 9
+          - 266
+          - 14
+          - 1270
+          - 129
+          - 4
+          - 230
+          - 16
+          - 1
+          - 12
+          - 69
+          - 5781
+          - 691
+          - 38
+          - 3135
+          - 347
+          - 14
+          - 555
+          - 55
+          - 2
+          - 24
+          - 171
+          - 1045
+          - 125
+          - 7
+          - 69
+          - 4539
+          - 442
+          - 24
+          - 2424
+          - 266
+          - 18
+          - 399
+          - 55
+          - 4
+          - 21
+          - 126
+          - 736
+          - 93
+          - 6
+          - 45
+          - 261
+          - 345
+          - 387
+          - 47
+          - 0
+          - 14
+          - 1796
+          - 192
+          - 12
+          - 925
+          - 98
+          - 4
+          - 163
+          - 14
+          - 10
+          - 49
+          - 297
+          - 35
+          - 1
+          - 18
+          - 95
+          - 120
+          - 134
+          - 56
+          - 15
+          - 5
+          - 9
+          - 7
+          - 4
+          - 5
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 6
+          - 3
+          - 5
+          - 5
+          - 6
+          - 4
+          - 1
+          - 6
+          - 6
+          - 8
+          - 4
+          - 8
+          - 4
+          - 9
+          - 6
+          - 10
+          - 1
+          - 5
+          - 4
+          - 2
+          - 8
+          - 15
+          - 8
+          - 612
+          - 2
+          - 4
+          - 6
+          - 5
+          - 7
+          - 3
+          - 7
+          - 8
+          - 0
+          - 5
+          - 7
+          - 12
+          - 5
+          - 1
+          - 6
+          - 1
+          - 3
+          - 5
+          - 7
+          - 4
+          - 1
+          - 5
+          - 8
+          - 8
+          - 4
+          - 6
+          - 25
+          - 9
+          - 1
+          - 4
+          - 4
+          - 5
+          - 8
+          - 0
+          - 12
+          - 5
+          - 5
+          - 5
+          - 4
+          - 4
+          - 72
+          - 9
+          - 325
+          - 35
+          - 4
+          - 56
+          - 8
+          - 4
+          - 18
+          - 87
+          - 10
+          - 2
+          - 1
+          - 35
+          - 114
+          - 3
+          - 8
+          - 1
+          - 6
+          - 6
+          - 1
+          - 9
+          - 3
+          - 3
+          - 3
+          - 3
+          - 5
+          - 4
+          - 2
+          - 5
+          - 5
+          - 8
+          - 9
+          - 5
+          - 7
+          - 1
+          - 7
+          - 2
+          - 7
+          - 2
+          - 7
+          - 4
+          - 6
+          - 6
+          - 5
+          - 4
+        stattest_name: Jensen-Shannon distance
+      Do you experience breathing difficulties while sleeping:
+        current_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 188
+          - 7082
+          - 539
+          - 1608
+          - 1105
+        drift_detected: false
+        drift_score: 0.00761493295175477
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 809
+          - 28529
+          - 1992
+          - 6396
+          - 4362
+        stattest_name: Jensen-Shannon distance
+      Do you experience restless legs or involuntary movements during sleep?:
+        current_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 402
+          - 6083
+          - 805
+          - 2119
+          - 1113
+        drift_detected: false
+        drift_score: 0.004518481397702297
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 1591
+          - 24503
+          - 3288
+          - 8356
+          - 4350
+        stattest_name: Jensen-Shannon distance
+      Do you have any medical conditions that might affect your sleep?:
+        current_small_hist:
+          x:
+          - Allergies
+          - Allergy
+          - Anxiety Disorders
+          - Anxity
+          - Arthritis
+          - Asma
+          - Asthama
+          - Asthma
+          - Asthma, Diabetes
+          - Asthma,allergy
+          - Blood Pressure
+          - Cancer
+          - Chronic Bron
+          - Chronic Bronchiti
+          - Chronic Bronchitis
+          - Chronic Pain
+          - Chronic Pain, Diabetes
+          - Chronic Pain, Hypertension
+          - Cold
+          - Daibetes
+          - Depression
+          - Deviated Septum
+          - Diabetaes
+          - Diabetes
+          - Diabetes, Chronic Pain
+          - Dibetes
+          - Difficult Concentrating
+          - GERD/Acidity
+          - Gerd
+          - Hapani
+          - Headaches, Asthma
+          - Health
+          - Hearing Loss
+          - Heart Disease
+          - Heart Diseases
+          - Heart Problem
+          - Heart Problems
+          - Hearts Problem
+          - High Blood Pressure
+          - Hyoertension
+          - Hypersomnia
+          - Hypertension
+          - Insomnia
+          - Kidney Pain,legs Pain
+          - Maybe
+          - Maybe Ocd
+          - Migraine
+          - Moye Moye
+          - N0
+          - Na
+          - Narcolepsy
+          - Negative
+          - Never
+          - 'No'
+          - No Condition
+          - No Conditions
+          - No Disease
+          - No Medical Condition
+          - No.
+          - Nope
+          - Not Yet By The Grace Of Allah
+          - Nothing
+          - Nothing Seriuos
+          - Obstructive Sleep Apnea
+          - Osteoarthritis
+          - Other
+          - Others
+          - Prostate Problem
+          - Restless Leg Syndrome
+          - Restless Legs Syndrome
+          - Sleep Paralysis
+          - Sleep Talking, Diabetes
+          - Stress
+          - Stroke
+          - Tension
+          - Thyriod Disorder
+          - Thyroid Disorders
+          - Thyroid Problem
+          - Ye
+          - 'Yes'
+          - Yes (high Bp, Ckd)
+          - "\xE0\xA6\xA8\xE0\xA6\xBE"
+          - "\xE0\xA6\xA8\xE0\xA6\xBE\xE0\xA5\xA4"
+          - "\xE0\xA6\xA8\xE0\xA6\xBE\xE0\xA6\xB9"
+          - "\xE0\xA6\xAC\xE0\xA6\xBE\xE0\xA6\xA5\xE0\xA6\xB0\xE0\xA7\x81\xE0\xA6\xAE\
+            \xE0\xA6\u0153\xE0\xA6\xA8\xE0\xA6\xBF\xE0\xA6\xA4 \xE0\xA6\xB8\xE0\xA6\
+            \xAE\xE0\xA6\xB8\xE0\xA7\x8D\xE0\xA6\xAF\xE0\xA6\xBE"
+          y:
+          - 972
+          - 7
+          - 1108
+          - 0
+          - 7
+          - 0
+          - 0
+          - 915
+          - 1
+          - 0
+          - 0
+          - 1
+          - 0
+          - 0
+          - 1
+          - 671
+          - 0
+          - 1
+          - 1
+          - 0
+          - 653
+          - 0
+          - 1
+          - 252
+          - 0
+          - 0
+          - 0
+          - 999
+          - 13
+          - 0
+          - 0
+          - 0
+          - 1
+          - 5
+          - 0
+          - 1
+          - 0
+          - 0
+          - 5
+          - 0
+          - 0
+          - 109
+          - 1286
+          - 1
+          - 1
+          - 0
+          - 4
+          - 1
+          - 0
+          - 0
+          - 37
+          - 1
+          - 0
+          - 2108
+          - 5
+          - 0
+          - 0
+          - 8
+          - 1
+          - 0
+          - 0
+          - 0
+          - 0
+          - 511
+          - 1
+          - 15
+          - 10
+          - 1
+          - 26
+          - 318
+          - 23
+          - 0
+          - 4
+          - 1
+          - 0
+          - 0
+          - 354
+          - 0
+          - 0
+          - 16
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        drift_detected: false
+        drift_score: 0.04001879319418053
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Allergies
+          - Allergy
+          - Anxiety Disorders
+          - Anxity
+          - Arthritis
+          - Asma
+          - Asthama
+          - Asthma
+          - Asthma, Diabetes
+          - Asthma,allergy
+          - Blood Pressure
+          - Cancer
+          - Chronic Bron
+          - Chronic Bronchiti
+          - Chronic Bronchitis
+          - Chronic Pain
+          - Chronic Pain, Diabetes
+          - Chronic Pain, Hypertension
+          - Cold
+          - Daibetes
+          - Depression
+          - Deviated Septum
+          - Diabetaes
+          - Diabetes
+          - Diabetes, Chronic Pain
+          - Dibetes
+          - Difficult Concentrating
+          - GERD/Acidity
+          - Gerd
+          - Hapani
+          - Headaches, Asthma
+          - Health
+          - Hearing Loss
+          - Heart Disease
+          - Heart Diseases
+          - Heart Problem
+          - Heart Problems
+          - Hearts Problem
+          - High Blood Pressure
+          - Hyoertension
+          - Hypersomnia
+          - Hypertension
+          - Insomnia
+          - Kidney Pain,legs Pain
+          - Maybe
+          - Maybe Ocd
+          - Migraine
+          - Moye Moye
+          - N0
+          - Na
+          - Narcolepsy
+          - Negative
+          - Never
+          - 'No'
+          - No Condition
+          - No Conditions
+          - No Disease
+          - No Medical Condition
+          - No.
+          - Nope
+          - Not Yet By The Grace Of Allah
+          - Nothing
+          - Nothing Seriuos
+          - Obstructive Sleep Apnea
+          - Osteoarthritis
+          - Other
+          - Others
+          - Prostate Problem
+          - Restless Leg Syndrome
+          - Restless Legs Syndrome
+          - Sleep Paralysis
+          - Sleep Talking, Diabetes
+          - Stress
+          - Stroke
+          - Tension
+          - Thyriod Disorder
+          - Thyroid Disorders
+          - Thyroid Problem
+          - Ye
+          - 'Yes'
+          - Yes (high Bp, Ckd)
+          - "\xE0\xA6\xA8\xE0\xA6\xBE"
+          - "\xE0\xA6\xA8\xE0\xA6\xBE\xE0\xA5\xA4"
+          - "\xE0\xA6\xA8\xE0\xA6\xBE\xE0\xA6\xB9"
+          - "\xE0\xA6\xAC\xE0\xA6\xBE\xE0\xA6\xA5\xE0\xA6\xB0\xE0\xA7\x81\xE0\xA6\xAE\
+            \xE0\xA6\u0153\xE0\xA6\xA8\xE0\xA6\xBF\xE0\xA6\xA4 \xE0\xA6\xB8\xE0\xA6\
+            \xAE\xE0\xA6\xB8\xE0\xA7\x8D\xE0\xA6\xAF\xE0\xA6\xBE"
+          y:
+          - 3624
+          - 16
+          - 4449
+          - 1
+          - 11
+          - 1
+          - 1
+          - 3670
+          - 0
+          - 1
+          - 1
+          - 0
+          - 2
+          - 2
+          - 7
+          - 2597
+          - 1
+          - 0
+          - 2
+          - 1
+          - 2708
+          - 1
+          - 0
+          - 971
+          - 2
+          - 1
+          - 1
+          - 4120
+          - 22
+          - 1
+          - 1
+          - 1
+          - 0
+          - 26
+          - 1
+          - 4
+          - 1
+          - 2
+          - 15
+          - 2
+          - 1
+          - 429
+          - 5260
+          - 0
+          - 0
+          - 1
+          - 24
+          - 0
+          - 1
+          - 1
+          - 109
+          - 0
+          - 7
+          - 8560
+          - 10
+          - 1
+          - 1
+          - 5
+          - 0
+          - 1
+          - 1
+          - 1
+          - 1
+          - 2044
+          - 0
+          - 39
+          - 102
+          - 0
+          - 113
+          - 1353
+          - 102
+          - 1
+          - 3
+          - 2
+          - 1
+          - 1
+          - 1313
+          - 2
+          - 1
+          - 54
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+        stattest_name: Jensen-Shannon distance
+      Do you have difficulty falling asleep?:
+        current_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 481
+          - 3328
+          - 1836
+          - 2569
+          - 2308
+        drift_detected: false
+        drift_score: 0.005807121180608132
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 1973
+          - 13332
+          - 7547
+          - 10192
+          - 9044
+        stattest_name: Jensen-Shannon distance
+      How long does it take you to fall asleep after going to bed?:
+        current_small_hist:
+          x:
+          - 15-30 minutes
+          - 31-60 minutes
+          - Less than 15 minutes
+          - More than 60 minutes
+          y:
+          - 2581
+          - 2280
+          - 4173
+          - 1488
+        drift_detected: false
+        drift_score: 0.0015861366861624222
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 15-30 minutes
+          - 31-60 minutes
+          - Less than 15 minutes
+          - More than 60 minutes
+          y:
+          - 10364
+          - 9144
+          - 16688
+          - 5891
+        stattest_name: Jensen-Shannon distance
+      How many hours of sleep do you get on average per night?:
+        current_small_hist:
+          x:
+          - 4-6 hours
+          - 6-8 hours
+          - Less than 4 hours
+          - More than 8 hours
+          y:
+          - 3548
+          - 3574
+          - 1857
+          - 1543
+        drift_detected: false
+        drift_score: 0.009072327630259983
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 4-6 hours
+          - 6-8 hours
+          - Less than 4 hours
+          - More than 8 hours
+          y:
+          - 14623
+          - 13854
+          - 7490
+          - 6121
+        stattest_name: Jensen-Shannon distance
+      How often do you find it hard to concentrate due to lack of sleep?:
+        current_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 2051
+          - 1637
+          - 3227
+          - 1709
+          - 1890
+        drift_detected: false
+        drift_score: 0.01139720212506099
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Always
+          - Never
+          - Often
+          - Rarely
+          - Sometimes
+          y:
+          - 7980
+          - 6320
+          - 13041
+          - 6718
+          - 8010
+        stattest_name: Jensen-Shannon distance
+      How would you rate the comfort of your sleeping environment:
+        current_small_hist:
+          x:
+          - 1.0
+          - 1.4
+          - 1.8
+          - 2.2
+          - 2.6
+          - 3.0
+          - 3.4000000000000004
+          - 3.8000000000000003
+          - 4.2
+          - 4.6
+          - 5.0
+          y:
+          - 0.1416080593043148
+          - 0.0
+          - 0.25327884432617365
+          - 0.0
+          - 0.0
+          - 0.7049515301273516
+          - 0.0
+          - 0.9955331685991258
+          - 0.0
+          - 0.4046283976430333
+        drift_detected: false
+        drift_score: 0.015293407161704383
+        feature_type: num
+        ref_small_hist:
+          x:
+          - 1.0
+          - 1.4
+          - 1.8
+          - 2.2
+          - 2.6
+          - 3.0
+          - 3.4000000000000004
+          - 3.8000000000000003
+          - 4.2
+          - 4.6
+          - 5.0
+          y:
+          - 0.13715310777418743
+          - 0.0
+          - 0.2545262307546093
+          - 0.0
+          - 0.0
+          - 0.7502138376734454
+          - 0.0
+          - 0.9764659760501807
+          - 0.0
+          - 0.3816408477475762
+        stattest_name: Jensen-Shannon distance
+      What are the main reasons you sleep late?:
+        current_small_hist:
+          x:
+          - Entertainment (TV;movies;games)
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Others
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Social
+            Media/Internet
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Stress
+            or anxiety
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Study
+            & Exam Purpose
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;professional
+            Work
+          - Entertainment (TV;movies;games);Others
+          - Entertainment (TV;movies;games);Others;Insomnia or other sleep disorder
+          - Entertainment (TV;movies;games);Others;Social Media/Internet
+          - Entertainment (TV;movies;games);Others;Stress or anxiety
+          - Entertainment (TV;movies;games);Others;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Others;professional Work
+          - Entertainment (TV;movies;games);Social Media/Internet;Insomnia or other
+            sleep disorder
+          - Entertainment (TV;movies;games);Social Media/Internet;Others
+          - Entertainment (TV;movies;games);Social Media/Internet;Stress or anxiety
+          - Entertainment (TV;movies;games);Social Media/Internet;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Social Media/Internet;professional Work
+          - Entertainment (TV;movies;games);Stress or anxiety
+          - Entertainment (TV;movies;games);Stress or anxiety;Insomnia or other sleep
+            disorder
+          - Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Entertainment (TV;movies;games);Stress or anxiety;Social Media/Internet
+          - Entertainment (TV;movies;games);Stress or anxiety;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Stress or anxiety;professional Work
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Insomnia or other
+            sleep disorder
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Others
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Social Media/Internet
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Stress or anxiety
+          - Entertainment (TV;movies;games);Study & Exam Purpose;professional Work
+          - Entertainment (TV;movies;games);professional Work;Insomnia or other sleep
+            disorder
+          - Entertainment (TV;movies;games);professional Work;Others
+          - Entertainment (TV;movies;games);professional Work;Social Media/Internet
+          - Entertainment (TV;movies;games);professional Work;Stress or anxiety
+          - Entertainment (TV;movies;games);professional Work;Study & Exam Purpose
+          - Insomnia or other sleep disorder
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Others
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Social
+            Media/Internet
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Study
+            & Exam Purpose
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);professional
+            Work
+          - Insomnia or other sleep disorder;Others
+          - Insomnia or other sleep disorder;Others;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Others;Social Media/Internet
+          - Insomnia or other sleep disorder;Others;Stress or anxiety
+          - Insomnia or other sleep disorder;Others;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Others;professional Work
+          - Insomnia or other sleep disorder;Social Media/Internet;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Social Media/Internet;Others
+          - Insomnia or other sleep disorder;Social Media/Internet;Stress or anxiety
+          - Insomnia or other sleep disorder;Social Media/Internet;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Social Media/Internet;professional Work
+          - Insomnia or other sleep disorder;Stress or anxiety
+          - Insomnia or other sleep disorder;Stress or anxiety;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Insomnia or other sleep disorder;Stress or anxiety;Social Media/Internet
+          - Insomnia or other sleep disorder;Stress or anxiety;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Stress or anxiety;professional Work
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Others
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Social Media/Internet
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Stress or anxiety
+          - Insomnia or other sleep disorder;Study & Exam Purpose;professional Work
+          - Insomnia or other sleep disorder;professional Work
+          - Insomnia or other sleep disorder;professional Work;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;professional Work;Others
+          - Insomnia or other sleep disorder;professional Work;Social Media/Internet
+          - Insomnia or other sleep disorder;professional Work;Stress or anxiety
+          - Insomnia or other sleep disorder;professional Work;Study & Exam Purpose
+          - Others
+          - Others;Entertainment (TV;movies;games);Insomnia or other sleep disorder
+          - Others;Entertainment (TV;movies;games);Social Media/Internet
+          - Others;Entertainment (TV;movies;games);Stress or anxiety
+          - Others;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Others;Entertainment (TV;movies;games);professional Work
+          - Others;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Others;Insomnia or other sleep disorder;Social Media/Internet
+          - Others;Insomnia or other sleep disorder;Stress or anxiety
+          - Others;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Others;Insomnia or other sleep disorder;professional Work
+          - Others;Social Media/Internet
+          - Others;Social Media/Internet;Entertainment (TV;movies;games)
+          - Others;Social Media/Internet;Insomnia or other sleep disorder
+          - Others;Social Media/Internet;Stress or anxiety
+          - Others;Social Media/Internet;Study & Exam Purpose
+          - Others;Social Media/Internet;professional Work
+          - Others;Stress or anxiety
+          - Others;Stress or anxiety;Entertainment (TV;movies;games)
+          - Others;Stress or anxiety;Insomnia or other sleep disorder
+          - Others;Stress or anxiety;Social Media/Internet
+          - Others;Stress or anxiety;Study & Exam Purpose
+          - Others;Stress or anxiety;professional Work
+          - Others;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Others;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Others;Study & Exam Purpose;Social Media/Internet
+          - Others;Study & Exam Purpose;Stress or anxiety
+          - Others;Study & Exam Purpose;professional Work
+          - Others;professional Work;Entertainment (TV;movies;games)
+          - Others;professional Work;Insomnia or other sleep disorder
+          - Others;professional Work;Social Media/Internet
+          - Others;professional Work;Stress or anxiety
+          - Others;professional Work;Study & Exam Purpose
+          - Social Media/Internet
+          - Social Media/Internet;Entertainment (TV;movies;games)
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Stress or anxiety
+          - Social Media/Internet;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Social Media/Internet;Entertainment (TV;movies;games);professional Work
+          - Social Media/Internet;Insomnia or other sleep disorder
+          - Social Media/Internet;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Social Media/Internet;Insomnia or other sleep disorder;Others
+          - Social Media/Internet;Insomnia or other sleep disorder;Stress or anxiety
+          - Social Media/Internet;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Social Media/Internet;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Social Media/Internet;Insomnia or other sleep disorder;professional Work
+          - Social Media/Internet;Others
+          - Social Media/Internet;Others;Entertainment (TV;movies;games)
+          - Social Media/Internet;Others;Insomnia or other sleep disorder
+          - Social Media/Internet;Others;Stress or anxiety
+          - Social Media/Internet;Others;Study & Exam Purpose
+          - Social Media/Internet;Others;professional Work
+          - Social Media/Internet;Stress or anxiety
+          - Social Media/Internet;Stress or anxiety;Entertainment (TV;movies;games)
+          - Social Media/Internet;Stress or anxiety;Insomnia or other sleep disorder
+          - Social Media/Internet;Stress or anxiety;Others
+          - Social Media/Internet;Stress or anxiety;Study & Exam Purpose
+          - Social Media/Internet;Stress or anxiety;professional Work
+          - Social Media/Internet;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Social Media/Internet;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Social Media/Internet;Study & Exam Purpose;Others
+          - Social Media/Internet;Study & Exam Purpose;Stress or anxiety
+          - Social Media/Internet;Study & Exam Purpose;professional Work
+          - Social Media/Internet;professional Work;Entertainment (TV;movies;games)
+          - Social Media/Internet;professional Work;Insomnia or other sleep disorder
+          - Social Media/Internet;professional Work;Others
+          - Social Media/Internet;professional Work;Stress or anxiety
+          - Social Media/Internet;professional Work;Study & Exam Purpose
+          - Stress or anxiety
+          - Stress or anxiety;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder
+          - Stress or anxiety;Entertainment (TV;movies;games);Others
+          - Stress or anxiety;Entertainment (TV;movies;games);Social Media/Internet
+          - Stress or anxiety;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Stress or anxiety;Entertainment (TV;movies;games);professional Work
+          - Stress or anxiety;Insomnia or other sleep disorder
+          - Stress or anxiety;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Stress or anxiety;Insomnia or other sleep disorder;Others
+          - Stress or anxiety;Insomnia or other sleep disorder;Social Media/Internet
+          - Stress or anxiety;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Stress or anxiety;Insomnia or other sleep disorder;professional Work
+          - Stress or anxiety;Others
+          - Stress or anxiety;Others;Entertainment (TV;movies;games)
+          - Stress or anxiety;Others;Insomnia or other sleep disorder
+          - Stress or anxiety;Others;Social Media/Internet
+          - Stress or anxiety;Others;Study & Exam Purpose
+          - Stress or anxiety;Others;professional Work
+          - Stress or anxiety;Social Media/Internet
+          - Stress or anxiety;Social Media/Internet;Entertainment (TV;movies;games)
+          - Stress or anxiety;Social Media/Internet;Insomnia or other sleep disorder
+          - Stress or anxiety;Social Media/Internet;Others
+          - Stress or anxiety;Social Media/Internet;Study & Exam Purpose
+          - Stress or anxiety;Social Media/Internet;professional Work
+          - Stress or anxiety;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Stress or anxiety;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Stress or anxiety;Study & Exam Purpose;Others
+          - Stress or anxiety;Study & Exam Purpose;Social Media/Internet
+          - Stress or anxiety;Study & Exam Purpose;professional Work
+          - Stress or anxiety;professional Work;Entertainment (TV;movies;games)
+          - Stress or anxiety;professional Work;Insomnia or other sleep disorder
+          - Stress or anxiety;professional Work;Others
+          - Stress or anxiety;professional Work;Social Media/Internet
+          - Stress or anxiety;professional Work;Study & Exam Purpose
+          - Study & Exam Purpose
+          - Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Social Media/Internet
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Stress or anxiety
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);professional Work
+          - Study & Exam Purpose;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Others
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Social Media/Internet
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Insomnia or other sleep disorder;professional Work
+          - Study & Exam Purpose;Others
+          - Study & Exam Purpose;Others;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Others;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Others;Social Media/Internet
+          - Study & Exam Purpose;Others;Stress or anxiety
+          - Study & Exam Purpose;Others;professional Work
+          - Study & Exam Purpose;Social Media/Internet
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Others
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Others
+          - Study & Exam Purpose;Social Media/Internet;Stress or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Stress or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;professional Work
+          - Study & Exam Purpose;Stress or anxiety
+          - Study & Exam Purpose;Stress or anxiety;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Stress or anxiety;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Stress or anxiety;Others
+          - Study & Exam Purpose;Stress or anxiety;Social Media/Internet
+          - Study & Exam Purpose;Stress or anxiety;professional Work
+          - Study & Exam Purpose;professional Work;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;professional Work;Insomnia or other sleep disorder
+          - Study & Exam Purpose;professional Work;Others
+          - Study & Exam Purpose;professional Work;Social Media/Internet
+          - Study & Exam Purpose;professional Work;Stress or anxiety
+          - professional Work
+          - professional Work;Entertainment (TV;movies;games)
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Others
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Stress or anxiety
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Stress or anxiety;Others
+          - professional Work;Entertainment (TV;movies;games);Others
+          - professional Work;Entertainment (TV;movies;games);Social Media/Internet
+          - professional Work;Entertainment (TV;movies;games);Stress or anxiety
+          - professional Work;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - professional Work;Entertainment (TV;movies;games);Study & Exam Purpose
+          - professional Work;Insomnia or other sleep disorder
+          - professional Work;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - professional Work;Insomnia or other sleep disorder;Others
+          - professional Work;Insomnia or other sleep disorder;Social Media/Internet
+          - professional Work;Insomnia or other sleep disorder;Stress or anxiety
+          - professional Work;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Insomnia or other sleep disorder;Study & Exam Purpose
+          - professional Work;Others
+          - professional Work;Others;Entertainment (TV;movies;games)
+          - professional Work;Others;Insomnia or other sleep disorder
+          - professional Work;Others;Social Media/Internet
+          - professional Work;Others;Stress or anxiety
+          - professional Work;Others;Study & Exam Purpose
+          - professional Work;Social Media/Internet
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games)
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Others
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - professional Work;Social Media/Internet;Others
+          - professional Work;Social Media/Internet;Stress or anxiety
+          - professional Work;Social Media/Internet;Stress or anxiety;Others
+          - professional Work;Social Media/Internet;Study & Exam Purpose
+          - professional Work;Stress or anxiety
+          - professional Work;Stress or anxiety;Entertainment (TV;movies;games)
+          - professional Work;Stress or anxiety;Insomnia or other sleep disorder
+          - professional Work;Stress or anxiety;Others
+          - professional Work;Stress or anxiety;Social Media/Internet
+          - professional Work;Stress or anxiety;Study & Exam Purpose
+          - professional Work;Study & Exam Purpose
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - professional Work;Study & Exam Purpose;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games)
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Stress or
+            anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Stress or
+            anxiety;Others
+          - professional Work;Study & Exam Purpose;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Stress or anxiety;Others
+          y:
+          - 548
+          - 116
+          - 9
+          - 3
+          - 42
+          - 4
+          - 0
+          - 1
+          - 35
+          - 2
+          - 0
+          - 0
+          - 0
+          - 2
+          - 0
+          - 1
+          - 0
+          - 0
+          - 1
+          - 191
+          - 2
+          - 15
+          - 1
+          - 1
+          - 1
+          - 2
+          - 1
+          - 3
+          - 1
+          - 0
+          - 1
+          - 2
+          - 1
+          - 0
+          - 2
+          - 108
+          - 1
+          - 0
+          - 1
+          - 0
+          - 3
+          - 4
+          - 2
+          - 3
+          - 1
+          - 0
+          - 3
+          - 1
+          - 1
+          - 1
+          - 4
+          - 1
+          - 28
+          - 2
+          - 3
+          - 2
+          - 2
+          - 3
+          - 2
+          - 3
+          - 1
+          - 1
+          - 2
+          - 0
+          - 3
+          - 3
+          - 1
+          - 0
+          - 1
+          - 41
+          - 1
+          - 0
+          - 2
+          - 1
+          - 2
+          - 2
+          - 1
+          - 0
+          - 0
+          - 3
+          - 0
+          - 2
+          - 2
+          - 2
+          - 2
+          - 1
+          - 1
+          - 1
+          - 0
+          - 0
+          - 0
+          - 1
+          - 4
+          - 1
+          - 1
+          - 0
+          - 4
+          - 0
+          - 3
+          - 1
+          - 4
+          - 0
+          - 916
+          - 1088
+          - 195
+          - 5
+          - 56
+          - 4
+          - 63
+          - 377
+          - 16
+          - 3
+          - 0
+          - 149
+          - 1
+          - 9
+          - 42
+          - 7
+          - 3
+          - 1
+          - 45
+          - 0
+          - 1
+          - 0
+          - 3
+          - 0
+          - 291
+          - 2
+          - 0
+          - 20
+          - 3
+          - 1
+          - 1
+          - 1
+          - 0
+          - 2
+          - 1
+          - 1
+          - 3
+          - 1
+          - 0
+          - 2
+          - 143
+          - 1
+          - 0
+          - 0
+          - 0
+          - 1
+          - 1
+          - 0
+          - 1
+          - 4
+          - 2
+          - 2
+          - 14
+          - 0
+          - 0
+          - 2
+          - 2
+          - 1
+          - 0
+          - 1
+          - 3
+          - 1
+          - 2
+          - 2
+          - 1
+          - 2
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 1
+          - 0
+          - 3
+          - 323
+          - 320
+          - 69
+          - 1
+          - 26
+          - 2
+          - 24
+          - 2
+          - 142
+          - 5
+          - 0
+          - 36
+          - 0
+          - 2
+          - 1
+          - 20
+          - 1
+          - 2
+          - 11
+          - 0
+          - 0
+          - 3
+          - 1
+          - 2
+          - 561
+          - 712
+          - 130
+          - 6
+          - 36
+          - 0
+          - 39
+          - 249
+          - 10
+          - 100
+          - 4
+          - 21
+          - 2
+          - 23
+          - 160
+          - 12
+          - 1
+          - 110
+          - 0
+          - 1
+          - 9
+          - 1
+          - 4
+          - 1
+          - 1
+          - 0
+          - 0
+          - 0
+          - 129
+          - 138
+          - 24
+          - 0
+          - 8
+          - 1
+          - 9
+          - 0
+          - 51
+          - 7
+          - 0
+          - 16
+          - 1
+          - 2
+          - 1
+          - 7
+          - 0
+          - 0
+          - 7
+          - 0
+          - 1
+          - 0
+          - 1
+          - 1
+          - 231
+          - 249
+          - 41
+          - 5
+          - 7
+          - 2
+          - 13
+          - 87
+          - 8
+          - 51
+          - 3
+          - 10
+          - 1
+          - 16
+          - 80
+          - 5
+          - 1
+          - 42
+          - 2
+          - 4
+          - 3
+          - 0
+          - 0
+          - 71
+          - 95
+          - 11
+          - 0
+          - 5
+          - 0
+          - 5
+          - 30
+          - 3
+          - 16
+          - 0
+          - 6
+          - 0
+          - 5
+          - 147
+          - 183
+          - 16
+          - 1
+          - 12
+          - 0
+          - 18
+          - 62
+          - 3
+          - 18
+          - 1
+          - 5
+          - 0
+          - 9
+          - 53
+          - 3
+          - 26
+          - 2
+        drift_detected: false
+        drift_score: 0.07552385575860662
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Entertainment (TV;movies;games)
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Others
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Social
+            Media/Internet
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Stress
+            or anxiety
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;Study
+            & Exam Purpose
+          - Entertainment (TV;movies;games);Insomnia or other sleep disorder;professional
+            Work
+          - Entertainment (TV;movies;games);Others
+          - Entertainment (TV;movies;games);Others;Insomnia or other sleep disorder
+          - Entertainment (TV;movies;games);Others;Social Media/Internet
+          - Entertainment (TV;movies;games);Others;Stress or anxiety
+          - Entertainment (TV;movies;games);Others;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Others;professional Work
+          - Entertainment (TV;movies;games);Social Media/Internet;Insomnia or other
+            sleep disorder
+          - Entertainment (TV;movies;games);Social Media/Internet;Others
+          - Entertainment (TV;movies;games);Social Media/Internet;Stress or anxiety
+          - Entertainment (TV;movies;games);Social Media/Internet;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Social Media/Internet;professional Work
+          - Entertainment (TV;movies;games);Stress or anxiety
+          - Entertainment (TV;movies;games);Stress or anxiety;Insomnia or other sleep
+            disorder
+          - Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Entertainment (TV;movies;games);Stress or anxiety;Social Media/Internet
+          - Entertainment (TV;movies;games);Stress or anxiety;Study & Exam Purpose
+          - Entertainment (TV;movies;games);Stress or anxiety;professional Work
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Insomnia or other
+            sleep disorder
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Others
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Social Media/Internet
+          - Entertainment (TV;movies;games);Study & Exam Purpose;Stress or anxiety
+          - Entertainment (TV;movies;games);Study & Exam Purpose;professional Work
+          - Entertainment (TV;movies;games);professional Work;Insomnia or other sleep
+            disorder
+          - Entertainment (TV;movies;games);professional Work;Others
+          - Entertainment (TV;movies;games);professional Work;Social Media/Internet
+          - Entertainment (TV;movies;games);professional Work;Stress or anxiety
+          - Entertainment (TV;movies;games);professional Work;Study & Exam Purpose
+          - Insomnia or other sleep disorder
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Others
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Social
+            Media/Internet
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);Study
+            & Exam Purpose
+          - Insomnia or other sleep disorder;Entertainment (TV;movies;games);professional
+            Work
+          - Insomnia or other sleep disorder;Others
+          - Insomnia or other sleep disorder;Others;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Others;Social Media/Internet
+          - Insomnia or other sleep disorder;Others;Stress or anxiety
+          - Insomnia or other sleep disorder;Others;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Others;professional Work
+          - Insomnia or other sleep disorder;Social Media/Internet;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Social Media/Internet;Others
+          - Insomnia or other sleep disorder;Social Media/Internet;Stress or anxiety
+          - Insomnia or other sleep disorder;Social Media/Internet;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Social Media/Internet;professional Work
+          - Insomnia or other sleep disorder;Stress or anxiety
+          - Insomnia or other sleep disorder;Stress or anxiety;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Insomnia or other sleep disorder;Stress or anxiety;Social Media/Internet
+          - Insomnia or other sleep disorder;Stress or anxiety;Study & Exam Purpose
+          - Insomnia or other sleep disorder;Stress or anxiety;professional Work
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Others
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Social Media/Internet
+          - Insomnia or other sleep disorder;Study & Exam Purpose;Stress or anxiety
+          - Insomnia or other sleep disorder;Study & Exam Purpose;professional Work
+          - Insomnia or other sleep disorder;professional Work
+          - Insomnia or other sleep disorder;professional Work;Entertainment (TV;movies;games)
+          - Insomnia or other sleep disorder;professional Work;Others
+          - Insomnia or other sleep disorder;professional Work;Social Media/Internet
+          - Insomnia or other sleep disorder;professional Work;Stress or anxiety
+          - Insomnia or other sleep disorder;professional Work;Study & Exam Purpose
+          - Others
+          - Others;Entertainment (TV;movies;games);Insomnia or other sleep disorder
+          - Others;Entertainment (TV;movies;games);Social Media/Internet
+          - Others;Entertainment (TV;movies;games);Stress or anxiety
+          - Others;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Others;Entertainment (TV;movies;games);professional Work
+          - Others;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Others;Insomnia or other sleep disorder;Social Media/Internet
+          - Others;Insomnia or other sleep disorder;Stress or anxiety
+          - Others;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Others;Insomnia or other sleep disorder;professional Work
+          - Others;Social Media/Internet
+          - Others;Social Media/Internet;Entertainment (TV;movies;games)
+          - Others;Social Media/Internet;Insomnia or other sleep disorder
+          - Others;Social Media/Internet;Stress or anxiety
+          - Others;Social Media/Internet;Study & Exam Purpose
+          - Others;Social Media/Internet;professional Work
+          - Others;Stress or anxiety
+          - Others;Stress or anxiety;Entertainment (TV;movies;games)
+          - Others;Stress or anxiety;Insomnia or other sleep disorder
+          - Others;Stress or anxiety;Social Media/Internet
+          - Others;Stress or anxiety;Study & Exam Purpose
+          - Others;Stress or anxiety;professional Work
+          - Others;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Others;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Others;Study & Exam Purpose;Social Media/Internet
+          - Others;Study & Exam Purpose;Stress or anxiety
+          - Others;Study & Exam Purpose;professional Work
+          - Others;professional Work;Entertainment (TV;movies;games)
+          - Others;professional Work;Insomnia or other sleep disorder
+          - Others;professional Work;Social Media/Internet
+          - Others;professional Work;Stress or anxiety
+          - Others;professional Work;Study & Exam Purpose
+          - Social Media/Internet
+          - Social Media/Internet;Entertainment (TV;movies;games)
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety
+          - Social Media/Internet;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Stress or anxiety
+          - Social Media/Internet;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Social Media/Internet;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Social Media/Internet;Entertainment (TV;movies;games);professional Work
+          - Social Media/Internet;Insomnia or other sleep disorder
+          - Social Media/Internet;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Social Media/Internet;Insomnia or other sleep disorder;Others
+          - Social Media/Internet;Insomnia or other sleep disorder;Stress or anxiety
+          - Social Media/Internet;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Social Media/Internet;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Social Media/Internet;Insomnia or other sleep disorder;professional Work
+          - Social Media/Internet;Others
+          - Social Media/Internet;Others;Entertainment (TV;movies;games)
+          - Social Media/Internet;Others;Insomnia or other sleep disorder
+          - Social Media/Internet;Others;Stress or anxiety
+          - Social Media/Internet;Others;Study & Exam Purpose
+          - Social Media/Internet;Others;professional Work
+          - Social Media/Internet;Stress or anxiety
+          - Social Media/Internet;Stress or anxiety;Entertainment (TV;movies;games)
+          - Social Media/Internet;Stress or anxiety;Insomnia or other sleep disorder
+          - Social Media/Internet;Stress or anxiety;Others
+          - Social Media/Internet;Stress or anxiety;Study & Exam Purpose
+          - Social Media/Internet;Stress or anxiety;professional Work
+          - Social Media/Internet;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Social Media/Internet;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Social Media/Internet;Study & Exam Purpose;Others
+          - Social Media/Internet;Study & Exam Purpose;Stress or anxiety
+          - Social Media/Internet;Study & Exam Purpose;professional Work
+          - Social Media/Internet;professional Work;Entertainment (TV;movies;games)
+          - Social Media/Internet;professional Work;Insomnia or other sleep disorder
+          - Social Media/Internet;professional Work;Others
+          - Social Media/Internet;professional Work;Stress or anxiety
+          - Social Media/Internet;professional Work;Study & Exam Purpose
+          - Stress or anxiety
+          - Stress or anxiety;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder
+          - Stress or anxiety;Entertainment (TV;movies;games);Others
+          - Stress or anxiety;Entertainment (TV;movies;games);Social Media/Internet
+          - Stress or anxiety;Entertainment (TV;movies;games);Study & Exam Purpose
+          - Stress or anxiety;Entertainment (TV;movies;games);professional Work
+          - Stress or anxiety;Insomnia or other sleep disorder
+          - Stress or anxiety;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Stress or anxiety;Insomnia or other sleep disorder;Others
+          - Stress or anxiety;Insomnia or other sleep disorder;Social Media/Internet
+          - Stress or anxiety;Insomnia or other sleep disorder;Study & Exam Purpose
+          - Stress or anxiety;Insomnia or other sleep disorder;professional Work
+          - Stress or anxiety;Others
+          - Stress or anxiety;Others;Entertainment (TV;movies;games)
+          - Stress or anxiety;Others;Insomnia or other sleep disorder
+          - Stress or anxiety;Others;Social Media/Internet
+          - Stress or anxiety;Others;Study & Exam Purpose
+          - Stress or anxiety;Others;professional Work
+          - Stress or anxiety;Social Media/Internet
+          - Stress or anxiety;Social Media/Internet;Entertainment (TV;movies;games)
+          - Stress or anxiety;Social Media/Internet;Insomnia or other sleep disorder
+          - Stress or anxiety;Social Media/Internet;Others
+          - Stress or anxiety;Social Media/Internet;Study & Exam Purpose
+          - Stress or anxiety;Social Media/Internet;professional Work
+          - Stress or anxiety;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Stress or anxiety;Study & Exam Purpose;Insomnia or other sleep disorder
+          - Stress or anxiety;Study & Exam Purpose;Others
+          - Stress or anxiety;Study & Exam Purpose;Social Media/Internet
+          - Stress or anxiety;Study & Exam Purpose;professional Work
+          - Stress or anxiety;professional Work;Entertainment (TV;movies;games)
+          - Stress or anxiety;professional Work;Insomnia or other sleep disorder
+          - Stress or anxiety;professional Work;Others
+          - Stress or anxiety;professional Work;Social Media/Internet
+          - Stress or anxiety;professional Work;Study & Exam Purpose
+          - Study & Exam Purpose
+          - Study & Exam Purpose;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia or other
+            sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Social Media/Internet
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Stress or anxiety
+          - Study & Exam Purpose;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - Study & Exam Purpose;Entertainment (TV;movies;games);professional Work
+          - Study & Exam Purpose;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Others
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Social Media/Internet
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Insomnia or other sleep disorder;professional Work
+          - Study & Exam Purpose;Others
+          - Study & Exam Purpose;Others;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Others;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Others;Social Media/Internet
+          - Study & Exam Purpose;Others;Stress or anxiety
+          - Study & Exam Purpose;Others;professional Work
+          - Study & Exam Purpose;Social Media/Internet
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Others
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Others
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;Others
+          - Study & Exam Purpose;Social Media/Internet;Stress or anxiety
+          - Study & Exam Purpose;Social Media/Internet;Stress or anxiety;Others
+          - Study & Exam Purpose;Social Media/Internet;professional Work
+          - Study & Exam Purpose;Stress or anxiety
+          - Study & Exam Purpose;Stress or anxiety;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;Stress or anxiety;Insomnia or other sleep disorder
+          - Study & Exam Purpose;Stress or anxiety;Others
+          - Study & Exam Purpose;Stress or anxiety;Social Media/Internet
+          - Study & Exam Purpose;Stress or anxiety;professional Work
+          - Study & Exam Purpose;professional Work;Entertainment (TV;movies;games)
+          - Study & Exam Purpose;professional Work;Insomnia or other sleep disorder
+          - Study & Exam Purpose;professional Work;Others
+          - Study & Exam Purpose;professional Work;Social Media/Internet
+          - Study & Exam Purpose;professional Work;Stress or anxiety
+          - professional Work
+          - professional Work;Entertainment (TV;movies;games)
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Others
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Stress or anxiety
+          - professional Work;Entertainment (TV;movies;games);Insomnia or other sleep
+            disorder;Stress or anxiety;Others
+          - professional Work;Entertainment (TV;movies;games);Others
+          - professional Work;Entertainment (TV;movies;games);Social Media/Internet
+          - professional Work;Entertainment (TV;movies;games);Stress or anxiety
+          - professional Work;Entertainment (TV;movies;games);Stress or anxiety;Others
+          - professional Work;Entertainment (TV;movies;games);Study & Exam Purpose
+          - professional Work;Insomnia or other sleep disorder
+          - professional Work;Insomnia or other sleep disorder;Entertainment (TV;movies;games)
+          - professional Work;Insomnia or other sleep disorder;Others
+          - professional Work;Insomnia or other sleep disorder;Social Media/Internet
+          - professional Work;Insomnia or other sleep disorder;Stress or anxiety
+          - professional Work;Insomnia or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Insomnia or other sleep disorder;Study & Exam Purpose
+          - professional Work;Others
+          - professional Work;Others;Entertainment (TV;movies;games)
+          - professional Work;Others;Insomnia or other sleep disorder
+          - professional Work;Others;Social Media/Internet
+          - professional Work;Others;Stress or anxiety
+          - professional Work;Others;Study & Exam Purpose
+          - professional Work;Social Media/Internet
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games)
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Others
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - professional Work;Social Media/Internet;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Others
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - professional Work;Social Media/Internet;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - professional Work;Social Media/Internet;Others
+          - professional Work;Social Media/Internet;Stress or anxiety
+          - professional Work;Social Media/Internet;Stress or anxiety;Others
+          - professional Work;Social Media/Internet;Study & Exam Purpose
+          - professional Work;Stress or anxiety
+          - professional Work;Stress or anxiety;Entertainment (TV;movies;games)
+          - professional Work;Stress or anxiety;Insomnia or other sleep disorder
+          - professional Work;Stress or anxiety;Others
+          - professional Work;Stress or anxiety;Social Media/Internet
+          - professional Work;Stress or anxiety;Study & Exam Purpose
+          - professional Work;Study & Exam Purpose
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games)
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Others
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Stress
+            or anxiety
+          - professional Work;Study & Exam Purpose;Entertainment (TV;movies;games);Stress
+            or anxiety;Others
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Stress
+            or anxiety
+          - professional Work;Study & Exam Purpose;Insomnia or other sleep disorder;Stress
+            or anxiety;Others
+          - professional Work;Study & Exam Purpose;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games)
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Insomnia or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Entertainment
+            (TV;movies;games);Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Insomnia
+            or other sleep disorder;Stress or anxiety;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Others
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Stress or
+            anxiety
+          - professional Work;Study & Exam Purpose;Social Media/Internet;Stress or
+            anxiety;Others
+          - professional Work;Study & Exam Purpose;Stress or anxiety
+          - professional Work;Study & Exam Purpose;Stress or anxiety;Others
+          y:
+          - 2262
+          - 405
+          - 38
+          - 4
+          - 139
+          - 10
+          - 6
+          - 1
+          - 123
+          - 2
+          - 4
+          - 2
+          - 2
+          - 6
+          - 5
+          - 2
+          - 1
+          - 6
+          - 3
+          - 767
+          - 6
+          - 48
+          - 5
+          - 7
+          - 4
+          - 4
+          - 4
+          - 5
+          - 3
+          - 2
+          - 3
+          - 4
+          - 1
+          - 8
+          - 2
+          - 387
+          - 6
+          - 3
+          - 7
+          - 3
+          - 4
+          - 26
+          - 8
+          - 2
+          - 5
+          - 6
+          - 3
+          - 1
+          - 2
+          - 5
+          - 4
+          - 6
+          - 126
+          - 10
+          - 14
+          - 6
+          - 3
+          - 8
+          - 3
+          - 3
+          - 7
+          - 3
+          - 5
+          - 1
+          - 5
+          - 4
+          - 2
+          - 8
+          - 3
+          - 156
+          - 5
+          - 5
+          - 6
+          - 5
+          - 2
+          - 8
+          - 3
+          - 3
+          - 7
+          - 2
+          - 1
+          - 4
+          - 6
+          - 3
+          - 3
+          - 11
+          - 1
+          - 5
+          - 4
+          - 4
+          - 13
+          - 3
+          - 9
+          - 3
+          - 4
+          - 2
+          - 7
+          - 6
+          - 10
+          - 7
+          - 2
+          - 5
+          - 3497
+          - 4403
+          - 817
+          - 56
+          - 267
+          - 18
+          - 250
+          - 1514
+          - 78
+          - 3
+          - 5
+          - 608
+          - 3
+          - 41
+          - 209
+          - 9
+          - 4
+          - 4
+          - 196
+          - 4
+          - 7
+          - 8
+          - 5
+          - 2
+          - 1155
+          - 9
+          - 9
+          - 67
+          - 8
+          - 6
+          - 2
+          - 8
+          - 8
+          - 1
+          - 12
+          - 6
+          - 8
+          - 6
+          - 7
+          - 3
+          - 660
+          - 5
+          - 3
+          - 6
+          - 6
+          - 4
+          - 2
+          - 5
+          - 2
+          - 9
+          - 5
+          - 5
+          - 53
+          - 9
+          - 5
+          - 8
+          - 11
+          - 3
+          - 2
+          - 6
+          - 8
+          - 10
+          - 5
+          - 4
+          - 5
+          - 4
+          - 6
+          - 5
+          - 4
+          - 4
+          - 6
+          - 7
+          - 3
+          - 4
+          - 1177
+          - 1401
+          - 245
+          - 9
+          - 76
+          - 6
+          - 77
+          - 3
+          - 492
+          - 22
+          - 6
+          - 214
+          - 3
+          - 18
+          - 5
+          - 69
+          - 4
+          - 8
+          - 81
+          - 3
+          - 3
+          - 4
+          - 8
+          - 1
+          - 2199
+          - 2826
+          - 514
+          - 35
+          - 182
+          - 5
+          - 147
+          - 878
+          - 46
+          - 409
+          - 22
+          - 119
+          - 7
+          - 133
+          - 689
+          - 29
+          - 2
+          - 387
+          - 6
+          - 5
+          - 22
+          - 4
+          - 3
+          - 10
+          - 4
+          - 8
+          - 6
+          - 3
+          - 484
+          - 592
+          - 116
+          - 9
+          - 37
+          - 2
+          - 38
+          - 3
+          - 166
+          - 17
+          - 4
+          - 100
+          - 3
+          - 10
+          - 2
+          - 37
+          - 4
+          - 3
+          - 33
+          - 3
+          - 4
+          - 2
+          - 3
+          - 3
+          - 871
+          - 1198
+          - 193
+          - 10
+          - 69
+          - 3
+          - 67
+          - 359
+          - 29
+          - 172
+          - 10
+          - 47
+          - 4
+          - 45
+          - 271
+          - 23
+          - 4
+          - 164
+          - 7
+          - 5
+          - 15
+          - 6
+          - 9
+          - 270
+          - 403
+          - 73
+          - 4
+          - 23
+          - 1
+          - 23
+          - 106
+          - 8
+          - 71
+          - 4
+          - 22
+          - 1
+          - 16
+          - 563
+          - 687
+          - 114
+          - 12
+          - 49
+          - 3
+          - 47
+          - 230
+          - 18
+          - 105
+          - 5
+          - 40
+          - 2
+          - 26
+          - 171
+          - 10
+          - 118
+          - 6
+        stattest_name: Jensen-Shannon distance
+      What is your gender?:
+        current_small_hist:
+          x:
+          - Female
+          - Male
+          - Prefer not to say
+          y:
+          - 5194
+          - 5108
+          - 219
+        drift_detected: false
+        drift_score: 0.00579616584878532
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Female
+          - Male
+          - Prefer not to say
+          y:
+          - 21106
+          - 20149
+          - 833
+        stattest_name: Jensen-Shannon distance
+      What is your occupation?:
+        current_small_hist:
+          x:
+          - Freelancing
+          - Housewife
+          - Others
+          - Student
+          - Unemployment
+          - Working Professional
+          y:
+          - 1059
+          - 214
+          - 1168
+          - 4288
+          - 525
+          - 3268
+        drift_detected: false
+        drift_score: 0.007166319704291836
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Freelancing
+          - Housewife
+          - Others
+          - Student
+          - Unemployment
+          - Working Professional
+          y:
+          - 4285
+          - 814
+          - 4635
+          - 17170
+          - 2265
+          - 12918
+        stattest_name: Jensen-Shannon distance
+      What is your weight:
+        current_small_hist:
+          x:
+          - 5.1
+          - 17.09
+          - 29.08
+          - 41.07
+          - 53.06
+          - 65.05
+          - 77.03999999999999
+          - 89.03
+          - 101.02
+          - 113.00999999999999
+          - 125.0
+          y:
+          - 7.926519264057562e-06
+          - 0.0
+          - 0.0006975336952370654
+          - 0.009083791076609966
+          - 0.031682297498438095
+          - 0.03142864888198825
+          - 0.00940877836643632
+          - 0.0010463005428555988
+          - 3.963259632028783e-05
+          - 7.926519264057557e-06
+        drift_detected: false
+        drift_score: 0.010205507267256414
+        feature_type: num
+        ref_small_hist:
+          x:
+          - 5.8
+          - 98.62
+          - 191.44000000000003
+          - 284.26000000000005
+          - 377.08000000000004
+          - 469.90000000000003
+          - 562.72
+          - 655.54
+          - 748.36
+          - 841.1800000000001
+          - 934.0
+          y:
+          - 0.010757157298145923
+          - 1.612690454710975e-05
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 2.559826118588851e-07
+        stattest_name: Wasserstein distance (normed)
+      What strategies do you use to cope with the side effects of late sleeping?:
+        current_small_hist:
+          x:
+          - Caffeine or other stimulants
+          - Caffeine or other stimulants ;Exercise
+          - Caffeine or other stimulants ;Exercise ;Others
+          - Caffeine or other stimulants ;Exercise ;Relaxation techniques  )
+          - Caffeine or other stimulants ;Exercise ;Relaxation techniques  );Others
+          - Caffeine or other stimulants ;Naps during the day
+          - Caffeine or other stimulants ;Naps during the day ;Others
+          - Caffeine or other stimulants ;Others
+          - Caffeine or other stimulants ;Others ;Exercise
+          - Caffeine or other stimulants ;Others ;Naps during the day
+          - Caffeine or other stimulants ;Relaxation techniques  )
+          - Caffeine or other stimulants ;Relaxation techniques  );Exercise
+          - Caffeine or other stimulants ;Relaxation techniques  );Others
+          - Caffeine or other stimulants;Exercise
+          - Caffeine or other stimulants;Exercise;Others
+          - Caffeine or other stimulants;Exercise;Relaxation techniques
+          - Caffeine or other stimulants;Exercise;Relaxation techniques;Others
+          - Caffeine or other stimulants;Others
+          - Caffeine or other stimulants;Relaxation techniques
+          - Caffeine or other stimulants;Relaxation techniques;Others
+          - Exercise
+          - Exercise ;Caffeine or other stimulants
+          - Exercise ;Caffeine or other stimulants ;Naps during the day
+          - Exercise ;Caffeine or other stimulants ;Relaxation techniques  )
+          - Exercise ;Naps during the day
+          - Exercise ;Others
+          - Exercise ;Relaxation techniques  )
+          - Exercise ;Relaxation techniques  );Caffeine or other stimulants
+          - Exercise ;Relaxation techniques  );Others
+          - Exercise;Others
+          - Exercise;Relaxation techniques
+          - Exercise;Relaxation techniques;Others
+          - Naps during the day
+          - Naps during the day ;Caffeine or other stimulants
+          - Naps during the day ;Caffeine or other stimulants ;Exercise
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Others
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Relaxation
+            techniques  )
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Relaxation
+            techniques  );Others
+          - Naps during the day ;Caffeine or other stimulants ;Others
+          - Naps during the day ;Caffeine or other stimulants ;Relaxation techniques  )
+          - Naps during the day ;Caffeine or other stimulants ;Relaxation techniques  );Others
+          - Naps during the day ;Exercise
+          - Naps during the day ;Exercise ;Others
+          - Naps during the day ;Exercise ;Relaxation techniques  )
+          - Naps during the day ;Exercise ;Relaxation techniques  );Others
+          - Naps during the day ;Others
+          - Naps during the day ;Others ;Caffeine or other stimulants
+          - Naps during the day ;Others ;Exercise
+          - Naps during the day ;Relaxation techniques  )
+          - Naps during the day ;Relaxation techniques  );Exercise
+          - Naps during the day ;Relaxation techniques  );Others
+          - Naps during the day;Caffeine or other stimulants
+          - Naps during the day;Caffeine or other stimulants;Exercise
+          - Naps during the day;Caffeine or other stimulants;Exercise;Others
+          - Naps during the day;Caffeine or other stimulants;Exercise;Relaxation techniques
+          - Naps during the day;Caffeine or other stimulants;Exercise;Relaxation techniques;Others
+          - Naps during the day;Caffeine or other stimulants;Others
+          - Naps during the day;Caffeine or other stimulants;Relaxation techniques
+          - Naps during the day;Caffeine or other stimulants;Relaxation techniques;Others
+          - Naps during the day;Exercise
+          - Naps during the day;Exercise;Others
+          - Naps during the day;Exercise;Relaxation techniques
+          - Naps during the day;Exercise;Relaxation techniques;Others
+          - Naps during the day;Others
+          - Naps during the day;Relaxation techniques
+          - Naps during the day;Relaxation techniques;Others
+          - Others
+          - Others ;Caffeine or other stimulants
+          - Others ;Caffeine or other stimulants ;Exercise
+          - Others ;Caffeine or other stimulants ;Naps during the day
+          - Others ;Exercise
+          - Others ;Naps during the day
+          - Others ;Naps during the day ;Caffeine or other stimulants
+          - Others ;Naps during the day ;Exercise
+          - Others ;Relaxation techniques  )
+          - Others ;Relaxation techniques  );Caffeine or other stimulants
+          - Others ;Relaxation techniques  );Naps during the day
+          - Relaxation techniques
+          - Relaxation techniques  )
+          - Relaxation techniques  );Caffeine or other stimulants
+          - Relaxation techniques  );Exercise
+          - Relaxation techniques  );Exercise ;Naps during the day
+          - Relaxation techniques  );Naps during the day
+          - Relaxation techniques  );Others
+          - Relaxation techniques  );Others ;Naps during the day
+          - Relaxation techniques;Others
+          y:
+          - 1052
+          - 19
+          - 1
+          - 6
+          - 1
+          - 13
+          - 0
+          - 17
+          - 0
+          - 0
+          - 23
+          - 0
+          - 3
+          - 284
+          - 9
+          - 95
+          - 7
+          - 55
+          - 490
+          - 33
+          - 462
+          - 10
+          - 0
+          - 0
+          - 9
+          - 9
+          - 27
+          - 0
+          - 4
+          - 13
+          - 162
+          - 10
+          - 1633
+          - 41
+          - 4
+          - 2
+          - 3
+          - 0
+          - 6
+          - 2
+          - 4
+          - 15
+          - 4
+          - 8
+          - 1
+          - 12
+          - 0
+          - 0
+          - 20
+          - 0
+          - 1
+          - 1097
+          - 262
+          - 7
+          - 131
+          - 4
+          - 59
+          - 450
+          - 15
+          - 377
+          - 19
+          - 166
+          - 6
+          - 84
+          - 693
+          - 27
+          - 115
+          - 16
+          - 0
+          - 0
+          - 12
+          - 6
+          - 0
+          - 0
+          - 17
+          - 0
+          - 0
+          - 647
+          - 23
+          - 17
+          - 21
+          - 0
+          - 6
+          - 13
+          - 0
+          - 29
+        drift_detected: false
+        drift_score: 0.04356138908362093
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - Caffeine or other stimulants
+          - Caffeine or other stimulants ;Exercise
+          - Caffeine or other stimulants ;Exercise ;Others
+          - Caffeine or other stimulants ;Exercise ;Relaxation techniques  )
+          - Caffeine or other stimulants ;Exercise ;Relaxation techniques  );Others
+          - Caffeine or other stimulants ;Naps during the day
+          - Caffeine or other stimulants ;Naps during the day ;Others
+          - Caffeine or other stimulants ;Others
+          - Caffeine or other stimulants ;Others ;Exercise
+          - Caffeine or other stimulants ;Others ;Naps during the day
+          - Caffeine or other stimulants ;Relaxation techniques  )
+          - Caffeine or other stimulants ;Relaxation techniques  );Exercise
+          - Caffeine or other stimulants ;Relaxation techniques  );Others
+          - Caffeine or other stimulants;Exercise
+          - Caffeine or other stimulants;Exercise;Others
+          - Caffeine or other stimulants;Exercise;Relaxation techniques
+          - Caffeine or other stimulants;Exercise;Relaxation techniques;Others
+          - Caffeine or other stimulants;Others
+          - Caffeine or other stimulants;Relaxation techniques
+          - Caffeine or other stimulants;Relaxation techniques;Others
+          - Exercise
+          - Exercise ;Caffeine or other stimulants
+          - Exercise ;Caffeine or other stimulants ;Naps during the day
+          - Exercise ;Caffeine or other stimulants ;Relaxation techniques  )
+          - Exercise ;Naps during the day
+          - Exercise ;Others
+          - Exercise ;Relaxation techniques  )
+          - Exercise ;Relaxation techniques  );Caffeine or other stimulants
+          - Exercise ;Relaxation techniques  );Others
+          - Exercise;Others
+          - Exercise;Relaxation techniques
+          - Exercise;Relaxation techniques;Others
+          - Naps during the day
+          - Naps during the day ;Caffeine or other stimulants
+          - Naps during the day ;Caffeine or other stimulants ;Exercise
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Others
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Relaxation
+            techniques  )
+          - Naps during the day ;Caffeine or other stimulants ;Exercise ;Relaxation
+            techniques  );Others
+          - Naps during the day ;Caffeine or other stimulants ;Others
+          - Naps during the day ;Caffeine or other stimulants ;Relaxation techniques  )
+          - Naps during the day ;Caffeine or other stimulants ;Relaxation techniques  );Others
+          - Naps during the day ;Exercise
+          - Naps during the day ;Exercise ;Others
+          - Naps during the day ;Exercise ;Relaxation techniques  )
+          - Naps during the day ;Exercise ;Relaxation techniques  );Others
+          - Naps during the day ;Others
+          - Naps during the day ;Others ;Caffeine or other stimulants
+          - Naps during the day ;Others ;Exercise
+          - Naps during the day ;Relaxation techniques  )
+          - Naps during the day ;Relaxation techniques  );Exercise
+          - Naps during the day ;Relaxation techniques  );Others
+          - Naps during the day;Caffeine or other stimulants
+          - Naps during the day;Caffeine or other stimulants;Exercise
+          - Naps during the day;Caffeine or other stimulants;Exercise;Others
+          - Naps during the day;Caffeine or other stimulants;Exercise;Relaxation techniques
+          - Naps during the day;Caffeine or other stimulants;Exercise;Relaxation techniques;Others
+          - Naps during the day;Caffeine or other stimulants;Others
+          - Naps during the day;Caffeine or other stimulants;Relaxation techniques
+          - Naps during the day;Caffeine or other stimulants;Relaxation techniques;Others
+          - Naps during the day;Exercise
+          - Naps during the day;Exercise;Others
+          - Naps during the day;Exercise;Relaxation techniques
+          - Naps during the day;Exercise;Relaxation techniques;Others
+          - Naps during the day;Others
+          - Naps during the day;Relaxation techniques
+          - Naps during the day;Relaxation techniques;Others
+          - Others
+          - Others ;Caffeine or other stimulants
+          - Others ;Caffeine or other stimulants ;Exercise
+          - Others ;Caffeine or other stimulants ;Naps during the day
+          - Others ;Exercise
+          - Others ;Naps during the day
+          - Others ;Naps during the day ;Caffeine or other stimulants
+          - Others ;Naps during the day ;Exercise
+          - Others ;Relaxation techniques  )
+          - Others ;Relaxation techniques  );Caffeine or other stimulants
+          - Others ;Relaxation techniques  );Naps during the day
+          - Relaxation techniques
+          - Relaxation techniques  )
+          - Relaxation techniques  );Caffeine or other stimulants
+          - Relaxation techniques  );Exercise
+          - Relaxation techniques  );Exercise ;Naps during the day
+          - Relaxation techniques  );Naps during the day
+          - Relaxation techniques  );Others
+          - Relaxation techniques  );Others ;Naps during the day
+          - Relaxation techniques;Others
+          y:
+          - 4287
+          - 86
+          - 12
+          - 19
+          - 1
+          - 55
+          - 1
+          - 77
+          - 1
+          - 1
+          - 74
+          - 1
+          - 16
+          - 1043
+          - 54
+          - 428
+          - 20
+          - 231
+          - 1844
+          - 94
+          - 1713
+          - 77
+          - 1
+          - 2
+          - 38
+          - 66
+          - 79
+          - 1
+          - 7
+          - 83
+          - 694
+          - 39
+          - 6576
+          - 101
+          - 23
+          - 9
+          - 3
+          - 1
+          - 13
+          - 24
+          - 5
+          - 97
+          - 20
+          - 23
+          - 9
+          - 71
+          - 1
+          - 1
+          - 63
+          - 1
+          - 18
+          - 4411
+          - 1067
+          - 43
+          - 470
+          - 31
+          - 238
+          - 1750
+          - 102
+          - 1590
+          - 84
+          - 671
+          - 32
+          - 358
+          - 2816
+          - 144
+          - 460
+          - 43
+          - 1
+          - 1
+          - 43
+          - 53
+          - 1
+          - 1
+          - 58
+          - 1
+          - 1
+          - 2760
+          - 63
+          - 52
+          - 40
+          - 1
+          - 46
+          - 75
+          - 2
+          - 165
+        stattest_name: Jensen-Shannon distance
+      What time do you usually go to bed on weekends?:
+        current_small_hist:
+          x:
+          - 10 PM - 12 AM
+          - 12 AM - 2 AM
+          - After 2 AM
+          - Before 10 PM
+          y:
+          - 2146
+          - 4143
+          - 3632
+          - 601
+        drift_detected: false
+        drift_score: 0.005198353264780942
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 10 PM - 12 AM
+          - 12 AM - 2 AM
+          - After 2 AM
+          - Before 10 PM
+          y:
+          - 8614
+          - 16771
+          - 14415
+          - 2288
+        stattest_name: Jensen-Shannon distance
+      What time do you usually go to bed?:
+        current_small_hist:
+          x:
+          - 10 PM - 12 AM
+          - 12 AM - 2 AM
+          - After 2 AM
+          - Before 10 PM
+          y:
+          - 3270
+          - 4573
+          - 1594
+          - 1085
+        drift_detected: false
+        drift_score: 0.009256863682539909
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 10 PM - 12 AM
+          - 12 AM - 2 AM
+          - After 2 AM
+          - Before 10 PM
+          y:
+          - 12585
+          - 18694
+          - 6455
+          - 4354
+        stattest_name: Jensen-Shannon distance
+      What time do you usually wake up on weekends?:
+        current_small_hist:
+          x:
+          - 6 AM - 8 AM
+          - 8 AM - 10 AM
+          - After 10 AM
+          - Before 6 AM
+          y:
+          - 1612
+          - 4198
+          - 4138
+          - 574
+        drift_detected: false
+        drift_score: 0.002084084754219591
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 6 AM - 8 AM
+          - 8 AM - 10 AM
+          - After 10 AM
+          - Before 6 AM
+          y:
+          - 6473
+          - 16814
+          - 16461
+          - 2340
+        stattest_name: Jensen-Shannon distance
+      What time do you usually wake up on working days?:
+        current_small_hist:
+          x:
+          - 6 AM - 8 AM
+          - 8 AM - 10 AM
+          - After 10 AM
+          - Before 6 AM
+          y:
+          - 4653
+          - 2133
+          - 602
+          - 3134
+        drift_detected: false
+        drift_score: 0.0016569286955009474
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 6 AM - 8 AM
+          - 8 AM - 10 AM
+          - After 10 AM
+          - Before 6 AM
+          y:
+          - 18622
+          - 8554
+          - 2363
+          - 12549
+        stattest_name: Jensen-Shannon distance
+      Your Age:
+        current_small_hist:
+          x:
+          - 18-30
+          - 31-50
+          - Above 50
+          - Under 18
+          y:
+          - 4742
+          - 2088
+          - 1123
+          - 2569
+        drift_detected: false
+        drift_score: 0.006700772832562597
+        feature_type: cat
+        ref_small_hist:
+          x:
+          - 18-30
+          - 31-50
+          - Above 50
+          - Under 18
+          y:
+          - 18755
+          - 8616
+          - 4361
+          - 10356
+        stattest_name: Jensen-Shannon distance
+      Your Height:
+        current_small_hist:
+          x:
+          - 4.0
+          - 8.5
+          - 13.0
+          - 17.5
+          - 22.0
+          - 26.5
+          - 31.0
+          - 35.5
+          - 40.0
+          - 44.5
+          - 49.0
+          y:
+          - 0.22220110044461341
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 2.1121777608803557e-05
+        drift_detected: false
+        drift_score: 0.009983278534904239
+        feature_type: num
+        ref_small_hist:
+          x:
+          - 4.0
+          - 9.5
+          - 15.0
+          - 20.5
+          - 26.0
+          - 31.5
+          - 37.0
+          - 42.5
+          - 48.0
+          - 53.5
+          - 59.0
+          y:
+          - 0.18180522041938765
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+          - 4.3204662647192885e-06
+          - 0.0
+          - 8.640932529438577e-06
+        stattest_name: Wasserstein distance (normed)
+      dataset_drift: false
+      n_drifted_features: 0
+      n_features: 20
+      share_drifted_features: 0.0
+    num_feature_names:
+    - How would you rate the comfort of your sleeping environment
+    - What is your weight
+    - Your Height
+    options:
+      confidence: null
+      drift_share: 0.5
+      nbinsx: 10
+      xbins: null
+    target_names: null
+    text_feature_names: []
+    utility_columns:
+      date: null
+      id: null
+      prediction: null
+      target: null
+  datetime: '2026-05-23 17:24:13.737263'
+  name: data_drift
+timestamp: '2026-05-23 17:24:13.740264'
