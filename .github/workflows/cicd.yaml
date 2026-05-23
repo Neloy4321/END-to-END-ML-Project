@@ -1,0 +1,159 @@
+name: Deploy Sleep Health Prediction App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+
+  # =========================================
+  # CONTINUOUS INTEGRATION
+  # =========================================
+  Continuous-Integration:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # =====================================
+      # CHECKOUT CODE
+      # =====================================
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+
+      # =====================================
+      # AWS CONFIG
+      # =====================================
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+
+      # =====================================
+      # LOGIN TO ECR
+      # =====================================
+      - name: Login to Amazon ECR
+        id: login-ecr
+
+        uses: aws-actions/amazon-ecr-login@v1
+
+
+      # =====================================
+      # BUILD + PUSH IMAGE
+      # =====================================
+      - name: Build, Tag, and Push Docker Image
+        id: build-image
+
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+
+          ECR_REPOSITORY: ${{ secrets.ECR_REPO }}
+
+          IMAGE_TAG: latest
+
+        run: |
+
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+          echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+
+
+  # =========================================
+  # CONTINUOUS DEPLOYMENT
+  # =========================================
+  Continuous-Deployment:
+
+    needs: Continuous-Integration
+
+    runs-on: self-hosted
+
+    steps:
+
+      # =====================================
+      # CHECKOUT
+      # =====================================
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+
+
+      # =====================================
+      # AWS CONFIG
+      # =====================================
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+
+      # =====================================
+      # LOGIN TO ECR
+      # =====================================
+      - name: Login to Amazon ECR
+        id: login-ecr
+
+        uses: aws-actions/amazon-ecr-login@v1
+
+
+      # =====================================
+      # STOP OLD CONTAINER
+      # =====================================
+      - name: Stop Existing Container
+
+        run: |
+
+          docker ps -q --filter "name=sleep-health-app" | grep -q . && docker stop sleep-health-app || true
+
+          docker ps -aq --filter "name=sleep-health-app" | grep -q . && docker rm sleep-health-app || true
+
+
+      # =====================================
+      # REMOVE OLD IMAGE
+      # =====================================
+      - name: Remove Old Docker Image
+
+        run: |
+
+          docker image prune -af
+
+
+      # =====================================
+      # PULL LATEST IMAGE
+      # =====================================
+      - name: Pull Latest Docker Image
+
+        run: |
+
+          docker pull ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO }}:latest
+
+
+      # =====================================
+      # RUN CONTAINER
+      # =====================================
+      - name: Run Docker Container
+
+        run: |
+
+          docker run -d \
+          --name sleep-health-app \
+          -p 8000:8000 \
+          -e AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
+          -e AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
+          -e AWS_DEFAULT_REGION="${{ secrets.AWS_DEFAULT_REGION }}" \
+          -e MONGODB_URL="${{ secrets.MONGODB_URL }}" \
+          ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO }}:latest
