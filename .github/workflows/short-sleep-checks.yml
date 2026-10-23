@@ -1,10 +1,10 @@
-name: Validate Sleep Survey Explorer
+name: Validate Sleep Survey Explorer V3
 
 on:
   pull_request:
   push:
     branches:
-      - feature/v2-multiclass-explainable-dashboard
+      - feature/v3-expanded-survey-insights
 
 jobs:
   verify:
@@ -23,8 +23,9 @@ jobs:
         run: |
           python -m unittest discover -s tests -p "test_short_sleep.py" -v
           python -m unittest discover -s tests -p "test_duration_v2.py" -v
+          python -m unittest discover -s tests -p "test_survey_insights_v3.py" -v
       - name: Validate Python compilation
-        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py
       - name: Build non-root image
         run: docker build -t sleep-survey-explorer:test .
       - name: Exercise real container HTTP flow
@@ -48,9 +49,10 @@ jobs:
                   time.sleep(1)
           else:
               raise RuntimeError("Application did not become healthy")
-          assert health["status"] == "ok" and health["version"] == 2
+          assert health["status"] == "ok" and health["version"] == 2 and health["dashboard_version"] == 3
           homepage = urllib.request.urlopen(base + "/", timeout=3).read().decode()
           assert "Sleep Survey Explorer" in homepage
+          assert "medical_self_report" in homepage
 
           artifact = json.loads(Path("models/sleep_duration_multiclass_v2.json").read_text())
           answers = {key: artifact["category_options"][col][0] for key, col, _ in FORM_FIELDS}
@@ -58,6 +60,13 @@ jobs:
           html = urllib.request.urlopen(form_req, timeout=3).read().decode()
           assert "Model-estimated questionnaire response" in html
           assert "What if you selected a different schedule?" in html
+          full_answers = dict(answers)
+          full_answers["medical_self_report"] = "Asthma"
+          full_answers["age"] = "18-30"
+          full_req = urllib.request.Request(base + "/assess", data=urllib.parse.urlencode(full_answers).encode())
+          full_html = urllib.request.urlopen(full_req, timeout=3).read().decode()
+          assert "Reported medical condition: Asthma" in full_html
+          assert "Survey cohort comparisons" in full_html
           compare = urllib.request.Request(
               base + "/api/compare",
               data=json.dumps({"answers": answers, "bed_time": "After 2 AM", "wake_time": "Before 6 AM"}).encode(),

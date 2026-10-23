@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore self-reported sleep-duration patterns using Neloy's independently collected sleep survey. Non-medical ML demo.">
-  <title>Sleep Survey Explorer · Neloy</title>
+  <title>Sleep Survey Explorer V3 · Neloy</title>
   <style>
     :root { color-scheme: light; font-family: Inter, "Segoe UI", system-ui, sans-serif; --navy:#152743; --muted:#536980; --blue:#2658b4; --teal:#008b85; --line:#dce7f2; --surface:#fff; }
     * { box-sizing:border-box; }
@@ -62,6 +62,23 @@
     .foot { margin:25px 0 0; border-top:1px solid var(--line); padding-top:20px; color:#526980; font-size:.88rem; }
     .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
     .meta span { border:1px solid #d1dfe9; background:#f9fcff; border-radius:9px; padding:8px 11px; color:#496177; font-size:.82rem; }
+    .subsection { padding-top:22px; margin-top:25px; border-top:1px solid var(--line); }
+    .section-title { font-size:1.14rem; color:#174b79; font-weight:830; margin:0 0 7px; }
+    .optional-note { font-size:.86rem; color:#55718b; margin:0 0 18px; }
+    .check-group { border:1px solid #dce7f2; border-radius:13px; padding:15px 18px; margin:17px 0; }
+    .check-group legend { padding:0 7px; font-weight:760; font-size:.92rem; }
+    .check-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .check-grid label { display:flex; align-items:center; gap:9px; margin:0; font-size:.9rem; cursor:pointer; }
+    .check-grid input { width:17px; height:17px; accent-color:#167e9a; flex-shrink:0; }
+    .shift-box { background:#f4f9ff; border:1px solid #d8e5f4; border-radius:11px; padding:14px; }
+    .shift-box p { margin:6px 0; }
+    .cohort-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; margin-top:22px; }
+    .cohort-card { background:#fbfdff; border:1px solid var(--line); border-radius:13px; padding:17px; }
+    .cohort-card h3 { margin-bottom:7px; }
+    .cohort-card .bar-label { font-size:.84rem; }
+    .cohort-card .track { height:9px; }
+    .context-chip { display:inline-block; margin:4px; padding:6px 10px; background:#edf6fa; border:1px solid #d1e8ed; border-radius:99px; font-size:.84rem; }
+    @media(max-width:720px) { .check-grid,.cohort-grid {grid-template-columns:1fr;} }
     @media(max-width:720px) { .form-grid,.twocol { grid-template-columns:1fr; } .stat-grid { grid-template-columns:1fr; } .hero { padding-bottom:84px; } .topline { margin-bottom:30px; } }
     @media print { body { background:#fff; } .hero { padding:18px 0 22px; background:#fff; color:#152743; } .hero p { color:#334; } main { margin:0 auto; } .card { box-shadow:none; break-inside:avoid; } #survey, #what-if, .no-print { display:none!important; } .prediction { print-color-adjust:exact; } }
   </style>
@@ -69,9 +86,9 @@
 <body>
 <header class="hero">
   <div class="container">
-    <div class="topline"><span class="brand">NELOY / MACHINE LEARNING</span><span class="pill">Sleep survey explorer · V2</span></div>
+    <div class="topline"><span class="brand">NELOY / MACHINE LEARNING</span><span class="pill">Sleep survey explorer · V3</span></div>
     <h1>Understand your sleep survey response pattern.</h1>
-    <p>Explore four possible self-reported sleep-duration answers, examine what shapes the model's estimate, and compare different bedtime and wake-up schedules.</p>
+    <p>Explore four model-estimated sleep-duration answers plus your weekend pattern, habits, self-reported experiences and medical-condition survey comparisons.</p>
   </div>
 </header>
 <main>
@@ -134,7 +151,7 @@
       </div>
       <div class="subcard">
         <h3>How to read the result</h3>
-        <p>The model was trained to reconstruct a <em>survey answer</em> using reported schedule, not to measure sleep duration. Its output can be uncertain even for answers it has seen before.</p>
+        <p>The fixed V2 model reconstructs a <em>survey answer</em> using reported schedule, not to measure sleep duration. Its output can be uncertain even for answers it has seen before.</p>
         <p class="muted">Data collection does not establish independent respondents. The test is internal; there is no external or clinical validation.</p>
       </div>
     </div>
@@ -142,6 +159,69 @@
       <button class="secondary" type="button" onclick="window.print()">Print / Save results as PDF</button>
       <button class="secondary" type="button" onclick="document.getElementById('survey').scrollIntoView({behavior:'smooth'})">Change my answers</button>
     </div>
+  </section>
+  <section class="card" id="insight-results">
+    <div class="eyebrow">V3 · descriptive survey insights</div>
+    <h2>More context from your questionnaire</h2>
+    <p class="muted">These panels use your own additional answers and published aggregate counts from the project dataset. They do <strong>not</strong> change the frozen four-category prediction above, predict a disease, or provide medical advice.</p>
+    {% if insight_report and insight_report.supplied_optional_answers %}
+      <div class="twocol">
+        <div class="subcard">
+          <h3>Weekday versus weekend schedule</h3>
+          <div class="shift-box">
+            <p><strong>Bedtime:</strong> {{ insight_report.bed_shift or "Provide weekend bedtime to compare." }}</p>
+            <p><strong>Wake-up:</strong> {{ insight_report.wake_shift or "Provide weekend wake time to compare." }}</p>
+          </div>
+          <p class="muted">Differences are answer-band changes only, not exact hours of sleep loss or a medical assessment.</p>
+        </div>
+        <div class="subcard">
+          <h3>Your self-reported profile</h3>
+          {% for item in insight_report.summaries %}
+            <span class="context-chip"><strong>{{ item.label }}:</strong> {{ item.answer }}</span>
+          {% endfor %}
+          {% if not insight_report.summaries %}
+            <p class="muted">No optional single-choice answers provided.</p>
+          {% endif %}
+        </div>
+      </div>
+      {% if insight_report.selected_behaviours %}
+      <div class="subsection">
+        <h3>Selected reasons, experiences and coping choices</h3>
+        <p class="muted">The percentages below are <strong>how often those answers appeared in this dataset</strong> among people who answered the relevant question. They are not your probability of developing a symptom.</p>
+        <div class="grid-insight">
+        {% for item in insight_report.selected_behaviours %}
+          <span class="context-chip">{{ item.answer }} · {{ item.survey_percent }}% of answered surveys</span>
+        {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      <div class="subsection">
+        <h3>Survey cohort comparisons</h3>
+        <p class="muted">Each chart shows the actual distribution of <strong>self-reported duration answers</strong> in one selected group. Groups are aggregated independently, not combined. The comparison is observational; it cannot establish disease risk or cause. No cohort below 100 records is shown.</p>
+        <div class="cohort-grid">
+          {% for cohort in insight_report.cohorts %}
+          <div class="cohort-card">
+            <h3>{{ cohort.title }}: {{ cohort.answer }}</h3>
+            <p class="muted">n = {{ "{:,}".format(cohort.n) }} survey responses</p>
+            {% for item in cohort.distribution %}
+              <div class="bar-label"><span>{{ item.label }}</span><span>{{ item.percent }}%</span></div>
+              <div class="track"><div class="fill" style="width:{{ item.percent }}%"></div></div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+          <div class="cohort-card">
+            <h3>All survey responses</h3>
+            <p class="muted">n = {{ "{:,}".format(sample_size) }} survey records</p>
+            {% for item in insight_report.overall_distribution %}
+              <div class="bar-label"><span>{{ item.label }}</span><span>{{ item.percent }}%</span></div>
+              <div class="track"><div class="fill" style="width:{{ item.percent }}%"></div></div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p>Want richer insights? Provide any of the optional V3 questions below and submit again. The V2 predictor will stay the same.</p>
+    {% endif %}
   </section>
   <section class="card" id="what-if">
     <div class="eyebrow">Interactive comparison</div>
@@ -172,9 +252,9 @@
   </section>
   {% endif %}
   <section class="card" id="survey">
-    <div class="eyebrow">Six questions · your inputs</div>
+    <div class="eyebrow">Six prediction questions + eleven optional insight questions</div>
     <h2>{{ "Adjust your answers" if result else "Explore your sleep survey pattern" }}</h2>
-    <p class="muted">All six questions come from the owner's original questionnaire. The first two drive the validated V2 duration estimate; the other four are displayed as your own reported context, not independent disease predictions.</p>
+    <p class="muted">The first six answers support the unchanged V2 prediction and direct symptom context. Eleven additional questions reveal descriptive comparisons, not unvalidated medical predictions.</p>
     {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
     <form method="post" action="/assess">
       <div class="form-grid">
@@ -187,6 +267,40 @@
           </select>
           <p class="detail">{{ "Used in duration prediction" if q.used_by_model else "Reported context only (not predicted)" }}</p>
         </div>
+        {% endfor %}
+      </div>
+
+      <div class="subsection">
+        <h3>More questions from your original survey</h3>
+        <p class="optional-note">All V3 questions below are optional. You can leave medical history blank. Your additional answers do not change the accuracy or model inputs of the four-class predictor.</p>
+        {% for section in survey_sections %}
+          <div class="subsection">
+            <h3 class="section-title">{{ section.title }}</h3>
+            {% if section.single %}
+              <div class="form-grid">
+              {% for q in section.single %}
+                <div class="field">
+                  <label for="extra-{{ q.key }}">{{ q.label }}</label>
+                  <select id="extra-{{ q.key }}" name="{{ q.key }}">
+                    <option value="">Skip / prefer not to say</option>
+                    {% for choice in q.options %}<option value="{{ choice }}" {% if choice == q.selected %}selected{% endif %}>{{ choice }}</option>{% endfor %}
+                  </select>
+                  <p class="detail">Survey context only · not used in ML prediction</p>
+                </div>
+              {% endfor %}
+              </div>
+            {% endif %}
+            {% for q in section.multi %}
+              <fieldset class="check-group">
+                <legend>{{ q.label }} (choose any)</legend>
+                <div class="check-grid">
+                  {% for choice in q.options %}
+                    <label><input type="checkbox" name="{{ q.key }}" value="{{ choice.value }}" {% if choice.checked %}checked{% endif %}><span>{{ choice.value }}</span></label>
+                  {% endfor %}
+                </div>
+              </fieldset>
+            {% endfor %}
+          </div>
         {% endfor %}
       </div>
       <div class="actions"><button type="submit">Generate detailed survey estimate</button></div>

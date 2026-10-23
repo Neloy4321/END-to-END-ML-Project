@@ -1,11 +1,28 @@
-# Sleep Survey Explorer V2 — End-to-End ML Project
+# Sleep Survey Explorer V3 — End-to-End ML Project
 
 Owner: **Neloy Pramanik Supto**  
 Data: **52,610 owner-collected questionnaire records** in notebooks/final_sleep_dataDev.csv.
 
-The current FastAPI app estimates a respondent's answer to one of **four sleep-duration survey categories** (less than 4, 4–6, 6–8, and more than 8 hours). It does **not** measure sleep or diagnose diseases.
+The FastAPI app estimates one of **four self-reported sleep-duration answer categories** (less than 4, 4–6, 6–8, and more than 8 hours). It does **not** measure sleep or diagnose diseases. V3 preserves the identical V2 trained model and test performance, adding optional questionnaire detail and descriptive comparisons.
 
-## V2 interactive dashboard
+## V3 — More survey questions, unchanged accuracy
+
+The app now accepts **17 questions**: six original required answers and **eleven optional survey-context questions** (age, gender, occupation, weekend bed/wake times, sleep-onset latency, self-reported medical condition, concentration difficulty, late-night reasons, side effects, and coping strategies).
+
+- Weekday/weekend timing shifts in **survey answer bands** (no invented hours).
+- Symptom, coping, lifestyle and questionnaire-profile summaries.
+- Descriptive four-category distributions for selected age, gender, occupation, and **self-reported medical condition** compared with the full collected survey.
+- No individual disease prediction: the original medical answers are not verified diagnoses, and prior models for medical labels were unreliable/target-leaked.
+- All optional answers are *not* V2 predictor features. The same six answers always produce the same four ML probabilities, regardless of what is entered in V3.
+- Aggregate comparison cohorts below 100 records are excluded. The raw dataset remains outside the serving container.
+
+**Accuracy stays 86.10% on the same 9,207-record internal holdout; macro-F1 stays 85.66%.** This preserves the existing result, not a guarantee of accuracy for outside populations.
+
+For the detailed field map, privacy/provenance safeguards, and regression tests see **[V3 methods and acceptance](docs/V3_SURVEY_INSIGHTS.md)**.
+
+## V2 model and interactive prediction (preserved)
+
+
 
 - Four response bars, most likely answer, runner-up, and combined under-6 / 6+ model scores.
 - Coefficient-level explanation of which schedule answers favour the chosen category versus runner-up.

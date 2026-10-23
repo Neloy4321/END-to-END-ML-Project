@@ -7,11 +7,13 @@ from fastapi.templating import Jinja2Templates
 
 from sleep_project.behavioral_assessment import InvalidAssessmentInput
 from sleep_project.duration_v2 import SleepDurationAssessmentV2
+from sleep_project.survey_insights_v3 import SurveyInsightsV3
 
 BASE = Path(__file__).resolve().parent
 assessor = SleepDurationAssessmentV2(BASE / "models" / "sleep_duration_multiclass_v2.json")
+survey_insights = SurveyInsightsV3(BASE / "models" / "survey_cohorts_v3.json")
 templates = Jinja2Templates(directory=str(BASE / "templates"))
-app = FastAPI(title="Sleep Behaviour Survey Explorer", version="2.0.0")
+app = FastAPI(title="Sleep Behaviour Survey Explorer", version="3.0.0")
 
 
 @app.middleware("http")
@@ -21,10 +23,13 @@ async def no_personal_response_cache(request, call_next):
     return response
 
 
-def page_context(request, selected=None, result=None, error=None):
+def page_context(request, selected=None, result=None, error=None,
+                 selected_extra=None, insight_report=None):
     return {
         "request": request,
         "questions": assessor.questions(selected),
+        "survey_sections": survey_insights.sections(selected_extra),
+        "insight_report": insight_report,
         "result": result,
         "error": error,
         "holdout": assessor.model["evaluation"]["held_out_test"],
@@ -45,15 +50,22 @@ async def assess(request: Request):
     answers = dict(form)
     try:
         result = assessor.predict(answers)
+        extra_answers = survey_insights.parse(form)
+        insight_report = survey_insights.report(result["chosen"], extra_answers)
     except InvalidAssessmentInput as exc:
         return templates.TemplateResponse(
             request=request, name="assessment.html",
-            context=page_context(request, selected=answers, error=str(exc)),
+            context=page_context(
+                request, selected=answers, error=str(exc), selected_extra=form
+            ),
             status_code=422,
         )
     return templates.TemplateResponse(
         request=request, name="assessment.html",
-        context=page_context(request, selected=answers, result=result),
+        context=page_context(
+            request, selected=answers, result=result,
+            selected_extra=extra_answers, insight_report=insight_report
+        ),
     )
 
 
@@ -87,7 +99,8 @@ async def obsolete_medical_prediction():
 
 @app.get("/healthz")
 async def healthz():
-    return {"status": "ok", "task": assessor.model["task"], "version": 2}
+    return {"status": "ok", "task": assessor.model["task"],
+            "version": 2, "dashboard_version": 3}
 
 
 if __name__ == "__main__":

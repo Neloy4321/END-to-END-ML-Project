@@ -1,0 +1,612 @@
+{
+  "schema_version": 3,
+  "task": "descriptive_non_diagnostic_survey_cohorts",
+  "source_record_count": 52610,
+  "class_labels": [
+    "Less than 4 hours",
+    "4-6 hours",
+    "6-8 hours",
+    "More than 8 hours"
+  ],
+  "minimum_cohort_size": 100,
+  "overall": {
+    "n": 52610,
+    "counts": {
+      "Less than 4 hours": 9347,
+      "4-6 hours": 18171,
+      "6-8 hours": 17428,
+      "More than 8 hours": 7664
+    },
+    "percent": {
+      "Less than 4 hours": 17.8,
+      "4-6 hours": 34.5,
+      "6-8 hours": 33.1,
+      "More than 8 hours": 14.6
+    }
+  },
+  "by_age": {
+    "18-30": {
+      "n": 23497,
+      "counts": {
+        "Less than 4 hours": 4179,
+        "4-6 hours": 8130,
+        "6-8 hours": 7842,
+        "More than 8 hours": 3346
+      },
+      "percent": {
+        "Less than 4 hours": 17.8,
+        "4-6 hours": 34.6,
+        "6-8 hours": 33.4,
+        "More than 8 hours": 14.2
+      }
+    },
+    "31-50": {
+      "n": 10704,
+      "counts": {
+        "Less than 4 hours": 1875,
+        "4-6 hours": 3740,
+        "6-8 hours": 3550,
+        "More than 8 hours": 1539
+      },
+      "percent": {
+        "Less than 4 hours": 17.5,
+        "4-6 hours": 34.9,
+        "6-8 hours": 33.2,
+        "More than 8 hours": 14.4
+      }
+    },
+    "Above 50": {
+      "n": 5484,
+      "counts": {
+        "Less than 4 hours": 1003,
+        "4-6 hours": 1896,
+        "6-8 hours": 1776,
+        "More than 8 hours": 809
+      },
+      "percent": {
+        "Less than 4 hours": 18.3,
+        "4-6 hours": 34.6,
+        "6-8 hours": 32.4,
+        "More than 8 hours": 14.8
+      }
+    },
+    "Under 18": {
+      "n": 12925,
+      "counts": {
+        "Less than 4 hours": 2290,
+        "4-6 hours": 4405,
+        "6-8 hours": 4260,
+        "More than 8 hours": 1970
+      },
+      "percent": {
+        "Less than 4 hours": 17.7,
+        "4-6 hours": 34.1,
+        "6-8 hours": 33.0,
+        "More than 8 hours": 15.2
+      }
+    }
+  },
+  "by_gender": {
+    "Female": {
+      "n": 26300,
+      "counts": {
+        "Less than 4 hours": 4689,
+        "4-6 hours": 9101,
+        "6-8 hours": 8739,
+        "More than 8 hours": 3771
+      },
+      "percent": {
+        "Less than 4 hours": 17.8,
+        "4-6 hours": 34.6,
+        "6-8 hours": 33.2,
+        "More than 8 hours": 14.3
+      }
+    },
+    "Male": {
+      "n": 25257,
+      "counts": {
+        "Less than 4 hours": 4471,
+        "4-6 hours": 8694,
+        "6-8 hours": 8338,
+        "More than 8 hours": 3754
+      },
+      "percent": {
+        "Less than 4 hours": 17.7,
+        "4-6 hours": 34.4,
+        "6-8 hours": 33.0,
+        "More than 8 hours": 14.9
+      }
+    },
+    "Prefer not to say": {
+      "n": 1052,
+      "counts": {
+        "Less than 4 hours": 187,
+        "4-6 hours": 376,
+        "6-8 hours": 350,
+        "More than 8 hours": 139
+      },
+      "percent": {
+        "Less than 4 hours": 17.8,
+        "4-6 hours": 35.7,
+        "6-8 hours": 33.3,
+        "More than 8 hours": 13.2
+      }
+    }
+  },
+  "by_occupation": {
+    "Freelancing": {
+      "n": 5344,
+      "counts": {
+        "Less than 4 hours": 969,
+        "4-6 hours": 1855,
+        "6-8 hours": 1733,
+        "More than 8 hours": 787
+      },
+      "percent": {
+        "Less than 4 hours": 18.1,
+        "4-6 hours": 34.7,
+        "6-8 hours": 32.4,
+        "More than 8 hours": 14.7
+      }
+    },
+    "Housewife": {
+      "n": 1028,
+      "counts": {
+        "Less than 4 hours": 192,
+        "4-6 hours": 356,
+        "6-8 hours": 337,
+        "More than 8 hours": 143
+      },
+      "percent": {
+        "Less than 4 hours": 18.7,
+        "4-6 hours": 34.6,
+        "6-8 hours": 32.8,
+        "More than 8 hours": 13.9
+      }
+    },
+    "Others": {
+      "n": 5803,
+      "counts": {
+        "Less than 4 hours": 980,
+        "4-6 hours": 2001,
+        "6-8 hours": 1969,
+        "More than 8 hours": 853
+      },
+      "percent": {
+        "Less than 4 hours": 16.9,
+        "4-6 hours": 34.5,
+        "6-8 hours": 33.9,
+        "More than 8 hours": 14.7
+      }
+    },
+    "Student": {
+      "n": 21458,
+      "counts": {
+        "Less than 4 hours": 3833,
+        "4-6 hours": 7385,
+        "6-8 hours": 7111,
+        "More than 8 hours": 3129
+      },
+      "percent": {
+        "Less than 4 hours": 17.9,
+        "4-6 hours": 34.4,
+        "6-8 hours": 33.1,
+        "More than 8 hours": 14.6
+      }
+    },
+    "Unemployment": {
+      "n": 2790,
+      "counts": {
+        "Less than 4 hours": 493,
+        "4-6 hours": 957,
+        "6-8 hours": 896,
+        "More than 8 hours": 444
+      },
+      "percent": {
+        "Less than 4 hours": 17.7,
+        "4-6 hours": 34.3,
+        "6-8 hours": 32.1,
+        "More than 8 hours": 15.9
+      }
+    },
+    "Working Professional": {
+      "n": 16186,
+      "counts": {
+        "Less than 4 hours": 2879,
+        "4-6 hours": 5617,
+        "6-8 hours": 5382,
+        "More than 8 hours": 2308
+      },
+      "percent": {
+        "Less than 4 hours": 17.8,
+        "4-6 hours": 34.7,
+        "6-8 hours": 33.3,
+        "More than 8 hours": 14.3
+      }
+    }
+  },
+  "by_medical_self_report": {
+    "No": {
+      "n": 10668,
+      "counts": {
+        "Less than 4 hours": 1893,
+        "4-6 hours": 3647,
+        "6-8 hours": 3535,
+        "More than 8 hours": 1593
+      },
+      "percent": {
+        "Less than 4 hours": 17.7,
+        "4-6 hours": 34.2,
+        "6-8 hours": 33.1,
+        "More than 8 hours": 14.9
+      }
+    },
+    "Insomnia": {
+      "n": 6546,
+      "counts": {
+        "Less than 4 hours": 1216,
+        "4-6 hours": 2219,
+        "6-8 hours": 2166,
+        "More than 8 hours": 945
+      },
+      "percent": {
+        "Less than 4 hours": 18.6,
+        "4-6 hours": 33.9,
+        "6-8 hours": 33.1,
+        "More than 8 hours": 14.4
+      }
+    },
+    "Anxiety Disorders": {
+      "n": 5557,
+      "counts": {
+        "Less than 4 hours": 1002,
+        "4-6 hours": 1999,
+        "6-8 hours": 1776,
+        "More than 8 hours": 780
+      },
+      "percent": {
+        "Less than 4 hours": 18.0,
+        "4-6 hours": 36.0,
+        "6-8 hours": 32.0,
+        "More than 8 hours": 14.0
+      }
+    },
+    "GERD/Acidity": {
+      "n": 5119,
+      "counts": {
+        "Less than 4 hours": 904,
+        "4-6 hours": 1777,
+        "6-8 hours": 1715,
+        "More than 8 hours": 723
+      },
+      "percent": {
+        "Less than 4 hours": 17.7,
+        "4-6 hours": 34.7,
+        "6-8 hours": 33.5,
+        "More than 8 hours": 14.1
+      }
+    },
+    "Allergies": {
+      "n": 4596,
+      "counts": {
+        "Less than 4 hours": 819,
+        "4-6 hours": 1579,
+        "6-8 hours": 1536,
+        "More than 8 hours": 662
+      },
+      "percent": {
+        "Less than 4 hours": 17.8,
+        "4-6 hours": 34.4,
+        "6-8 hours": 33.4,
+        "More than 8 hours": 14.4
+      }
+    },
+    "Asthma": {
+      "n": 4585,
+      "counts": {
+        "Less than 4 hours": 819,
+        "4-6 hours": 1591,
+        "6-8 hours": 1532,
+        "More than 8 hours": 643
+      },
+      "percent": {
+        "Less than 4 hours": 17.9,
+        "4-6 hours": 34.7,
+        "6-8 hours": 33.4,
+        "More than 8 hours": 14.0
+      }
+    },
+    "Depression": {
+      "n": 3361,
+      "counts": {
+        "Less than 4 hours": 587,
+        "4-6 hours": 1160,
+        "6-8 hours": 1130,
+        "More than 8 hours": 484
+      },
+      "percent": {
+        "Less than 4 hours": 17.5,
+        "4-6 hours": 34.5,
+        "6-8 hours": 33.6,
+        "More than 8 hours": 14.4
+      }
+    },
+    "Chronic Pain": {
+      "n": 3268,
+      "counts": {
+        "Less than 4 hours": 563,
+        "4-6 hours": 1132,
+        "6-8 hours": 1081,
+        "More than 8 hours": 492
+      },
+      "percent": {
+        "Less than 4 hours": 17.2,
+        "4-6 hours": 34.6,
+        "6-8 hours": 33.1,
+        "More than 8 hours": 15.1
+      }
+    },
+    "Obstructive Sleep Apnea": {
+      "n": 2555,
+      "counts": {
+        "Less than 4 hours": 465,
+        "4-6 hours": 878,
+        "6-8 hours": 827,
+        "More than 8 hours": 385
+      },
+      "percent": {
+        "Less than 4 hours": 18.2,
+        "4-6 hours": 34.4,
+        "6-8 hours": 32.4,
+        "More than 8 hours": 15.1
+      }
+    },
+    "Restless Legs Syndrome": {
+      "n": 1671,
+      "counts": {
+        "Less than 4 hours": 281,
+        "4-6 hours": 592,
+        "6-8 hours": 563,
+        "More than 8 hours": 235
+      },
+      "percent": {
+        "Less than 4 hours": 16.8,
+        "4-6 hours": 35.4,
+        "6-8 hours": 33.7,
+        "More than 8 hours": 14.1
+      }
+    },
+    "Thyroid Disorders": {
+      "n": 1667,
+      "counts": {
+        "Less than 4 hours": 303,
+        "4-6 hours": 602,
+        "6-8 hours": 528,
+        "More than 8 hours": 234
+      },
+      "percent": {
+        "Less than 4 hours": 18.2,
+        "4-6 hours": 36.1,
+        "6-8 hours": 31.7,
+        "More than 8 hours": 14.0
+      }
+    },
+    "Diabetes": {
+      "n": 1223,
+      "counts": {
+        "Less than 4 hours": 191,
+        "4-6 hours": 442,
+        "6-8 hours": 432,
+        "More than 8 hours": 158
+      },
+      "percent": {
+        "Less than 4 hours": 15.6,
+        "4-6 hours": 36.1,
+        "6-8 hours": 35.3,
+        "More than 8 hours": 12.9
+      }
+    },
+    "Hypertension": {
+      "n": 538,
+      "counts": {
+        "Less than 4 hours": 75,
+        "4-6 hours": 185,
+        "6-8 hours": 188,
+        "More than 8 hours": 90
+      },
+      "percent": {
+        "Less than 4 hours": 13.9,
+        "4-6 hours": 34.4,
+        "6-8 hours": 34.9,
+        "More than 8 hours": 16.7
+      }
+    },
+    "Narcolepsy": {
+      "n": 146,
+      "counts": {
+        "Less than 4 hours": 40,
+        "4-6 hours": 39,
+        "6-8 hours": 40,
+        "More than 8 hours": 27
+      },
+      "percent": {
+        "Less than 4 hours": 27.4,
+        "4-6 hours": 26.7,
+        "6-8 hours": 27.4,
+        "More than 8 hours": 18.5
+      }
+    }
+  },
+  "reason_prevalence": {
+    "Social Media/Internet": {
+      "n": 34029,
+      "percent_of_answers": 67.7
+    },
+    "Entertainment (TV;movies;games)": {
+      "n": 28911,
+      "percent_of_answers": 57.5
+    },
+    "Study & Exam Purpose": {
+      "n": 20204,
+      "percent_of_answers": 40.2
+    },
+    "Stress or anxiety": {
+      "n": 13314,
+      "percent_of_answers": 26.5
+    },
+    "professional Work": {
+      "n": 10934,
+      "percent_of_answers": 21.8
+    },
+    "Insomnia or other sleep disorder": {
+      "n": 8435,
+      "percent_of_answers": 16.8
+    },
+    "Others": {
+      "n": 3388,
+      "percent_of_answers": 6.7
+    }
+  },
+  "effect_prevalence": {
+    "Fatigue": {
+      "n": 39199,
+      "percent_of_answers": 76.0
+    },
+    "Difficulty concentrating": {
+      "n": 36534,
+      "percent_of_answers": 70.9
+    },
+    "Mood swings or irritability": {
+      "n": 22478,
+      "percent_of_answers": 43.6
+    },
+    "Decreased academic or work performance": {
+      "n": 18462,
+      "percent_of_answers": 35.8
+    },
+    "Health issues": {
+      "n": 8435,
+      "percent_of_answers": 16.4
+    },
+    "Back Pain": {
+      "n": 5867,
+      "percent_of_answers": 11.4
+    },
+    "Others": {
+      "n": 3429,
+      "percent_of_answers": 6.6
+    }
+  },
+  "coping_prevalence": {
+    "Naps during the day": {
+      "n": 26255,
+      "percent_of_answers": 58.6
+    },
+    "Caffeine or other stimulants": {
+      "n": 21055,
+      "percent_of_answers": 47.0
+    },
+    "Relaxation techniques": {
+      "n": 15911,
+      "percent_of_answers": 35.5
+    },
+    "Exercise": {
+      "n": 10896,
+      "percent_of_answers": 24.3
+    },
+    "Others": {
+      "n": 3409,
+      "percent_of_answers": 7.6
+    }
+  },
+  "single_select_options": {
+    "age": [
+      "18-30",
+      "31-50",
+      "Above 50",
+      "Under 18"
+    ],
+    "gender": [
+      "Female",
+      "Male",
+      "Prefer not to say"
+    ],
+    "occupation": [
+      "Freelancing",
+      "Housewife",
+      "Others",
+      "Student",
+      "Unemployment",
+      "Working Professional"
+    ],
+    "weekend_bed": [
+      "10 PM - 12 AM",
+      "12 AM - 2 AM",
+      "After 2 AM",
+      "Before 10 PM"
+    ],
+    "weekend_wake": [
+      "6 AM - 8 AM",
+      "8 AM - 10 AM",
+      "After 10 AM",
+      "Before 6 AM"
+    ],
+    "sleep_latency": [
+      "15-30 minutes",
+      "31-60 minutes",
+      "Less than 15 minutes",
+      "More than 60 minutes"
+    ],
+    "medical_self_report": [
+      "No",
+      "Insomnia",
+      "Anxiety Disorders",
+      "GERD/Acidity",
+      "Allergies",
+      "Asthma",
+      "Depression",
+      "Chronic Pain",
+      "Obstructive Sleep Apnea",
+      "Restless Legs Syndrome",
+      "Thyroid Disorders",
+      "Diabetes",
+      "Hypertension",
+      "Narcolepsy"
+    ],
+    "concentration": [
+      "Always",
+      "Never",
+      "Often",
+      "Rarely",
+      "Sometimes"
+    ]
+  },
+  "multi_select_options": {
+    "late_reasons": [
+      "Social Media/Internet",
+      "Entertainment (TV;movies;games)",
+      "Study & Exam Purpose",
+      "Stress or anxiety",
+      "professional Work",
+      "Insomnia or other sleep disorder",
+      "Others"
+    ],
+    "side_effects": [
+      "Fatigue",
+      "Difficulty concentrating",
+      "Mood swings or irritability",
+      "Decreased academic or work performance",
+      "Health issues",
+      "Back Pain",
+      "Others"
+    ],
+    "coping": [
+      "Naps during the day",
+      "Caffeine or other stimulants",
+      "Relaxation techniques",
+      "Exercise",
+      "Others"
+    ]
+  },
+  "limitations": "Descriptive frequencies from unverified self-report records, not a clinical cohort; no independent respondent IDs, diagnosis verification, temporal ordering, patient-level disease risk or causal interpretation. All groups with fewer than 100 source records are omitted; no raw survey rows or respondent combinations are exported."
+}
