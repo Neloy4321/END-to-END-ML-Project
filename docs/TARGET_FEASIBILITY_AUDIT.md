@@ -49,7 +49,7 @@ These are **internal tests only**, not external-generalization results.
 | Frequent breathing difficulties | 6.71% | 0.5000 | 0.6160 | Predicted majority at default threshold |
 | Fatigue listed as a side effect | 76.02% | 0.5000 | 0.5807 | Predicted majority at default threshold |
 | Academic/work performance side effect | 35.80% | 0.5003 | 0.5055 | Near chance |
-| Short sleep (under 6 hours) | 52.31% | 0.9431 | 0.9793 | **Not an independent health endpoint:** reported bed/wake times strongly encode duration, which is also directly asked in the form |
+| Short sleep (less than 4 or 4–6-hour response) | 52.31% | 0.9431 | 0.9793 | **Not an independent health endpoint:** reported bed/wake times strongly encode duration, which is also directly asked in the form |
 
 For concentration difficulty, an additional GroupShuffleSplit keeping
 identical 11-feature predictor profiles in one side of the split gave
