@@ -1,9 +1,9 @@
 name: Deploy Sleep Health Prediction App to EC2
 
+# AWS is intentionally disabled for automatic main pushes. The owner
+# paused AWS deployment; only a deliberate manual invocation can run it.
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 
 jobs:

@@ -89,6 +89,8 @@ Script downloads only the official CDC public XPT in memory, verifies SHA-256, a
 
 The app now adds per-response no-cache, frame-denial, `nosniff`, no-referrer, and random request-ID headers; 16-KiB form-body limit; previous JSON comparison-body 4-KiB limit; and Docker health check. No user answers, medical text, IP, query parameters or identity enter request metrics. **This is basic operational instrumentation, not proven compliance, authorization for the assessment page, durable telemetry, or production security acceptance.** Deployment, remote synthetic probes, load tests, alerting and rollback drill remain not demonstrated (AWS is intentionally disabled by owner).
 
+**AWS auto-deploy safety:** The older `.github/workflows/cicd.yaml` formerly triggered AWS/ECR and a self-hosted deployment on *every main push*. Because AWS deployment is paused by the owner, its trigger was changed to manual `workflow_dispatch` only; no deployment or secret change was executed. The separate non-AWS unit/container CI still runs on pull requests and main.
+
 Windows local smoke run after the app starts:
 
 ```powershell
