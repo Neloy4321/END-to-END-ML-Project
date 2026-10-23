@@ -43,6 +43,7 @@ class BehavioralAssessmentTests(unittest.TestCase):
         answers = self.normal_answers()
         answers["difficulty_sleep"] = "Often"
         answers["breathing_problem"] = "Always"
+        answers["restless_legs"] = "Never"
         result = self.assessor.predict(answers)
         self.assertTrue(0 <= result["short_sleep_response_score_percent"] <= 100)
         self.assertEqual(len(result["noted_frequent_symptoms"]), 2)
