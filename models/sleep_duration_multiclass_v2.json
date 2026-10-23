@@ -1,0 +1,283 @@
+{
+  "schema_version": 2,
+  "task": "predict_self_reported_sleep_duration_category",
+  "disclaimer": "Model-estimated survey answer only. Not an objective sleep measurement, disease diagnosis, validated risk assessment, or treatment recommendation.",
+  "target_column": "How many hours of sleep do you get on average per night?",
+  "response_classes": [
+    "Less than 4 hours",
+    "4-6 hours",
+    "6-8 hours",
+    "More than 8 hours"
+  ],
+  "feature_columns": [
+    "What time do you usually go to bed?",
+    "What time do you usually wake up on working days?"
+  ],
+  "all_form_columns": [
+    "What time do you usually go to bed?",
+    "What time do you usually wake up on working days?",
+    "Do you have difficulty falling asleep?",
+    "Do you experience breathing difficulties while sleeping",
+    "Do you experience restless legs or involuntary movements during sleep?",
+    "How would you rate the comfort of your sleeping environment"
+  ],
+  "category_options": {
+    "What time do you usually go to bed?": [
+      "10 PM - 12 AM",
+      "12 AM - 2 AM",
+      "After 2 AM",
+      "Before 10 PM"
+    ],
+    "What time do you usually wake up on working days?": [
+      "6 AM - 8 AM",
+      "8 AM - 10 AM",
+      "After 10 AM",
+      "Before 6 AM"
+    ],
+    "Do you have difficulty falling asleep?": [
+      "Always",
+      "Never",
+      "Often",
+      "Rarely",
+      "Sometimes"
+    ],
+    "Do you experience breathing difficulties while sleeping": [
+      "Always",
+      "Never",
+      "Often",
+      "Rarely",
+      "Sometimes"
+    ],
+    "Do you experience restless legs or involuntary movements during sleep?": [
+      "Always",
+      "Never",
+      "Often",
+      "Rarely",
+      "Sometimes"
+    ],
+    "How would you rate the comfort of your sleeping environment": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  },
+  "intercepts": [
+    -1.8892895217742383,
+    0.26485556663646986,
+    1.51791311075365,
+    0.1065208443853355
+  ],
+  "weights": {
+    "What time do you usually go to bed?": {
+      "10 PM - 12 AM": [
+        -4.7010957130763416,
+        -0.8904249283502856,
+        2.0455259448257657,
+        3.545994696600672
+      ],
+      "12 AM - 2 AM": [
+        0.6543694586484153,
+        1.920551710941849,
+        -0.015060266851047355,
+        -2.559860902738178
+      ],
+      "After 2 AM": [
+        6.375342969842894,
+        2.659861454953079,
+        -2.431195544679001,
+        -6.604008880116331
+      ],
+      "Before 10 PM": [
+        -4.131197283962067,
+        -3.4372163419083894,
+        1.8522518868166427,
+        5.716161739053943
+      ]
+    },
+    "What time do you usually wake up on working days?": {
+      "6 AM - 8 AM": [
+        1.9188518140926396,
+        1.6252563620676188,
+        -0.3151513436801449,
+        -3.2289568324781723
+      ],
+      "8 AM - 10 AM": [
+        -4.624400410198112,
+        -0.7497203238434413,
+        1.9206412009380116,
+        3.4534795331032675
+      ],
+      "After 10 AM": [
+        -4.741108433140928,
+        -3.036304476363177,
+        1.376130746800469,
+        6.401282162703705
+      ],
+      "Before 6 AM": [
+        5.644076460699264,
+        2.413540333776436,
+        -1.5300985839455314,
+        -6.527518210530574
+      ]
+    }
+  },
+  "temperature": 1.0,
+  "evaluation": {
+    "protocol": "70/15/15 seeded split by exact 6-answer profile; preprocessing learned only on train; model and temperature chosen on validation; final metrics on untouched test",
+    "seed_train": 42,
+    "seed_validation_test": 73,
+    "total_records": 52610,
+    "train_records": 36136,
+    "validation_records": 7267,
+    "test_records": 9207,
+    "unique_profiles": 5792,
+    "class_counts": {
+      "Less than 4 hours": 9347,
+      "4-6 hours": 18171,
+      "6-8 hours": 17428,
+      "More than 8 hours": 7664
+    },
+    "validation_candidates": {
+      "bed_wake_only": {
+        "accuracy": 0.8251,
+        "balanced_accuracy": 0.788031,
+        "macro_f1": 0.808787,
+        "log_loss": 0.532056,
+        "top_label_ece_10_bins": 0.1007,
+        "confusion_matrix_response_order": [
+          [
+            645,
+            468,
+            28,
+            17
+          ],
+          [
+            17,
+            2596,
+            432,
+            26
+          ],
+          [
+            11,
+            48,
+            2014,
+            29
+          ],
+          [
+            7,
+            17,
+            171,
+            741
+          ]
+        ]
+      },
+      "all_six": {
+        "accuracy": 0.830742,
+        "balanced_accuracy": 0.788548,
+        "macro_f1": 0.812233,
+        "log_loss": 0.537093,
+        "top_label_ece_10_bins": 0.08037,
+        "confusion_matrix_response_order": [
+          [
+            655,
+            461,
+            25,
+            17
+          ],
+          [
+            31,
+            2738,
+            276,
+            26
+          ],
+          [
+            15,
+            155,
+            1903,
+            29
+          ],
+          [
+            10,
+            16,
+            169,
+            741
+          ]
+        ]
+      }
+    },
+    "model_selected_on_validation": "bed_wake_only",
+    "temperature_selected_on_validation": 1.0,
+    "held_out_test": {
+      "accuracy": 0.860975,
+      "balanced_accuracy": 0.836231,
+      "macro_f1": 0.856607,
+      "log_loss": 0.444218,
+      "top_label_ece_10_bins": 0.099318,
+      "confusion_matrix_response_order": [
+        [
+          1198,
+          464,
+          23,
+          16
+        ],
+        [
+          11,
+          2424,
+          431,
+          20
+        ],
+        [
+          16,
+          38,
+          3191,
+          24
+        ],
+        [
+          8,
+          10,
+          219,
+          1114
+        ]
+      ]
+    },
+    "other_model_held_out_test": {
+      "name": "all_six",
+      "metrics": {
+        "accuracy": 0.862713,
+        "balanced_accuracy": 0.838213,
+        "macro_f1": 0.857989,
+        "log_loss": 0.444217,
+        "top_label_ece_10_bins": 0.085363,
+        "confusion_matrix_response_order": [
+          [
+            1203,
+            464,
+            18,
+            16
+          ],
+          [
+            20,
+            2464,
+            382,
+            20
+          ],
+          [
+            17,
+            67,
+            3162,
+            23
+          ],
+          [
+            9,
+            13,
+            215,
+            1114
+          ]
+        ]
+      }
+    },
+    "limitations": "Survey self-report; no verified individual/time/site separation, external dataset, true measured sleep duration, or clinical validation. Repeated/similar profiles may exist across partitions; schedule-response association is not causal. Temperature fitted internally and must not be treated as clinical calibration."
+  }
+}
