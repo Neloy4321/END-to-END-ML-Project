@@ -80,6 +80,9 @@ jobs:
               assert exc.code == 410
           print("End-to-end smoke PASS")
           PY
+      - name: Show container logs if smoke test fails
+        if: failure()
+        run: docker logs sleep-survey-smoke || true
       - name: Remove smoke-test container
         if: always()
         run: docker rm -f sleep-survey-smoke || true
