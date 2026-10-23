@@ -1,10 +1,10 @@
-name: Validate Short-Sleep Assessment
+name: Validate Sleep Survey Explorer
 
 on:
   pull_request:
   push:
     branches:
-      - feature/step3-honest-short-sleep-assessment
+      - feature/v2-multiclass-explainable-dashboard
 
 jobs:
   verify:
@@ -15,19 +15,21 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - name: Install app and reproducibility dependencies
+      - name: Install app, API-test and reproducible training dependencies
         run: |
           pip install -r requirements-app.txt
-          pip install pandas==2.2.3 numpy==2.3.5 scikit-learn==1.8.0
-      - name: Verify schema, leakage, serving and reproducible survey training
-        run: python -m unittest discover -s tests -p "test_short_sleep.py" -v
-      - name: Check source syntax
-        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py scripts/train_short_sleep.py
-      - name: Verify minimal container builds
-        run: docker build -t sleep-survey-assessment:test .
-      - name: Exercise HTTP health, form, validation and retired legacy endpoint
+          pip install "httpx>=0.27,<1" pandas==2.2.3 numpy==2.3.5 scikit-learn==1.8.0
+      - name: Test binary model reproducibility and V2 predictions
         run: |
-          docker run -d --name sleep-survey-smoke -p 127.0.0.1:8000:8000 sleep-survey-assessment:test
+          python -m unittest discover -s tests -p "test_short_sleep.py" -v
+          python -m unittest discover -s tests -p "test_duration_v2.py" -v
+      - name: Validate Python compilation
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py
+      - name: Build non-root image
+        run: docker build -t sleep-survey-explorer:test .
+      - name: Exercise real container HTTP flow
+        run: |
+          docker run -d --name sleep-survey-smoke -p 127.0.0.1:8000:8000 sleep-survey-explorer:test
           python - <<'PY'
           import json
           import time
@@ -38,7 +40,7 @@ jobs:
           from sleep_project.behavioral_assessment import FORM_FIELDS
 
           base = "http://127.0.0.1:8000"
-          for attempt in range(20):
+          for attempt in range(25):
               try:
                   health = json.load(urllib.request.urlopen(base + "/healthz", timeout=3))
                   break
@@ -46,43 +48,40 @@ jobs:
                   time.sleep(1)
           else:
               raise RuntimeError("Application did not become healthy")
+          assert health["status"] == "ok" and health["version"] == 2
+          homepage = urllib.request.urlopen(base + "/", timeout=3).read().decode()
+          assert "Sleep Survey Explorer" in homepage
 
-          assert health["status"] == "ok"
-          html = urllib.request.urlopen(base + "/", timeout=3).read().decode()
-          assert "Sleep Behaviour Self-Assessment" in html
-
-          model = json.loads(Path("models/short_sleep_logistic.json").read_text())
-          answers = {
-              key: next(iter(model["weights"][column]))
-              for key, column, _ in FORM_FIELDS
-          }
-          payload = urllib.parse.urlencode(answers).encode()
-          req = urllib.request.Request(base + "/assess", data=payload)
-          result = urllib.request.urlopen(req, timeout=3).read().decode()
-          assert "Model-estimated questionnaire response" in result
-
-          answers["bed_time"] = "not-an-option"
-          invalid = urllib.request.Request(
-              base + "/assess", data=urllib.parse.urlencode(answers).encode()
+          artifact = json.loads(Path("models/sleep_duration_multiclass_v2.json").read_text())
+          answers = {key: artifact["category_options"][col][0] for key, col, _ in FORM_FIELDS}
+          form_req = urllib.request.Request(base + "/assess", data=urllib.parse.urlencode(answers).encode())
+          html = urllib.request.urlopen(form_req, timeout=3).read().decode()
+          assert "Model-estimated questionnaire response" in html
+          assert "What if you selected a different schedule?" in html
+          compare = urllib.request.Request(
+              base + "/api/compare",
+              data=json.dumps({"answers": answers, "bed_time": "After 2 AM", "wake_time": "Before 6 AM"}).encode(),
+              headers={"Content-Type": "application/json"},
           )
+          result = json.load(urllib.request.urlopen(compare, timeout=3))
+          assert len(result["scenario"]["category_probabilities"]) == 4
+          answers["bed_time"] = "not-an-option"
+          invalid = urllib.request.Request(base + "/assess", data=urllib.parse.urlencode(answers).encode())
           try:
               urllib.request.urlopen(invalid, timeout=3)
-              raise AssertionError("Invalid answer should yield HTTP 422")
+              raise AssertionError("Invalid input should return 422")
           except urllib.error.HTTPError as exc:
               assert exc.code == 422
-
           try:
-              urllib.request.urlopen(
-                  urllib.request.Request(base + "/predict", data=b""), timeout=3
-              )
-              raise AssertionError("Legacy endpoint should yield HTTP 410")
+              urllib.request.urlopen(urllib.request.Request(base + "/predict", data=b""), timeout=3)
+              raise AssertionError("Retired medical endpoint must return 410")
           except urllib.error.HTTPError as exc:
               assert exc.code == 410
-          print("End-to-end smoke PASS")
+          print("V2 HTTP and safety smoke PASS")
           PY
-      - name: Show container logs if smoke test fails
+      - name: Container logs on failure
         if: failure()
         run: docker logs sleep-survey-smoke || true
-      - name: Remove smoke-test container
+      - name: Remove test container
         if: always()
         run: docker rm -f sleep-survey-smoke || true
