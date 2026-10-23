@@ -1,21 +1,26 @@
+.git/
+.github/
+.vscode/
+.venv/
 venv/
 env/
 __pycache__/
 *.pyc
+*.pyo
+.DS_Store
+*.log
 
-.git/
-.gitignore
-
-logs/
-
-notebook/
+# The serving image contains the exported JSON model, not raw surveys
+# or legacy binary/pickle training artifacts.
+notebooks/
+artifact/
+docs/
+tests/
+scripts/
+*.ipynb
 
 README.md
 LICENSE
-
 template.py
 demo.py
-
 sleep_project.egg-info/
-
-.DS_Store

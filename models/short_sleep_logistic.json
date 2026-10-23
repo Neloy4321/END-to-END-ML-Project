@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "task": "predict_self_reported_short_sleep_response",
+  "disclaimer": "Questionnaire-answer prediction, not measured sleep duration, medical diagnosis, disorder screening, or validated health-risk score.",
+  "target_column": "How many hours of sleep do you get on average per night?",
+  "positive_response_values": [
+    "Less than 4 hours",
+    "4-6 hours"
+  ],
+  "feature_columns": [
+    "What time do you usually go to bed?",
+    "What time do you usually wake up on working days?",
+    "Do you have difficulty falling asleep?",
+    "Do you experience breathing difficulties while sleeping",
+    "Do you experience restless legs or involuntary movements during sleep?",
+    "How would you rate the comfort of your sleeping environment"
+  ],
+  "intercept": -0.6719618595342319,
+  "weights": {
+    "What time do you usually go to bed?": {
+      "10 PM - 12 AM": -3.172823928610296,
+      "12 AM - 2 AM": 1.9500963266779148,
+      "After 2 AM": 5.389823744978082,
+      "Before 10 PM": -4.826102182421414
+    },
+    "What time do you usually wake up on working days?": {
+      "6 AM - 8 AM": 2.191317993051023,
+      "8 AM - 10 AM": -2.7276521126896016,
+      "After 10 AM": -4.551768387635912,
+      "Before 6 AM": 4.429096467898744
+    },
+    "Do you have difficulty falling asleep?": {
+      "Always": -0.1626188275010438,
+      "Never": -0.3849062631921631,
+      "Often": 0.2043393420076285,
+      "Rarely": -0.36672326446109993,
+      "Sometimes": 0.05090297377073024
+    },
+    "Do you experience breathing difficulties while sleeping": {
+      "Always": 0.19694289472823318,
+      "Never": -0.2811566343713679,
+      "Often": -0.09522560909907579,
+      "Rarely": -0.2136231940233737,
+      "Sometimes": -0.26594349661037725
+    },
+    "Do you experience restless legs or involuntary movements during sleep?": {
+      "Always": -0.20600484789466522,
+      "Never": -0.21491750432761234,
+      "Often": 0.00715668325492575,
+      "Rarely": -0.11131299052832237,
+      "Sometimes": -0.13392737988024558
+    },
+    "How would you rate the comfort of your sleeping environment": {
+      "1": -0.02747221119898345,
+      "2": -0.17179054224205298,
+      "3": -0.08986433105140626,
+      "4": -0.254979240400236,
+      "5": -0.11489971448322953
+    }
+  },
+  "evaluation": {
+    "validation": "one internal GroupShuffleSplit by exact predictor profile",
+    "seed": 42,
+    "total_records": 52610,
+    "train_records": 41014,
+    "test_records": 11596,
+    "unique_predictor_profiles": 5792,
+    "observed_positive_fraction": 0.523056,
+    "model": {
+      "accuracy": 0.936185,
+      "balanced_accuracy": 0.937851,
+      "roc_auc": 0.974802,
+      "short_sleep_recall": 0.913885,
+      "confusion_matrix_true_0_1": [
+        [
+          5189,
+          206
+        ],
+        [
+          534,
+          5667
+        ]
+      ]
+    },
+    "bed_wake_only_baseline": {
+      "accuracy": 0.934115,
+      "balanced_accuracy": 0.937156,
+      "roc_auc": 0.974148,
+      "short_sleep_recall": 0.893404,
+      "confusion_matrix_true_0_1": [
+        [
+          5292,
+          103
+        ],
+        [
+          661,
+          5540
+        ]
+      ]
+    },
+    "limitations": "Exact-profile exclusion is not respondent, time, or site independence. Sleep schedule overwhelmingly predicts the survey duration response. No clinical validation."
+  }
+}
