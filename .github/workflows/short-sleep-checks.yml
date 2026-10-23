@@ -1,10 +1,12 @@
-name: Validate Sleep Survey Explorer V3
+name: Validate Sleep Survey Explorer V3 + Evidence P0-P3
 
 on:
   pull_request:
   push:
     branches:
+      - main
       - feature/v3-expanded-survey-insights
+      - feature/p0-p3-sleep-evidence-readiness
 
 jobs:
   verify:
@@ -24,8 +26,20 @@ jobs:
           python -m unittest discover -s tests -p "test_short_sleep.py" -v
           python -m unittest discover -s tests -p "test_duration_v2.py" -v
           python -m unittest discover -s tests -p "test_survey_insights_v3.py" -v
+          python -m unittest discover -s tests -p "test_p0_p3.py" -v
       - name: Validate Python compilation
-        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py sleep_project/operations.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py scripts/audit_dataset_quality.py scripts/evaluate_external_nhanes.py scripts/smoke_test_local.py
+      - name: Verify source quality audit has no invalid model responses
+        run: |
+          python -m scripts.audit_dataset_quality > /tmp/source-quality.json
+          python - <<'PY'
+          import json
+          report = json.load(open('/tmp/source-quality.json'))
+          assert report['source_rows'] == 52610
+          assert all(count == 0 for count in report['invalid_core_answer_counts'].values())
+          assert report['participant_independence'].startswith('NOT VERIFIABLE')
+          print('Dataset quality profile: PASS, independence remains UNVERIFIABLE')
+          PY
       - name: Build non-root image
         run: docker build -t sleep-survey-explorer:test .
       - name: Exercise real container HTTP flow
@@ -88,6 +102,7 @@ jobs:
               assert exc.code == 410
           print("V2 HTTP and safety smoke PASS")
           PY
+          python -m scripts.smoke_test_local
       - name: Container logs on failure
         if: failure()
         run: docker logs sleep-survey-smoke || true
