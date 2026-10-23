@@ -12,11 +12,6 @@ from sleep_project.pipeline.prediction_pipeline import (
     SleepClassifier
 )
 
-from sleep_project.entity.estimator import (
-    TargetValueMapping
-)
-
-
 # =========================
 # FASTAPI APP
 # =========================
@@ -157,7 +152,7 @@ async def predict_route(request: Request):
         # =========================
         # PREDICT
         # =========================
-        prediction = model_predictor.predict(
+        prediction = model_predictor.predict_labels(
             dataframe=sleep_df
         )[0]
 
@@ -167,15 +162,7 @@ async def predict_route(request: Request):
         # =========================
         # LABEL MAPPING
         # =========================
-        mapping = (
-            TargetValueMapping()
-            .reverse_mapping()
-        )
-
-        status = mapping.get(
-            int(prediction),
-            "Unknown"
-        )
+        status = str(prediction)
 
         print("\n========== FINAL STATUS ==========")
         print(status)

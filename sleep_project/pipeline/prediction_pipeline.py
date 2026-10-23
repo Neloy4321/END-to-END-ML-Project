@@ -1,6 +1,7 @@
 import os
 import sys
 import pickle
+import numpy as np
 
 import pandas as pd
 from pandas import DataFrame
@@ -248,6 +249,9 @@ class SleepClassifier:
 
                 model = pickle.load(f)
 
+            # Keep the fitted class encoder from the exact model used to predict.
+            self._last_loaded_model = model
+
             logging.info(
                 "Model loaded successfully"
             )
@@ -260,6 +264,28 @@ class SleepClassifier:
             print(result)
 
             return result
+
+        except Exception as e:
+            raise CustomException(e, sys)
+
+    def predict_labels(self, dataframe):
+        """
+        Decode numeric predictions with the target encoder saved at training time.
+        Do not assume that LabelEncoder follows a hand-written class ID order.
+        """
+        try:
+            numeric_predictions = self.predict(dataframe)
+            preprocessing = getattr(self._last_loaded_model, "preprocessing_object", None)
+
+            if not isinstance(preprocessing, dict):
+                raise ValueError("Trained model is missing preprocessing metadata")
+
+            target_encoder = preprocessing.get("target_encoder")
+            if target_encoder is None:
+                raise ValueError("Trained model is missing the fitted target encoder")
+
+            encoded = np.asarray(numeric_predictions, dtype=int)
+            return target_encoder.inverse_transform(encoded)
 
         except Exception as e:
             raise CustomException(e, sys)
