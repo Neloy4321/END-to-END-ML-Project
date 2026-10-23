@@ -12,7 +12,8 @@ RUN pip install --no-cache-dir -r requirements-app.txt \
 COPY app.py /app/app.py
 COPY sleep_project/__init__.py /app/sleep_project/__init__.py
 COPY sleep_project/behavioral_assessment.py /app/sleep_project/behavioral_assessment.py
-COPY models/short_sleep_logistic.json /app/models/short_sleep_logistic.json
+COPY sleep_project/duration_v2.py /app/sleep_project/duration_v2.py
+COPY models/sleep_duration_multiclass_v2.json /app/models/sleep_duration_multiclass_v2.json
 COPY templates/assessment.html /app/templates/assessment.html
 
 USER appuser
