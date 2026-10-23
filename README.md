@@ -1,70 +1,72 @@
-# Sleep Behaviour Self-Assessment — End-to-End ML Project
+# Sleep Survey Explorer V2 — End-to-End ML Project
 
 Owner: **Neloy Pramanik Supto**  
-Source: the owner's collected sleep survey, 52,610 questionnaire rows in `notebooks/final_sleep_dataDev.csv`.
+Data: **52,610 owner-collected questionnaire records** in notebooks/final_sleep_dataDev.csv.
 
-## Current honest prediction task
+The current FastAPI app estimates a respondent's answer to one of **four sleep-duration survey categories** (less than 4, 4–6, 6–8, and more than 8 hours). It does **not** measure sleep or diagnose diseases.
 
-A six-input model predicts which **self-reported sleep-duration category** a respondent is more likely to select: less than 4 / 4–6 hours vs 6–8 / over 8 hours. This is **not a clinical sleep-health score**, sleep disorder detector, diagnosis, or objective measurement of duration.
+## V2 interactive dashboard
 
-The original repository's medical-category target was generated from a question that also appeared as a feature, causing target leakage. The old model and notebooks remain for historical reproducibility; the new application does not serve them. `POST /predict` is retired with HTTP 410.
+- Four response bars, most likely answer, runner-up, and combined under-6 / 6+ model scores.
+- Coefficient-level explanation of which schedule answers favour the chosen category versus runner-up.
+- Self-reported sleep experiences (difficulty, breathing difficulty, leg movements) and environment comfort; **these are not additional predictions**.
+- Interactive comparison of different bedtime and wake-up choices with change in category probabilities. **Associations only, not an intervention or guarantee.**
+- Responsive layout, validation against exact dataset categories, Print / Save as PDF, and no persistence of user-submitted answers.
 
-## Main evidence
+## Reproducible model evidence
 
-Internally tested on the owner's CSV with a seeded profile-group train/holdout split (no exact matching six-input survey profile on both sides):
+Training and evaluation used the original owner-collected dataset. An exact-profile grouped 70/15/15 split gave 36,136 train, 7,267 validation, 9,207 test records. Validation selected the **bedtime and working-day wake-up** only model. The other four input questions remain descriptive.
 
-| Metric | New model | Bed/wake-only comparator |
-|---|---:|---:|
-| Accuracy | 93.62% | 93.41% |
-| Balanced accuracy | 93.79% | 93.72% |
-| ROC AUC | 0.9748 | 0.9741 |
-| Positive recall | 91.39% | 89.34% |
+| Four-class held-out metric | Result |
+|---|---:|
+| Accuracy | 86.10% |
+| Balanced accuracy | 83.62% |
+| Macro-F1 | 85.66% |
+| Log-loss | 0.4442 |
+| 10-bin expected calibration error | 0.0993 |
 
-This is an **internal response-reconstruction result**, not external-generalization acceptance. Bedtime and wake time dominate; the gain from additional answers is small. Respondent identities, independent sites, externally measured sleep, and clinical outcomes were not verified. Model probabilities are not clinically calibrated.
+This is *internal survey-answer reconstruction*, not externally verified respondent independence, clinical validation, or calibrated health risk. See [V2 methods and limitations](docs/V2_ASSESSMENT.md), [earlier binary model evidence](docs/SHORT_SLEEP_ASSESSMENT.md), and [target feasibility audit](docs/TARGET_FEASIBILITY_AUDIT.md).
 
-For validation methodology, confusion matrices, limitations, and instructions, see [Step 3 evidence](docs/SHORT_SLEEP_ASSESSMENT.md) and [Step 2 target feasibility audit](docs/TARGET_FEASIBILITY_AUDIT.md).
+## Run on Windows PowerShell (Python 3.11)
 
-## New application
+1. Download the latest **main** branch ZIP and extract it.
+2. In the extracted project directory run:
 
-- FastAPI questionnaire with six dataset-matched dropdowns, backend option validation, and clear non-medical language
-- Reproducible Logistic Regression with one-hot encoding fitted only on training data
-- Profile-group holdout with simple schedule-only comparator
-- JSON-exported weights and pure-Python serving; scoring parity asserted against scikit-learn on holdout
-- Automated contract/leakage checks and full training reproducibility test
-- Lightweight non-root Docker runtime containing **no raw survey CSV or legacy pickle**
-- No permissive wildcard CORS and no questionnaire-answer logging or storage in the new application
+~~~powershell
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-app.txt
+python -m uvicorn app:app --reload
+~~~
 
-### Run the app
+3. Open http://127.0.0.1:8000 and fill out the six questions. The detailed result and What-if section appear after submitting.
 
-Requires Python 3.12.
+If PowerShell blocks virtualenv activation, use the executables directly:
+~~~powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-app.txt
+.\.venv\Scripts\python.exe -m uvicorn app:app --reload
+~~~
 
-```bash
-pip install -r requirements-app.txt
-uvicorn app:app --reload
-```
+**No retraining or AWS deployment is required** to run locally. Your Python 3.11.9 works.
 
-Open [http://127.0.0.1:8000](http://127.0.0.1:8000).
+### Optional reproduction and tests
 
-### Retrain with the same dataset
+~~~powershell
+python -m pip install pandas==2.2.3 numpy==2.3.5 scikit-learn==1.8.0 "httpx>=0.27,<1"
+python scripts/train_sleep_duration_v2.py
+python -m unittest discover -s tests -p "test_duration_v2.py" -v
+~~~
 
-```bash
-pip install pandas==2.2.3 numpy==2.3.5 scikit-learn==1.8.0
-python scripts/train_short_sleep.py --data notebooks/final_sleep_dataDev.csv
-python -m unittest discover -s tests -p "test_short_sleep.py" -v
-```
+### Optional Docker
 
-The model is committed as readable `models/short_sleep_logistic.json`. A separate CI workflow runs tests and validates container build before review.
+~~~bash
+docker build -t sleep-survey-v2 .
+docker run --rm -p 8000:8000 sleep-survey-v2
+~~~
 
-### Docker
+## Safety of prior results
 
-```bash
-docker build -t sleep-behaviour .
-docker run --rm -p 8000:8000 sleep-behaviour
-```
-
-## Project status and next steps
-
-This feature is proposed on a **draft branch/PR** and is not verified as deployed or validated for healthcare use. Remaining production steps: deployment smoke test, independent reviewer, privacy/collection documentation, tests with independently sourced respondent groups, and fuller probability-calibration analysis. Do not promote the legacy 97–99% medical-category figures.
+The old medical-category target was derived from a question also used as an input (target leakage). Its reported 97–99% numbers are **not valid proof of medical prediction**. The old endpoint POST /predict is retired (HTTP 410). Historical code and notebooks are preserved but are excluded from the V2 container runtime.
 
 ## Original pipeline (historical)
 
