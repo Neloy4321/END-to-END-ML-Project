@@ -1,204 +1,70 @@
-from fastapi import FastAPI, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+"""Non-diagnostic questionnaire-answer prediction backed by Neloy's survey."""
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from starlette.responses import HTMLResponse
-from uvicorn import run as app_run
 
-from sleep_project.constants import APP_HOST, APP_PORT
-
-from sleep_project.pipeline.prediction_pipeline import (
-    SleepData,
-    SleepClassifier
+from sleep_project.behavioral_assessment import (
+    BehavioralSleepAssessment,
+    InvalidAssessmentInput,
 )
 
-# =========================
-# FASTAPI APP
-# =========================
-app = FastAPI()
+BASE = Path(__file__).resolve().parent
+assessor = BehavioralSleepAssessment(BASE / "models" / "short_sleep_logistic.json")
+templates = Jinja2Templates(directory=str(BASE / "templates"))
+app = FastAPI(title="Sleep Behaviour Survey Assessment", version="1.0.0")
 
 
-# =========================
-# STATIC FILES
-# =========================
-app.mount(
-    "/static",
-    StaticFiles(directory="static"),
-    name="static"
-)
+def page_context(request, selected=None, result=None, error=None):
+    return {
+        "request": request,
+        "questions": assessor.questions(selected),
+        "result": result,
+        "error": error,
+    }
 
 
-# =========================
-# TEMPLATE
-# =========================
-templates = Jinja2Templates(
-    directory="templates"
-)
-
-
-# =========================
-# CORS
-# =========================
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-# =========================
-# HOME
-# =========================
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-
     return templates.TemplateResponse(
-        "sleep.html",
-        {
-            "request": request,
-            "context": "Fill the form and click Predict"
-        }
+        "assessment.html", page_context(request)
     )
 
 
-# =========================
-# PREDICT
-# =========================
-@app.post("/predict", response_class=HTMLResponse)
-async def predict_route(request: Request):
-
+@app.post("/assess", response_class=HTMLResponse)
+async def assess(request: Request):
+    form = await request.form()
+    submitted = dict(form)
     try:
-
-        form = await request.form()
-
-        print("\n========== FORM DATA ==========")
-        print(dict(form))
-
-        # =========================
-        # CREATE DATA OBJECT
-        # =========================
-        sleep_data = SleepData(
-
-            age=form.get("age"),
-
-            weight=form.get("weight"),
-
-            height=form.get("height"),
-
-            gender=form.get("gender"),
-
-            occupation=form.get("occupation"),
-
-            bed_time=form.get("bed_time"),
-
-            wake_time=form.get("wake_time"),
-
-            sleep_hours=form.get("sleep_hours"),
-
-            difficulty_sleep=form.get(
-                "difficulty_sleep"
-            ),
-
-            breathing_problem=form.get(
-                "breathing_problem"
-            ),
-
-            restless_legs=form.get(
-                "restless_legs"
-            ),
-
-            concentration_problem=form.get(
-                "concentration_problem"
-            ),
-
-            sleep_environment=form.get(
-                "sleep_environment"
-            ),
-
-            # =========================
-            # NEW FIELDS
-            # =========================
-            sleep_reason=form.get(
-                "sleep_reason"
-            ),
-
-            medical_condition=form.get(
-                "medical_condition"
-            ),
-
-            coping_strategy=form.get(
-                "coping_strategy"
-            ),
-        )
-
-        # =========================
-        # DATAFRAME
-        # =========================
-        sleep_df = (
-            sleep_data
-            .get_sleep_input_data_frame()
-        )
-
-        print("\n========== INPUT DATAFRAME ==========")
-        print(sleep_df)
-
-        # =========================
-        # LOAD MODEL
-        # =========================
-        model_predictor = SleepClassifier()
-
-        # =========================
-        # PREDICT
-        # =========================
-        prediction = model_predictor.predict_labels(
-            dataframe=sleep_df
-        )[0]
-
-        print("\n========== RAW PREDICTION ==========")
-        print(prediction)
-
-        # =========================
-        # LABEL MAPPING
-        # =========================
-        status = str(prediction)
-
-        print("\n========== FINAL STATUS ==========")
-        print(status)
-
-        # =========================
-        # RETURN RESULT
-        # =========================
+        result = assessor.predict(submitted)
+    except InvalidAssessmentInput as exc:
         return templates.TemplateResponse(
-            "sleep.html",
-            {
-                "request": request,
-                "context": f"Prediction: {status}"
-            }
+            "assessment.html",
+            page_context(request, selected=submitted, error=str(exc)),
+            status_code=422,
         )
-
-    except Exception as e:
-
-        print("\n========== ERROR ==========")
-        print(str(e))
-
-        return templates.TemplateResponse(
-            "sleep.html",
-            {
-                "request": request,
-                "context": f"Error: {str(e)}"
-            }
-        )
-
-
-# =========================
-# RUN
-# =========================
-if __name__ == "__main__":
-
-    app_run(
-        app,
-        host=APP_HOST,
-        port=APP_PORT
+    return templates.TemplateResponse(
+        "assessment.html",
+        page_context(request, selected=submitted, result=result),
     )
+
+
+@app.post("/predict")
+async def obsolete_medical_prediction():
+    # Do not serve the old, target-leaked medical-condition classifier.
+    raise HTTPException(
+        status_code=410,
+        detail="The unsupported medical-condition endpoint was retired. Use /assess.",
+    )
+
+
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok", "task": assessor.model["task"]}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
