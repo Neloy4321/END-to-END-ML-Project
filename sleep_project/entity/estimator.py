@@ -13,28 +13,6 @@ from sleep_project.logger import logging
 
 
 # =========================
-# TARGET LABEL MAPPING
-# =========================
-class TargetValueMapping:
-
-    def __init__(self):
-
-        self.No_Condition = 0
-        self.Sleep_Respiratory_Disorders = 1
-        self.Health_Issues = 2
-        self.Mental_Health_Issues = 3
-        self.Others = 4
-
-    def _asdict(self):
-
-        return self.__dict__
-
-    def reverse_mapping(self):
-
-        return {v: k for k, v in self._asdict().items()}
-
-
-# =========================
 # MODEL CLASS
 # =========================
 class SleepModel:
