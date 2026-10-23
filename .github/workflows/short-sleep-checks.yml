@@ -25,3 +25,61 @@ jobs:
         run: python -m compileall -q app.py sleep_project/behavioral_assessment.py scripts/train_short_sleep.py
       - name: Verify minimal container builds
         run: docker build -t sleep-survey-assessment:test .
+      - name: Exercise HTTP health, form, validation and retired legacy endpoint
+        run: |
+          docker run -d --name sleep-survey-smoke -p 127.0.0.1:8000:8000 sleep-survey-assessment:test
+          python - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+          from sleep_project.behavioral_assessment import FORM_FIELDS
+
+          base = "http://127.0.0.1:8000"
+          for attempt in range(20):
+              try:
+                  health = json.load(urllib.request.urlopen(base + "/healthz", timeout=3))
+                  break
+              except (OSError, ValueError):
+                  time.sleep(1)
+          else:
+              raise RuntimeError("Application did not become healthy")
+
+          assert health["status"] == "ok"
+          html = urllib.request.urlopen(base + "/", timeout=3).read().decode()
+          assert "Sleep Behaviour Self-Assessment" in html
+
+          model = json.loads(Path("models/short_sleep_logistic.json").read_text())
+          answers = {
+              key: next(iter(model["weights"][column]))
+              for key, column, _ in FORM_FIELDS
+          }
+          payload = urllib.parse.urlencode(answers).encode()
+          req = urllib.request.Request(base + "/assess", data=payload)
+          result = urllib.request.urlopen(req, timeout=3).read().decode()
+          assert "Model-estimated questionnaire response" in result
+
+          answers["bed_time"] = "not-an-option"
+          invalid = urllib.request.Request(
+              base + "/assess", data=urllib.parse.urlencode(answers).encode()
+          )
+          try:
+              urllib.request.urlopen(invalid, timeout=3)
+              raise AssertionError("Invalid answer should yield HTTP 422")
+          except urllib.error.HTTPError as exc:
+              assert exc.code == 422
+
+          try:
+              urllib.request.urlopen(
+                  urllib.request.Request(base + "/predict", data=b""), timeout=3
+              )
+              raise AssertionError("Legacy endpoint should yield HTTP 410")
+          except urllib.error.HTTPError as exc:
+              assert exc.code == 410
+          print("End-to-end smoke PASS")
+          PY
+      - name: Remove smoke-test container
+        if: always()
+        run: docker rm -f sleep-survey-smoke || true
