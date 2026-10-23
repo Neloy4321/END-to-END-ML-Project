@@ -1,0 +1,40 @@
+name: Manual CDC NHANES external survey-source stress test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  external-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install evaluation-only dependencies
+        run: pip install pandas==2.2.3 numpy==2.3.5
+      - name: Evaluate frozen model against official CDC source (not a clinical endpoint)
+        run: python -m scripts.evaluate_external_nhanes > nhanes_2015_16_external_aggregate.json
+      - name: Check provenance and print concise *actual* outcome
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open('nhanes_2015_16_external_aggregate.json'))
+          assert d['eligible_records'] > 0
+          assert not d['independently_measured_outcome']
+          assert not d['medical_validation']
+          p = d['primary_6_hours_in_6_to_8_band']
+          print('n=', p['n'], 'accuracy=', p['accuracy'], 'balanced_accuracy=', p['balanced_accuracy'], 'ECE=', p['ece_10_bins'])
+          print('WARNING: questionnaire mapping only; NOT medical validation')
+          PY
+      - name: Upload aggregate report only (no individual survey rows)
+        uses: actions/upload-artifact@v4
+        with:
+          name: nhanes-survey-source-aggregates
+          path: nhanes_2015_16_external_aggregate.json
+          retention-days: 30

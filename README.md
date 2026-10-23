@@ -5,6 +5,28 @@ Data: **52,610 owner-collected questionnaire records** in notebooks/final_sleep_
 
 The FastAPI app estimates one of **four self-reported sleep-duration answer categories** (less than 4, 4–6, 6–8, and more than 8 hours). It does **not** measure sleep or diagnose diseases. V3 preserves the identical V2 trained model and test performance, adding optional questionnaire detail and descriptive comparisons.
 
+## P0–P3 external evidence and local operations update (2026-10-24)
+
+**Read [P0–P3 evidence, limitations and readiness ledger](docs/P0_P3_EVIDENCE_AND_READINESS.md) before citing accuracy or using this as a health assessment.** The frozen model's 86.10% **internal** questionnaire-answer accuracy drops to **64.17% accuracy**, **54.96% balanced accuracy**, and **24.54% expected calibration error** on an independent **CDC NHANES survey-source** mapping test (6,104 eligible records). The CDC outcome is itself derived from reported schedule times, so this is *not* independently measured or clinical validation. This degradation must not be hidden; the model was not retrained or retuned against NHANES.
+
+P0 quality audit found 10 complete duplicates and 1,511 repeated six-answer profiles with conflicting reported duration labels; independent participants, consent and original data rights remain unverified. P1 independently observed health outcome is not available, so no disease prediction is enabled. P3 adds readiness checks, bearer-protected in-memory non-PII metrics, security headers, form size bounds, Docker health check and synthetic local/CI smoke tests. AWS remains disabled. **This is still a non-diagnostic portfolio/research demonstrator, not a production-accepted clinical tool.**
+
+After starting your local app, test it in a second PowerShell terminal from the project folder:
+
+~~~powershell
+python -m scripts.smoke_test_local
+~~~
+
+Optional research audits (not required to run the app):
+
+~~~powershell
+python -m pip install pandas==2.2.3 numpy==2.3.5
+python -m scripts.audit_dataset_quality
+python -m scripts.evaluate_external_nhanes
+~~~
+
+For a local observability collector only, set `SLEEP_METRICS_TOKEN` to a strong secret in the deployment environment and make an authenticated request to `/metrics`. Keep that token out of the repository; `/metrics` is disabled without it. See the operations section in the evidence ledger.
+
 ## V3 — More survey questions, unchanged accuracy
 
 The app now accepts **17 questions**: six original required answers and **eleven optional survey-context questions** (age, gender, occupation, weekend bed/wake times, sleep-onset latency, self-reported medical condition, concentration difficulty, late-night reasons, side effects, and coping strategies).
