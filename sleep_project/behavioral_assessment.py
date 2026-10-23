@@ -69,7 +69,12 @@ class BehavioralSleepAssessment:
                 "key": key,
                 "column": column,
                 "label": label,
-                "options": list(self.model["weights"][column]),
+                "options": (
+                    ["Never", "Rarely", "Sometimes", "Often", "Always"]
+                    if set(self.model["weights"][column]) ==
+                    {"Never", "Rarely", "Sometimes", "Often", "Always"}
+                    else list(self.model["weights"][column])
+                ),
                 "selected": selected.get(key, ""),
             }
             for key, column, label in FORM_FIELDS
