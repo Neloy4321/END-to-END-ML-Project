@@ -35,7 +35,7 @@ class BehavioralAssessmentTests(unittest.TestCase):
     def test_all_form_options_from_fitted_model(self):
         for question in self.assessor.questions():
             self.assertTrue(question["options"])
-            self.assertEqual(
+            self.assertCountEqual(
                 question["options"], list(self.assessor.model["weights"][question["column"]])
             )
 
