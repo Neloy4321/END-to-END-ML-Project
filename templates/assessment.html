@@ -3,82 +3,260 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sleep Behaviour Self-Assessment · Neloy</title>
+  <meta name="description" content="Explore self-reported sleep-duration patterns using Neloy's independently collected sleep survey. Non-medical ML demo.">
+  <title>Sleep Survey Explorer · Neloy</title>
   <style>
-    :root { color-scheme: light; font-family: system-ui, -apple-system, Segoe UI, sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #eef3f8; color: #16243b; line-height: 1.55; }
-    header { background: linear-gradient(125deg, #132650, #196e91); color: white; padding: 50px 20px 60px; }
-    header .wrap, main { max-width: 860px; margin: auto; }
-    h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.17; margin: 0 0 12px; }
-    h2 { margin: 0 0 8px; }
-    .eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; opacity: .83; }
-    .lead { font-size: 1.09rem; max-width: 680px; opacity: .95; }
-    main { padding: 0 18px 50px; margin-top: -28px; position: relative; }
-    .panel { background: white; border-radius: 20px; box-shadow: 0 15px 40px #12325a16; padding: clamp(22px, 4vw, 40px); }
-    .notice { padding: 14px 16px; border-left: 4px solid #1978aa; background: #eef7fd; border-radius: 6px; font-size: .94rem; }
-    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; margin: 25px 0; }
-    label { display: block; font-size: .92rem; font-weight: 650; margin-bottom: 7px; }
-    select { width: 100%; padding: 13px 12px; border: 1px solid #b9c8d7; border-radius: 9px; background: white; color: #16243b; font: inherit; }
-    select:focus-visible, button:focus-visible { outline: 3px solid #60c5ff; outline-offset: 2px; }
-    button { cursor: pointer; border: 0; border-radius: 10px; padding: 14px 22px; font: inherit; font-weight: 750; color: white; background: #0867a4; width: 100%; }
-    button:hover { background: #064d7a; }
-    .result { margin: 0 0 26px; border-radius: 13px; padding: 19px; background: #f2f9f6; border: 1px solid #b6dbc6; }
-    .result.short { background: #fff8ee; border-color: #edce9d; }
-    .result p { margin: 7px 0; }
-    .metric { font-size: 2rem; font-weight: 850; letter-spacing: -.04em; }
-    .error { padding: 14px; margin-bottom: 20px; border-radius: 8px; background: #fff1f1; color: #a12525; }
-    footer { font-size: .87rem; margin-top: 28px; color: #4d637b; }
-    @media(max-width: 600px) { .form-grid { grid-template-columns: 1fr; } header { padding: 38px 20px 58px; } }
+    :root { color-scheme: light; font-family: Inter, "Segoe UI", system-ui, sans-serif; --navy:#152743; --muted:#536980; --blue:#2658b4; --teal:#008b85; --line:#dce7f2; --surface:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--navy); background:#f2f6fb; line-height:1.55; }
+    a { color:#174ca7; }
+    button, select { font:inherit; }
+    .hero { color:#fff; overflow:hidden; background:radial-gradient(circle at 83% 25%,#1a7e9d 0,transparent 35%),linear-gradient(125deg,#111e42,#1b3e69 70%,#18587d); padding:48px 22px 98px; }
+    .container { max-width:1080px; margin:0 auto; }
+    .topline { display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:42px; }
+    .brand { font-weight:850; letter-spacing:.025em; }
+    .pill { border:1px solid #c4eaff77; border-radius:99px; padding:7px 13px; font-size:.82rem; background:#ffffff12; }
+    h1 { font-size:clamp(2.2rem,5.5vw,3.7rem); line-height:1.08; letter-spacing:-.045em; max-width:780px; margin:0 0 20px; }
+    .hero p { color:#deebf8; max-width:750px; font-size:1.1rem; margin:0; }
+    main { max-width:1080px; margin:-60px auto 65px; padding:0 20px; position:relative; }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:22px; box-shadow:0 14px 45px #1c355d0c; padding:clamp(22px,3.7vw,38px); margin-bottom:24px; }
+    .eyebrow { color:#356f80; font-size:.8rem; letter-spacing:.12em; font-weight:850; text-transform:uppercase; margin-bottom:7px; }
+    h2 { font-size:clamp(1.4rem,2.7vw,1.9rem); line-height:1.2; margin:0 0 12px; letter-spacing:-.03em; }
+    h3 { font-size:1.04rem; margin:0 0 12px; }
+    p { margin:8px 0 15px; }
+    .muted { color:var(--muted); }
+    .notice { background:#edf7fc; border-left:4px solid #137f9f; border-radius:10px; padding:14px 17px; margin:0 0 24px; font-size:.92rem; }
+    .error { background:#fff1f0; border:1px solid #e9b6b1; padding:14px 17px; border-radius:10px; color:#912e28; }
+    .stack { display:grid; gap:19px; }
+    .form-grid, .twocol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .field { display:flex; flex-direction:column; }
+    .field label { font-size:.92rem; font-weight:750; margin-bottom:8px; }
+    .detail { color:#587086; font-size:.8rem; margin:5px 0 0; }
+    select { width:100%; padding:13px 14px; background:#fbfdff; color:var(--navy); border:1px solid #b7c8da; border-radius:10px; }
+    select:focus-visible, button:focus-visible { outline:3px solid #65d1eb; outline-offset:3px; }
+    button { border:0; cursor:pointer; background:var(--blue); color:#fff; border-radius:11px; padding:14px 20px; font-weight:780; }
+    button:hover { background:#17428e; }
+    button:disabled { opacity:.65; cursor:wait; }
+    button.secondary { background:#e9f0fa; color:#264c88; border:1px solid #bfd2eb; }
+    button.secondary:hover { background:#d7e7fb; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .actions button { flex:1; min-width:200px; }
+    .stat-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:24px 0; }
+    .stat { border:1px solid var(--line); background:#f8fbfe; border-radius:14px; padding:15px; }
+    .stat .number { font-size:clamp(1.4rem,3vw,2.2rem); letter-spacing:-.05em; font-weight:850; line-height:1.2; }
+    .stat .label { font-size:.83rem; color:#526a7c; margin-top:5px; }
+    .prediction { border:1px solid #a2d9cd; border-radius:18px; padding:21px; background:linear-gradient(120deg,#effcf8,#f5fbff); margin-top:17px; }
+    .prediction h2 { margin:7px 0; }
+    .uncertainty { background:#fff8e9; border:1px solid #f1d39a; border-radius:9px; padding:10px 13px; font-size:.9rem; margin-top:14px; }
+    .bars { display:grid; gap:15px; }
+    .bar-label { display:flex; align-items:center; justify-content:space-between; font-weight:690; gap:12px; font-size:.94rem; }
+    .track { border-radius:999px; height:13px; background:#e5edf5; margin-top:7px; overflow:hidden; }
+    .fill { border-radius:999px; background:linear-gradient(90deg,#15aaa0,#3879d5); height:100%; min-width:0; }
+    .subcard { border:1px solid var(--line); border-radius:16px; background:#fff; padding:21px; }
+    .list { margin:9px 0; padding-left:20px; }
+    .list li { margin:7px 0; }
+    .tag { display:inline-block; background:#eaf2fc; color:#204f88; border-radius:999px; padding:4px 9px; font-size:.8rem; font-weight:750; }
+    .comparison { margin-top:22px; border-top:1px solid var(--line); padding-top:24px; }
+    .comparison-result { margin-top:18px; border:1px solid #add7d2; border-radius:13px; padding:20px; background:#f1fbf9; }
+    .comparison-result[hidden] { display:none; }
+    .foot { margin:25px 0 0; border-top:1px solid var(--line); padding-top:20px; color:#526980; font-size:.88rem; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .meta span { border:1px solid #d1dfe9; background:#f9fcff; border-radius:9px; padding:8px 11px; color:#496177; font-size:.82rem; }
+    @media(max-width:720px) { .form-grid,.twocol { grid-template-columns:1fr; } .stat-grid { grid-template-columns:1fr; } .hero { padding-bottom:84px; } .topline { margin-bottom:30px; } }
+    @media print { body { background:#fff; } .hero { padding:18px 0 22px; background:#fff; color:#152743; } .hero p { color:#334; } main { margin:0 auto; } .card { box-shadow:none; break-inside:avoid; } #survey, #what-if, .no-print { display:none!important; } .prediction { print-color-adjust:exact; } }
   </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Neloy · Survey ML demonstration</div>
-    <h1>Sleep Behaviour Self-Assessment</h1>
-    <p class="lead">Predict a <em>self-reported short-sleep response</em> from routine and experience questions, using a model trained on 52,610 survey records.</p>
+<header class="hero">
+  <div class="container">
+    <div class="topline"><span class="brand">NELOY / MACHINE LEARNING</span><span class="pill">Sleep survey explorer · V2</span></div>
+    <h1>Understand your sleep survey response pattern.</h1>
+    <p>Explore four possible self-reported sleep-duration answers, examine what shapes the model's estimate, and compare different bedtime and wake-up schedules.</p>
   </div>
 </header>
 <main>
-  <section class="panel">
-    <p class="notice"><strong>Important:</strong> This is not a medical diagnosis, a measurement of sleep duration, or a validated sleep-health risk score. It predicts whether someone with similar answers might select “Less than 4 hours” or “4-6 hours” in the survey.</p>
-    {% if error %}
-      <div class="error" role="alert">{{ error }}</div>
-    {% endif %}
-    {% if result %}
-      <section class="result {% if result.short_sleep_response_likely %}short{% endif %}" aria-live="polite">
-        <div class="eyebrow">Model-estimated questionnaire response</div>
-        <h2>{% if result.short_sleep_response_likely %}Short-sleep response more likely{% else %}6+ hours response more likely{% endif %}</h2>
-        <div class="metric">{{ result.short_sleep_response_score_percent }}%</div>
-        <p>Model score for the <strong>short-sleep response category</strong>; this percentage is not a medical-risk estimate or a clinically calibrated probability.</p>
-        {% if result.noted_frequent_symptoms %}
-          <p><strong>You reported frequent experiences:</strong> {{ result.noted_frequent_symptoms|join(', ') }}. These are your answers, not model-diagnosed conditions.</p>
+  <section class="card" aria-label="How to interpret this demonstration">
+    <p class="notice"><strong>Research demonstration, not medical advice.</strong> The model estimates what a respondent with similar answers might select in this survey. It does not measure your actual sleep, diagnose a sleep disorder, or calculate a validated health-risk score. Changing a schedule in the comparison tool does not prove it will change sleep duration.</p>
+    <div class="meta">
+      <span>{{ "{:,}".format(sample_size) }} collected survey records</span>
+      <span>{{ "%.1f"|format(holdout.accuracy * 100) }}% internal test accuracy (4 classes)</span>
+      <span>{{ "%.1f"|format(holdout.macro_f1 * 100) }}% macro-F1</span>
+      <span>Tested on held-out answer profiles, not new people</span>
+    </div>
+  </section>
+  {% if result %}
+  <section class="card" id="results">
+    <div class="eyebrow">Model-estimated questionnaire response</div>
+    <h2>Your estimated response distribution</h2>
+    <div class="prediction" aria-live="polite">
+      <div class="eyebrow">Most likely answer</div>
+      <h2>{{ result.predicted_category }}</h2>
+      <strong>{{ result.predicted_percent }}%</strong> model-estimated share for this response
+      <p class="muted">Next most likely: {{ result.alternative_category }}. These are model outputs, not measured sleep or clinical probabilities.</p>
+      {% if result.uncertain %}<div class="uncertainty">Close or uncertain prediction: the leading category has less than 60% model-estimated probability. Compare the other categories below.</div>{% endif %}
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="number">{{ result.short_response_percent }}%</div><div class="label">Combined model score for answers below 6 hours</div></div>
+      <div class="stat"><div class="number">{{ result.longer_response_percent }}%</div><div class="label">Combined model score for answers 6+ hours</div></div>
+      <div class="stat"><div class="number">4</div><div class="label">Distinct sleep-duration response categories</div></div>
+    </div>
+    <div class="twocol">
+      <div class="subcard">
+        <h3>All four response categories</h3>
+        <div class="bars" aria-label="Model-estimated distribution">
+          {% for item in result.category_probabilities %}
+          <div><div class="bar-label"><span>{{ item.label }}</span><span>{{ item.percent }}%</span></div>
+          <div class="track"><div class="fill" style="width:{{ item.percent }}%"></div></div></div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="subcard">
+        <h3>Why this category?</h3>
+        <p class="muted">The model uses <strong>{{ result.model_inputs|join(' and ') }}</strong>. Coefficient comparisons below show each answer's contribution to the leading category versus the runner-up; they are not causal effects.</p>
+        <ul class="list">
+          {% for item in result.contributors %}
+          <li><strong>{{ item.label }}:</strong> {{ item.answer }} <span class="tag">{{ "+" if item.logit_margin_vs_runner_up >= 0 else "" }}{{ item.logit_margin_vs_runner_up }} logit margin</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="twocol" style="margin-top:22px">
+      <div class="subcard">
+        <h3>Your reported experiences</h3>
+        {% if result.reported_frequent_experiences %}
+          <p>You selected <strong>Often</strong> or <strong>Always</strong> for:</p>
+          <ul class="list">{% for item in result.reported_frequent_experiences %}<li>{{ item }}</li>{% endfor %}</ul>
+        {% else %}
+          <p>No listed symptom was marked <strong>Often</strong> or <strong>Always</strong>.</p>
         {% endif %}
-      </section>
-    {% endif %}
-    <h2>Six-question survey</h2>
-    <p>Choose the answer closest to your usual experience. All fields are required.</p>
-    <form method="post" action="/assess">
-      <div class="form-grid">
-      {% for q in questions %}
-        <div>
-          <label for="{{ q.key }}">{{ loop.index }}. {{ q.label }}</label>
-          <select id="{{ q.key }}" name="{{ q.key }}" required>
-            <option value="">Select an answer</option>
-            {% for choice in q.options %}
-              <option value="{{ choice }}" {% if choice == q.selected %}selected{% endif %}>{{ choice }}</option>
-            {% endfor %}
+        <p>Self-rated sleeping environment comfort: <strong>{{ result.self_reported_environment }}/5</strong>.</p>
+        <p class="muted">These are your own responses, not additional ML-predicted symptoms.</p>
+      </div>
+      <div class="subcard">
+        <h3>How to read the result</h3>
+        <p>The model was trained to reconstruct a <em>survey answer</em> using reported schedule, not to measure sleep duration. Its output can be uncertain even for answers it has seen before.</p>
+        <p class="muted">Data collection does not establish independent respondents. The test is internal; there is no external or clinical validation.</p>
+      </div>
+    </div>
+    <div class="actions no-print">
+      <button class="secondary" type="button" onclick="window.print()">Print / Save results as PDF</button>
+      <button class="secondary" type="button" onclick="document.getElementById('survey').scrollIntoView({behavior:'smooth'})">Change my answers</button>
+    </div>
+  </section>
+  <section class="card" id="what-if">
+    <div class="eyebrow">Interactive comparison</div>
+    <h2>What if you selected a different schedule?</h2>
+    <p class="muted">Keep your other answers unchanged. This compares two questionnaire inputs, not a treatment, behavioral intervention, or guaranteed improvement.</p>
+    <form id="compare-form">
+      <div class="twocol">
+        {% for q in questions[:2] %}
+        <div class="field"><label for="scenario-{{ q.key }}">{{ q.label }}</label>
+          <select id="scenario-{{ q.key }}" required>
+          {% for choice in q.options %}<option value="{{ choice }}" {% if choice == q.selected %}selected{% endif %}>{{ choice }}</option>{% endfor %}
           </select>
         </div>
-      {% endfor %}
+        {% endfor %}
       </div>
-      <button type="submit">Evaluate survey response pattern</button>
+      <div class="actions"><button type="submit" id="compare-button">Compare estimated responses</button></div>
     </form>
-    <footer>
-      Trained and evaluated on the project owner's collected questionnaire dataset. Internal exact-profile group holdout only; no verified respondent independence or external validation. Bedtime and wake-up time account for nearly all predictive performance. No answers are stored by this application.
-    </footer>
+    <div class="comparison-result" id="comparison-output" hidden aria-live="polite">
+      <h3 id="comparison-title"></h3>
+      <p id="comparison-change"></p>
+      <div class="twocol">
+        <div><h3>Your original answers</h3><div class="bars" id="original-bars"></div></div>
+        <div><h3>Alternative schedule</h3><div class="bars" id="scenario-bars"></div></div>
+      </div>
+      <p class="muted">Differences reflect model associations in the collected questionnaire; they do not demonstrate a real-world causal change.</p>
+    </div>
+    <p id="comparison-error" class="error" role="alert" hidden></p>
+  </section>
+  {% endif %}
+  <section class="card" id="survey">
+    <div class="eyebrow">Six questions · your inputs</div>
+    <h2>{{ "Adjust your answers" if result else "Explore your sleep survey pattern" }}</h2>
+    <p class="muted">All six questions come from the owner's original questionnaire. The first two drive the validated V2 duration estimate; the other four are displayed as your own reported context, not independent disease predictions.</p>
+    {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+    <form method="post" action="/assess">
+      <div class="form-grid">
+        {% for q in questions %}
+        <div class="field">
+          <label for="{{ q.key }}">{{ loop.index }}. {{ q.label }}</label>
+          <select id="{{ q.key }}" name="{{ q.key }}" required>
+            <option value="">Choose a response</option>
+            {% for choice in q.options %}<option value="{{ choice }}" {% if choice == q.selected %}selected{% endif %}>{{ choice }}</option>{% endfor %}
+          </select>
+          <p class="detail">{{ "Used in duration prediction" if q.used_by_model else "Reported context only (not predicted)" }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="actions"><button type="submit">Generate detailed survey estimate</button></div>
+    </form>
+    <div class="foot">
+      <strong>Research limits:</strong> 70/15/15 profile-group train/validation/test; model selected using validation only. Accuracy describes reconstruction of the dataset's response labels and cannot be generalized to individual health outcomes. No forms are persisted or logged by this app. The original medical classifier remains retired (HTTP 410).
+    </div>
   </section>
 </main>
+{% if result %}
+<script>
+(() => {
+  "use strict";
+  const originalAnswers = {{ result.chosen|tojson }};
+  const compareForm = document.getElementById("compare-form");
+  const button = document.getElementById("compare-button");
+  const outcome = document.getElementById("comparison-output");
+  const alertBox = document.getElementById("comparison-error");
+  const titles = { "Less than 4 hours": "Under 4 hours", "4-6 hours": "4–6 hours", "6-8 hours": "6–8 hours", "More than 8 hours": "Over 8 hours" };
+  function drawBars(container, list) {
+    container.replaceChildren();
+    for (const item of list) {
+      const outer = document.createElement("div");
+      const row = document.createElement("div"); row.className = "bar-label";
+      const title = document.createElement("span"); title.textContent = titles[item.label] || item.label;
+      const number = document.createElement("span"); number.textContent = item.percent.toFixed(1) + "%";
+      row.append(title, number);
+      const track = document.createElement("div"); track.className = "track";
+      const fill = document.createElement("div"); fill.className = "fill";
+      fill.style.width = Math.max(0, Math.min(100, item.percent)) + "%";
+      track.append(fill); outer.append(row, track); container.append(outer);
+    }
+  }
+  compareForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    button.disabled = true;
+    button.textContent = "Comparing…";
+    alertBox.hidden = true;
+    outcome.hidden = true;
+    try {
+      const response = await fetch("/api/compare", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          answers: originalAnswers,
+          bed_time: document.getElementById("scenario-bed_time").value,
+          wake_time: document.getElementById("scenario-wake_time").value
+        })
+      });
+      if (!response.ok) { throw new Error("Could not compare these answers. Please check your selections."); }
+      const data = await response.json();
+      document.getElementById("comparison-title").textContent = "Alternative most likely answer: " + data.scenario.predicted_category;
+      const signed = data.short_response_change_pp > 0 ? "+" : "";
+      document.getElementById("comparison-change").textContent =
+        "Combined under-6-hour answer score: " + data.original.short_response_percent.toFixed(1) +
+        "% → " + data.scenario.short_response_percent.toFixed(1) + "% (" +
+        signed + data.short_response_change_pp.toFixed(1) + " percentage points).";
+      drawBars(document.getElementById("original-bars"), data.original.category_probabilities);
+      drawBars(document.getElementById("scenario-bars"), data.scenario.category_probabilities);
+      outcome.hidden = false;
+    } catch (err) {
+      alertBox.textContent = err.message || "Comparison failed.";
+      alertBox.hidden = false;
+    } finally {
+      button.disabled = false;
+      button.textContent = "Compare estimated responses";
+    }
+  });
+})();
+</script>
+{% endif %}
 </body>
 </html>
