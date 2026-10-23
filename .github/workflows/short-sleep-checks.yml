@@ -1,0 +1,27 @@
+name: Validate Short-Sleep Assessment
+
+on:
+  pull_request:
+  push:
+    branches:
+      - feature/step3-honest-short-sleep-assessment
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install app and reproducibility dependencies
+        run: |
+          pip install -r requirements-app.txt
+          pip install pandas==2.2.3 numpy==2.3.5 scikit-learn==1.8.0
+      - name: Verify schema, leakage, serving and reproducible survey training
+        run: python -m unittest discover -s tests -p "test_short_sleep.py" -v
+      - name: Check source syntax
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py scripts/train_short_sleep.py
+      - name: Verify minimal container builds
+        run: docker build -t sleep-survey-assessment:test .
