@@ -28,7 +28,7 @@ def page_context(request, selected=None, result=None, error=None):
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse(
-        "assessment.html", page_context(request)
+        request=request, name="assessment.html", context=page_context(request)
     )
 
 
@@ -40,13 +40,13 @@ async def assess(request: Request):
         result = assessor.predict(submitted)
     except InvalidAssessmentInput as exc:
         return templates.TemplateResponse(
-            "assessment.html",
-            page_context(request, selected=submitted, error=str(exc)),
+            request=request, name="assessment.html",
+            context=page_context(request, selected=submitted, error=str(exc)),
             status_code=422,
         )
     return templates.TemplateResponse(
-        "assessment.html",
-        page_context(request, selected=submitted, result=result),
+        request=request, name="assessment.html",
+        context=page_context(request, selected=submitted, result=result),
     )
 
 
