@@ -28,8 +28,9 @@ jobs:
           python -m unittest discover -s tests -p "test_survey_insights_v3.py" -v
           python -m unittest discover -s tests -p "test_p0_p3.py" -v
           python -m unittest discover -s tests -p "test_p1_target_screen.py" -v
+          python -m unittest discover -s tests -p "test_nhanes_2017_external.py" -v
       - name: Validate Python compilation
-        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py sleep_project/operations.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py scripts/audit_dataset_quality.py scripts/evaluate_external_nhanes.py scripts/smoke_test_local.py scripts/screen_p1_targets.py
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py sleep_project/operations.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py scripts/audit_dataset_quality.py scripts/evaluate_external_nhanes.py scripts/smoke_test_local.py scripts/screen_p1_targets.py scripts/evaluate_external_nhanes_2017_18.py
       - name: Verify source quality audit has no invalid model responses
         run: |
           python -m scripts.audit_dataset_quality > /tmp/source-quality.json
