@@ -27,8 +27,9 @@ jobs:
           python -m unittest discover -s tests -p "test_duration_v2.py" -v
           python -m unittest discover -s tests -p "test_survey_insights_v3.py" -v
           python -m unittest discover -s tests -p "test_p0_p3.py" -v
+          python -m unittest discover -s tests -p "test_p1_target_screen.py" -v
       - name: Validate Python compilation
-        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py sleep_project/operations.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py scripts/audit_dataset_quality.py scripts/evaluate_external_nhanes.py scripts/smoke_test_local.py
+        run: python -m compileall -q app.py sleep_project/behavioral_assessment.py sleep_project/duration_v2.py sleep_project/survey_insights_v3.py sleep_project/operations.py scripts/train_short_sleep.py scripts/train_sleep_duration_v2.py scripts/build_survey_cohorts_v3.py scripts/audit_dataset_quality.py scripts/evaluate_external_nhanes.py scripts/smoke_test_local.py scripts/screen_p1_targets.py
       - name: Verify source quality audit has no invalid model responses
         run: |
           python -m scripts.audit_dataset_quality > /tmp/source-quality.json
@@ -39,6 +40,23 @@ jobs:
           assert all(count == 0 for count in report['invalid_core_answer_counts'].values())
           assert report['participant_independence'].startswith('NOT VERIFIABLE')
           print('Dataset quality profile: PASS, independence remains UNVERIFIABLE')
+          PY
+      - name: P1 screened labels (aggregate data only; no deployment)
+        run: |
+          python -m scripts.screen_p1_targets --output /tmp/p1-gate.json
+          python - <<'PY'
+          import json
+          with open("/tmp/p1-gate.json", encoding="utf-8") as f:
+              report = json.load(f)
+          assert report["source_rows"] == 52610
+          assert report["exact_response_rows_excluded"] == 10
+          assert report["eligible_for_app_model_replacement"] is False
+          assert report["medical_or_clinical_validation"] is False
+          assert len(report["targets"]) == 5
+          for name, result in report["targets"].items():
+              assert result["valid_n"] > 0, name
+              print(name, "screen_pass=", result["screen_pass"],
+                    "test_auc=", result.get("test_selected", {}).get("roc_auc"))
           PY
       - name: Build non-root image
         run: docker build -t sleep-survey-explorer:test .
