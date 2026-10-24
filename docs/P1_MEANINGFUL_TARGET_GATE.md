@@ -69,6 +69,27 @@ and eligible_for_app_model_replacement=false.
 Never display its model outputs as disease probability, clinical screening,
 sleep-disorder risk, causal benefit, or independent population validation.
 
+## Observed results on the owner-collected dataset
+
+GitHub Actions PR #10, commit bbf8093, executed the new screen against the
+52,610-row survey on 2026-10-24. This is **retrospective internal evidence**
+using labels previously explored on the same data, not a new independent test.
+ROC AUC = 0.50 means essentially chance ranking.
+
+| Self-reported candidate | Selected test ROC AUC | Internal screen |
+| --- | ---: | --- |
+| Frequent concentration difficulty | 0.52181 | FAIL |
+| Frequent difficulty falling asleep | 0.55208 | FAIL |
+| Frequent breathing difficulty | 0.56943 | FAIL |
+| Fatigue among reported effects | 0.55727 | FAIL |
+| Academic/work impact among reported effects | 0.50158 | FAIL |
+
+All five screens failed: **zero new models accepted for the app**.
+These are *not* externally verified results, and the selected models must not
+be used as an individual symptom forecast. The original duration inference
+artifact stays unchanged. Re-run the CLI to see complete class support,
+balanced accuracy, log loss, prior comparison, Brier score, and AUC uncertainty.
+
 ## Outstanding genuine P1 requirements
 
 A genuinely accepted new health prediction requires an independently
