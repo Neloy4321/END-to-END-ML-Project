@@ -9,6 +9,8 @@ The FastAPI app estimates one of **four self-reported sleep-duration answer cate
 
 **Read [P0–P3 evidence, limitations and readiness ledger](docs/P0_P3_EVIDENCE_AND_READINESS.md) before citing accuracy or using this as a health assessment.** The frozen model's 86.10% **internal** questionnaire-answer accuracy drops to **64.17% accuracy**, **54.96% balanced accuracy**, and **24.54% expected calibration error** on an independent **CDC NHANES survey-source** mapping test (6,104 eligible records). The CDC outcome is itself derived from reported schedule times, so this is *not* independently measured or clinical validation. This degradation must not be hidden; the model was not retrained or retuned against NHANES.
 
+[Owner-reported survey collection provenance](docs/DATA_COLLECTION_PROVENANCE.md) now documents the locations, in-person/QR/online recruitment methods and stated participant permission; the original consent text, minor-participant consent and respondent independence still require verification.
+
 P0 quality audit found 10 complete duplicates and 1,511 repeated six-answer profiles with conflicting reported duration labels; independent participants, consent and original data rights remain unverified. P1 independently observed health outcome is not available, so no disease prediction is enabled. P3 adds readiness checks, bearer-protected in-memory non-PII metrics, security headers, form size bounds, Docker health check and synthetic local/CI smoke tests. AWS remains disabled. **This is still a non-diagnostic portfolio/research demonstrator, not a production-accepted clinical tool.**
 
 After starting your local app, test it in a second PowerShell terminal from the project folder:
