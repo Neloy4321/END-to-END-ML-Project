@@ -13,9 +13,10 @@ The following collection details were provided directly by project owner **Neloy
 | Survey link | https://forms.gle/KW8c3opuEco7GHwz5 | Provided by owner; the short URL redirected to a Google Forms public view-form address, but its live questions and consent text were not retrievable in this environment |
 | Nature of data | Primarily survey responses collected by the project owner | Owner-attested; 52,610 rows and 20 CSV columns were directly audited |
 | Respondents | Owner believes responses came from different people; acknowledges some duplicate responses are possible | Not independently verifiable: no stable respondent ID is present in the checked-in CSV |
-| Respondent permission | Owner states participants were asked for and gave permission for their responses | **Scope and wording not independently inspected**; specifically, consent for collecting/analysing responses does not automatically prove permission for unrestricted public republication |
+| Respondent permission | Owner states respondents were told directly that their data would be used for **research and academic purposes**, and that they agreed to participate | Owner-attested verbal disclosure and permission; no contemporaneous consent script, response log, or guardian permission was independently inspected; this does not demonstrate permission for unrestricted public GitHub redistribution |
 | Dataset redistribution | Owner grants permission to use/share their collected dataset | Permission is an owner statement; third-party respondents' consent scope and relevant university policies remain separate verification questions |
-| Date range / sampling frame | Not yet supplied | Unknown |
+| Approximate collection time | **Mid-2025** | Owner-reported approximation; exact start/end dates and timestamps not supplied |
+| Sampling frame | Multi-location, in-person/online convenience recruitment | No per-site population denominators, recruitment counts or probability-sampling records inspected |
 | Independent academic review | Owner presented the dataset-based ML project at their university final defense | Academic assessment reported by owner; **not** independent label verification, separate-site test, clinical endorsement, or peer-reviewed external acceptance |
 
 ## Quantitative source checks
@@ -33,7 +34,7 @@ Do not equate identical survey answers with the same person. Do not infer indepe
 
 The original CSV and historical artefacts were already committed publicly. An owner can authorize use of their own research work, but we have **not established** that every respondent (including respondents reporting Under 18) agreed to public GitHub distribution or long-term reuse beyond the original survey. We neither deleted nor republished row-level records during this provenance update.
 
-Before *any broader redistribution or marketing as a public health dataset*, verify and retain privately: the original questionnaire and consent notice, collection dates, whether collecting responses from minors was covered, permitted publication scope, institutional guidance where applicable, and a de-identification review. Do not upload respondent names, emails, phone numbers, IPs, or other direct identifiers as evidence.
+Before *any broader redistribution or marketing as a public health dataset*, verify and retain privately: the original questionnaire and any written consent notice (or document the verbal permission process as accurately as possible), exact collection dates if available, whether collecting responses from minors was covered, permitted publication scope, institutional guidance where applicable, and a de-identification review. Do not upload respondent names, emails, phone numbers, IPs, or other direct identifiers as evidence.
 
 ## Internal holdout is not an independent external dataset
 
@@ -43,8 +44,8 @@ A meaningful future model needs a separately observed outcome. Public external d
 
 ## Evidence still requested from owner
 
-1. **Approximate survey collection date range** (month and year is sufficient).
-2. **Original consent wording or screenshot**, especially any wording for under-18 respondents and public sharing; redact personally identifiable information.
-3. Whether the original response export has **timestamps, anonymous respondent identifiers or recruitment location/channel**, without uploading personal identifiers publicly.
+1. **How Under-18 permission worked**: was a parent/guardian informed and did they agree, or were only respondents told? Do not infer an answer.
+2. **Original consent wording or an accurate description of the verbal explanation**, including whether data would be made public; redact personally identifiable information.
+3. If available, **exact collection months** and whether the original response export has timestamps, anonymous identifiers or recruitment location/channel, without publishing identifiers.
 
 This document deliberately distinguishes observed repository facts from owner declarations, and is not a certification of consent, participant independence or clinical validity.
