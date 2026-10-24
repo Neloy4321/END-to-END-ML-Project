@@ -13,7 +13,8 @@ The following collection details were provided directly by project owner **Neloy
 | Survey link | https://forms.gle/KW8c3opuEco7GHwz5 | Provided by owner; the short URL redirected to a Google Forms public view-form address, but its live questions and consent text were not retrievable in this environment |
 | Nature of data | Primarily survey responses collected by the project owner | Owner-attested; 52,610 rows and 20 CSV columns were directly audited |
 | Respondents | Owner believes responses came from different people; acknowledges some duplicate responses are possible | Not independently verifiable: no stable respondent ID is present in the checked-in CSV |
-| Respondent permission | Owner states respondents were told directly that their data would be used for **research and academic purposes**, and that they agreed to participate | Owner-attested verbal disclosure and permission; no contemporaneous consent script, response log, or guardian permission was independently inspected; this does not demonstrate permission for unrestricted public GitHub redistribution |
+| Respondent permission | Owner states respondents were told directly that their data would be used for **research and academic purposes**, and that they agreed to participate | Owner-attested verbal disclosure and permission; no contemporaneous consent script or response log independently inspected; this does not establish permission for unrestricted public GitHub redistribution |
+| Under-18 guardian permission | Owner additionally states that parents/guardians of under-18 respondents gave **verbal permission** | Owner-attested only; no guardian-consent wording, participation logs, identity verification, or publication-scope documentation independently reviewed |
 | Dataset redistribution | Owner grants permission to use/share their collected dataset | Permission is an owner statement; third-party respondents' consent scope and relevant university policies remain separate verification questions |
 | Approximate collection time | **Mid-2025** | Owner-reported approximation; exact start/end dates and timestamps not supplied |
 | Sampling frame | Multi-location, in-person/online convenience recruitment | No per-site population denominators, recruitment counts or probability-sampling records inspected |
@@ -25,7 +26,7 @@ The following collection details were provided directly by project owner **Neloy
 - 10 exact complete-row duplicates.
 - 5,792 distinct combinations of six categorical model-input answers; many people naturally share categorical profiles.
 - 1,511 six-answer profiles have conflicting reported duration categories.
-- Age-band distribution contains **12,925 records reporting Under 18** (owner dataset analysis). Specific guardian/age-appropriate consent and public release scope for those records are not documented in materials inspected.
+- Age-band distribution contains **12,925 records reporting Under 18** (owner dataset analysis). Owner reports verbal guardian permission for those records, but the consent process, wording and permission for public release are not independently documented.
 - No verified recruitment-site, collection timestamp, respondent identity, consent version, or geographic weighting field appears in the committed 20-column dataset.
 
 Do not equate identical survey answers with the same person. Do not infer independently verified independence from the owner's recollection. Documented exact-six-profile splitting **reduces direct profile overlap** between train/test but cannot guarantee independent persons.
@@ -44,8 +45,8 @@ A meaningful future model needs a separately observed outcome. Public external d
 
 ## Evidence still requested from owner
 
-1. **How Under-18 permission worked**: was a parent/guardian informed and did they agree, or were only respondents told? Do not infer an answer.
-2. **Original consent wording or an accurate description of the verbal explanation**, including whether data would be made public; redact personally identifiable information.
+1. **Verbal consent protocol details**, especially how parents/guardians were informed, what they agreed to, and whether public raw-data sharing was mentioned. Owner reports verbal consent; corroborating records are not available in the inspected materials.
+2. **Original survey introduction or accurate consent wording**, including whether unrestricted public data distribution was described; redact personally identifiable information.
 3. If available, **exact collection months** and whether the original response export has timestamps, anonymous identifiers or recruitment location/channel, without publishing identifiers.
 
 This document deliberately distinguishes observed repository facts from owner declarations, and is not a certification of consent, participant independence or clinical validity.
