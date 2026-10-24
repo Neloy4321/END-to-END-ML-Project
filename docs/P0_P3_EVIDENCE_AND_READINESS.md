@@ -11,6 +11,8 @@ Project: **Sleep Survey Explorer** · Dataset: `notebooks/final_sleep_dataDev.cs
 | P2 independent-source evaluation | Reproducible frozen-model CDC NHANES 2015–16 external survey stress test, classwise metrics, calibration, two predefined boundary mappings, four subgroups | **External survey-source stress test completed; clinical generalization NOT accepted.** NHANES sleep hours are calculated from sleep/wake times. |
 | P3 operational readiness | Bounded non-PII in-memory counters behind bearer auth, readiness/health checks, request IDs, size limits, security headers, Docker health check, synthetic HTTP and CI tests | **Local/container engineering only.** No hosted staging, uptime, production load, ongoing alerts, or security review demonstrated. AWS intentionally off. |
 
+Owner supplied a collection-method statement after the first audit: Daffodil International University hall, Kushtia, Sirajganj and locations across Dhaka; in-person discussions, Google Form/QR and online groups; respondent permission stated. This is **owner-attested**, not independently checked against collection logs or the original consent notice. See [owner-reported collection provenance and consent](DATA_COLLECTION_PROVENANCE.md). The original dataset also contains 12,925 responses in the "Under 18" age band; age-appropriate consent and public redistribution scope need specific verification. A university final defense is not external ML validation.
+
 ## P0: original owner-collected CSV quality
 
 Reproduce with `python -m scripts.audit_dataset_quality` (requires pandas). The scanner emits aggregate JSON only. It does not export subject rows or infer participant identities.
