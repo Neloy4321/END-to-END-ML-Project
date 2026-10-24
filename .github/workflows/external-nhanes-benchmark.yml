@@ -32,9 +32,29 @@ jobs:
           print('n=', p['n'], 'accuracy=', p['accuracy'], 'balanced_accuracy=', p['balanced_accuracy'], 'ECE=', p['ece_10_bins'])
           print('WARNING: questionnaire mapping only; NOT medical validation')
           PY
+      - name: Test 2017-18 CDC source with frozen owner model
+        run: python -m scripts.evaluate_external_nhanes_2017_18 > nhanes_2017_18_external_aggregate.json
+      - name: Print 2017-18 honest aggregate result
+        run: |
+          python - <<'PY'
+          import json
+          with open('nhanes_2017_18_external_aggregate.json') as f:
+              d = json.load(f)
+          assert d['file_sha256'] == '5486e1c51d56a959c94106d131a11b2e58bdec8ff30917ad7748917c6fa09f3a'
+          assert d['external_2017_18_survey'] is True
+          assert d['independently_measured_outcome'] is False
+          assert d['medical_validation'] is False
+          p = d['primary_6_hours_in_6_to_8_band']
+          print('n=', p['n'], 'accuracy=', p['accuracy'],
+                'balanced_accuracy=', p['balanced_accuracy'],
+                'ECE=', p['ece_10_bins'])
+          print('NOT a clinical validation or independent measured sleep endpoint')
+          PY
       - name: Upload aggregate report only (no individual survey rows)
         uses: actions/upload-artifact@v4
         with:
-          name: nhanes-survey-source-aggregates
-          path: nhanes_2015_16_external_aggregate.json
+          name: nhanes-2015-and-2017-survey-source-aggregates
+          path: |
+            nhanes_2015_16_external_aggregate.json
+            nhanes_2017_18_external_aggregate.json
           retention-days: 30
